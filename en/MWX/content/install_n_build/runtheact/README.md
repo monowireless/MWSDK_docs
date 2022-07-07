@@ -58,7 +58,7 @@ If you cannot find the device in the device manager, please try to install the d
 
 ### 2. Start TWE-Programmer.exe.
 
-Open the `{MWSDK installation directory}/Tools/TWE-Programmer` directory and double click on TWE-Programmer.exe.
+Open the `{MWSDK installation folder}/Tools/TWE-Programmer` folder and double click on TWE-Programmer.exe.
 
 ![](<../../.gitbook/assets/image (9).png>)
 

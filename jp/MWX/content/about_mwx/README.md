@@ -88,5 +88,5 @@ MWXライブラリはC++言語で記述されておりアクトの記述にお�
 
 ソースコードは以下から参照できます。
 
-* `{MWSDKインストールディレクトリ}/TWENET/current/src/mwx`
+* `{MWSDKインストールフォルダ}/TWENET/current/src/mwx`
 * [`https://github.com/monowireless/mwx`](https://github.com/monowireless/mwx)

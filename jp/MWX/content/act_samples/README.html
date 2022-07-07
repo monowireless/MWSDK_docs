@@ -204,7 +204,7 @@ border: none;
 <h1 id="サンプルアクト">サンプルアクト</h1>
 <p>アクトの動作を理解するため、いくつかのサンプルを用意しています。</p>
 <div class="info">
-<p><strong>サンプルは MWSDK をインストールしたディレクトリにある <code>Act_samples</code>にあります。</strong></p>
+<p><strong>サンプルは MWSDK をインストールしたフォルダにある <code>Act_samples</code>にあります。</strong></p>
 </div>
 <h2 id="サンプルアクトの紹介">サンプルアクトの紹介</h2>
 <p>以下は上から順に見ていただく</p>
@@ -212,6 +212,7 @@ border: none;
 <p><a href="scratch.html">Scratch</a> は、UARTから１バイトコマンドを受けて、送信などを行うシンプルなコードです。</p>
 <p><a href="slp_wk_and_tx.html">Slp_Wk_and_Tx</a>は、ステートマシンを用い、スリープを用いた間欠動作で、スリープ復帰→無線送信→スリープを繰り返します。</p>
 <p><a href="parent_monostick.html">Parent_MONOSTICK</a>は、専ら受信のみを行い、シリアルポートへ受信結果を出力します。このサンプルの無線パケットで、親機向け(0x00)や子機ブロードキャスト(0xFE)とアドレス設定しているものは受信できます。またインタラクティブモード<a href="../settings/stg_std.html">&lt;STG_STD&gt;</a>をActに追加するための手続きが含まれます。</p>
+<p><a href="brd_i2c_temphumid.html">BRD_I2C_TEMPHUMID</a>は、I2Cセンサーデバイスの読み書きコマンドを実行し I2C センサーから得られた計測値を無線送信します。またインタラクティブモード<a href="../settings/stg_std.html">&lt;STG_STD&gt;</a>をActに追加するための手続きが含まれます。</p>
 <p><a href="pingpong.html">PingPong</a>は、一方から他方にパケットを送信し、受信した他方がパケットを送り返すサンプルです。送信と受信についての基本的な手続きが含まれます。</p>
 <p><a href="brd_apptwelite.html">BRD_APPTWELITE</a>はディジタル入力、アナログ入力、ディジタル出力、アナログ出力を用いた双方向通信を行っています。またインタラクティブモード<a href="../settings/stg_std.html">&lt;STG_STD&gt;</a>をActに追加するための手続きが含まれます。</p>
 <p><a href="pal_amb.html">PAL_AMB</a>, <a href="pal_mot-oneshot.html">PAL_MOT-single</a>, <a href="pal_mag.html">PAL_MAG</a>は、各種PAL基板用のサンプルです(TWELITE CUEでもサンプルの定義を変更することでPAL_MOT,PAL_MAGを実行できます)。PAL基板上のセンサー値を取得し、送信し、スリープします。</p>

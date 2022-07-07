@@ -9,6 +9,18 @@
 　 [License](content//about_mwx/license.md) <br />
 　 [Terms](content//about_mwx/terms.md) <br />
 
+### [Install and Build](content//install_n_build/README.md)
+
+　 [Building ACT](content//install_n_build/building-act.md) <br />
+　 [Creating a new project](content//install_n_build/create_new_project.md) <br />
+　 [Environment (OS, etc.)](content//install_n_build/environment.md) <br />
+　 [Installing the TWELITE SDK](content//install_n_build/install_sdk.md) <br />
+　 [Installing VS Code](content//install_n_build/install_vscode.md) <br />
+　 [Build definition Makefile](content//install_n_build/makefile.md) <br />
+　 [Other platforms](content//install_n_build/nopurattofmu.md) <br />
+　 [Executing an ACT](content//install_n_build/runtheact/README.md) <br />
+　　 [tweterm.py](content//install_n_build/runtheact/tweterm.py.md) <br />
+
 ### [Sample ACTs](content//act_samples/README.md)
 
 　 [act0 .. 4](content//act_samples/act_opening.md) <br />
@@ -119,22 +131,6 @@
 　　 [\<PAL\_MAG>](content//boards/pal/pal_mag.md) <br />
 　　 [\<PAL\_MOT>](content//boards/pal/pal_mot.md) <br />
 
-### [Install and Build](content//install_n_build/README.md)
-
-　 [Building ACT](content//install_n_build/building-act.md) <br />
-　 [Creating a new project](content//install_n_build/create_new_project.md) <br />
-　 [Environment (OS, etc.)](content//install_n_build/environment.md) <br />
-　 [Installing the TWELITE SDK](content//install_n_build/install_sdk.md) <br />
-　 [Installing VS Code](content//install_n_build/install_vscode.md) <br />
-　 [Build definition Makefile](content//install_n_build/makefile.md) <br />
-　 [Other platforms](content//install_n_build/nopurattofmu.md) <br />
-　 [Executing an ACT](content//install_n_build/runtheact/README.md) <br />
-　　 [tweterm.py](content//install_n_build/runtheact/tweterm.py.md) <br />
-
-### [Network (NWK)](content//networks/README.md)
-
-　 [simple relay network \<NWK_SIMPLE>](content//networks/nwk_simple.md) <br />
-
 ### [Sensor Devices (SNS)](content//sensor_object/README.md)
 
 　 [BMx280 - Environmental Sensors](content//sensor_object/bme280bmp280-sens.md) <br />
@@ -144,6 +140,10 @@
 　 [SHT3x - Temperature and humidity sensor](content//sensor_object/sht3x-sens.md) <br />
 　 [SHT4x - Temperature and humidity sensor](content//sensor_object/sht4x.md) <br />
 　 [SHTC3 - Temperature and humidity sensor](content//sensor_object/shtc3.md) <br />
+
+### [Network (NWK)](content//networks/README.md)
+
+　 [simple relay network \<NWK_SIMPLE>](content//networks/nwk_simple.md) <br />
 
 ### [Settings (STG) - Interactive settings mode](content//settings/README.md)
 

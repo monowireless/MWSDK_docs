@@ -61,7 +61,7 @@ BINファイルが出来上がれば、実機で動作させることになり�
 
 ### 2. TWE-Programmer.exe を起動する。
 
-{MWSDKインストールディレクトリ}/Tools/TWE-Programmerディレクトリを開き、TWE-Programmer.exe をダブルクリックします。
+{MWSDKインストールフォルダ}/Tools/TWE-Programmerフォルダを開き、TWE-Programmer.exe をダブルクリックします。
 
 ![](<../../.gitbook/assets/image (9).png>)
 

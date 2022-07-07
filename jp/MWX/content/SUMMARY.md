@@ -23,6 +23,7 @@
   * [Parent\_MONOSTICK](act\_samples/parent\_monostick.md)
   * [PingPong](act\_samples/pingpong.md)
   * [BRD\_APPTWELITE](act\_samples/brd\_apptwelite.md)
+  * [BRD\_I2C\_TEMPHUMID](act\_samples/brd\_i2c\_temphumid.md)
   * [BRD\_ARIA](act\_samples/brd\_aria.md)
   * [PAL\_AMB](act\_samples/pal\_amb.md)
   * [PAL\_AMB-usenap](act\_samples/pal\_amb-usenap.md)

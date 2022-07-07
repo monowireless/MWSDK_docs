@@ -5,12 +5,8 @@ description: "Installing the TWELITE SDK"
 ---
 # Installing the TWELITE SDK
 
-{% hint style="success" %}
-The following description corresponds to TWELITE STAGE SDK MWSDK2020\_12 or later
-{% endhint %}
-
 {% hint style="info" %}
-If you have downloaded the TWELITE STAGE SDK, extract the distribution zip archive to a directory that **does not contain Japanese or whitespace characters.**
+If you have downloaded the TWELITE STAGE SDK, extract the distribution zip archive to a folder that **does not contain Japanese or whitespace characters.**
 
 See also about TWELITE STAGE:
 
@@ -30,7 +26,7 @@ If you are using the TWELITE STAGE application, you <mark style="color:red;">**d
 `MWSDK_ROOT`, `MWSDK_ROOT_WINNAME`(for Windows10) need to be set.
 
 #### Windows10,11
-In this example, the name of the extracted directory is `C:\MWSTAGE`. If you have installed the software in a different directory, please change the name.
+In this example, the name of the extracted folder is `C:\MWSTAGE`. If you have installed the software in a different folder, please change the name.
 
 Run `C:\MWSTAGE\Tools\SET_ENV.CMD` to set the following environment variables:
 
@@ -49,20 +45,20 @@ MW_ROOT_WINNAME=C:\MWSTAGE\MWSDK\
 To uninstall the TWELITE STAGE SDK from the installed PC, please do the following:
 
 * Run `UNSET_ENV.cmd`. This will unset the environment variables.
-* Delete the MWSTAGE directory.
+* Delete the MWSTAGE folder.
 {% endhint %}
 
 #### Linux
 Set the development environment and shell to reflect the MWX\_ROOT environment variable.
 
-There are several ways to do this, but add the following setting to the `.profile` of your home directory (if the file does not exist, please create a new one). You can even build VSCode with this setting.
+There are several ways to do this, but add the following setting to the `.profile` of your home folder (if the file does not exist, please create a new one). You can even build VSCode with this setting.
 
 `MWSDK_ROOT=/foo/bar/MWSTAGE/MWSDK/`\
 `export MWSDK_ROOT`
 
 
 
-To add it without using the editor, enter the command as follows. The $ is a prompt and will be displayed differently depending on your environment. The `/foo/bar/MSWSDK` part should be rewritten according to the installed directory.
+To add it without using the editor, enter the command as follows. The $ is a prompt and will be displayed differently depending on your environment. The `/foo/bar/MSWSDK` part should be rewritten according to the installed folder.
 
 ```bash
 $ cd $HOME
@@ -75,14 +71,14 @@ Set the development environment and shell to reflect the `MWX_ROOT` environment 
 
 
 
-There are several ways to do this, but add the following settings to `.profile` in your home directory (create a new file if you don't have one). You can even build VSCode with this setting.
+There are several ways to do this, but add the following settings to `.profile` in your home folder (create a new file if you don't have one). You can even build VSCode with this setting.
 
 `MWSDK_ROOT=/foo/bar/MWSTAGE/MWSDK/`\
 `export MWSDK_ROOT`
 
 
 
-To add it without using the editor, enter the command as follows. The $ is a prompt and will be displayed differently depending on your environment. The `/foo/bar/MSWSDK` part should be rewritten according to the installed directory.
+To add it without using the editor, enter the command as follows. The $ is a prompt and will be displayed differently depending on your environment. The `/foo/bar/MSWSDK` part should be rewritten according to the installed folder.
 
 ```bash
 $ cd $HOME

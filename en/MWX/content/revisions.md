@@ -21,7 +21,7 @@ Other updates to the MWSDK may be required. Please refer to the release descript
 The source code of the library is available on GitHub ([https://github.com/monowireless/mwx](https://github.com/monowireless/mwx)). To replace the source code of the library, please follow the steps below.
 
 1. Click on the link for each release to clone the Git file or download the source code in zip format.
-2. Replace the contents of the following directories.
+2. Replace the contents of the following folders.
 
 ```
 .../MWSTAGE/              --- TWELITE STAGE distribution dir

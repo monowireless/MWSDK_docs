@@ -9,7 +9,7 @@ description: Sample Acts
 アクトの動作を理解するため、いくつかのサンプルを用意しています。
 
 {% hint style="info" %}
-**サンプルは MWSDK をインストールしたディレクトリにある `Act_samples `にあります。**
+**サンプルは MWSDK をインストールしたフォルダにある `Act_samples `にあります。**
 {% endhint %}
 
 ## サンプルアクトの紹介
@@ -23,6 +23,8 @@ description: Sample Acts
 [Slp\_Wk\_and\_Tx](slp\_wk\_and\_tx.md)は、ステートマシンを用い、スリープを用いた間欠動作で、スリープ復帰→無線送信→スリープを繰り返します。
 
 [Parent\_MONOSTICK](parent\_monostick.md)は、専ら受信のみを行い、シリアルポートへ受信結果を出力します。このサンプルの無線パケットで、親機向け(0x00)や子機ブロードキャスト(0xFE)とアドレス設定しているものは受信できます。またインタラクティブモード[\<STG\_STD>](../settings/stg\_std.md)をActに追加するための手続きが含まれます。
+
+[BRD\_I2C_TEMPHUMID](brd\_i2c\_temphumid.md)は、I2Cセンサーデバイスの読み書きコマンドを実行し I2C センサーから得られた計測値を無線送信します。またインタラクティブモード[\<STG\_STD>](../settings/stg\_std.md)をActに追加するための手続きが含まれます。
 
 [PingPong](pingpong.md)は、一方から他方にパケットを送信し、受信した他方がパケットを送り返すサンプルです。送信と受信についての基本的な手続きが含まれます。
 

@@ -132,32 +132,32 @@ border: none;
 </ul>
 </nav>
 <h1 id="新しいプロジェクトの作成">新しいプロジェクトの作成</h1>
-<p>新しいプロジェクトの作成は、すでにあるサンプルアクトのディレクトリを別の名前でコピーし、ファイル名の編集を行います。</p>
+<p>新しいプロジェクトの作成は、すでにあるサンプルアクトのフォルダを別の名前でコピーし、ファイル名の編集を行います。</p>
 <div class="warning">
-<p>コピー先のディレクトリは MWSDK 配下のディレクトリでなくても構いません。ただし、ディレクトリ名に<strong>空白文字や日本語名が含まれてはいけません</strong>。</p>
-<p>MWSDK以外のディレクトリにコピーした場合 VS Code のワークスペース定義の一部が機能しなくなります。ワークスペースにmwxライブラリのソースコードディレクトリが追加されている場合は、新たに設定してください。</p>
+<p>コピー先のフォルダは MWSDK 配下のフォルダでなくても構いません。ただし、フォルダ名に<strong>空白文字や日本語名が含まれてはいけません</strong>。</p>
+<p>MWSDK以外のフォルダにコピーした場合 VS Code のワークスペース定義の一部が機能しなくなります。ワークスペースにmwxライブラリのソースコードフォルダが追加されている場合は、新たに設定してください。</p>
 <p>ライブラリソース設定をしなくても<strong>ビルドには影響はありません</strong>。より深いコード解釈をVSCode上で行い、編集効率を上げるための設定です。</p>
 </div>
 <p>プロジェクトのファイル構造は以下のようになっています（ここでは <code>PingPong</code>を例に挙げます）。</p>
 <pre><code>Act_samples
   +-PingPong
     +-PingPong.cpp   : アクトファイル
-    +-build          : ビルドディレクトリ
+    +-build          : ビルドフォルダ
     +-.vscode        : VS Code 用の設定ファイル    </code></pre>
-<p>この <code>PingPong</code>ディレクトリを別の場所（ただしディレクトリ名に日本語や空白が含まない）にコピーします。</p>
+<p>この <code>PingPong</code>フォルダを別の場所（ただしフォルダ名に日本語や空白が含まない）にコピーします。</p>
 <pre><code>SomeDir
   +-AlphaBravo
     +-PingPong.cpp -&gt; AplhaBravo.cpp ※ファイル名を変更
-    +-build          : ビルドディレクトリ
+    +-build          : ビルドフォルダ
     +-.vscode        : VS Code 用の設定ファイル</code></pre>
-<p>編集の必要があるのは、<code>PingPong.cpp</code> のファイル名です。これをディレクトリ名と同じ<code>AlphaBravo.cpp</code>に変更します。</p>
+<p>編集の必要があるのは、<code>PingPong.cpp</code> のファイル名です。これをフォルダ名と同じ<code>AlphaBravo.cpp</code>に変更します。</p>
 <div class="success">
 <p><code>build\build-BLUE.cmd</code> を実行してBINファイルが生成されれば完了です（Windows10）。</p>
 <p>Linux/WSL/macOS では<code>make TWELITE=BLUE</code>を実行して、ビルドが成功するか確認します。</p>
 </div>
 <div class="info">
 <ul>
-<li><del>プロジェクトのディレクトリ名と同じ名前の .cpp ファイルは必須です。</del> (MWSDK 2020-04 では、任意のファイル名でOKになりました)</li>
+<li><del>プロジェクトのフォルダ名と同じ名前の .cpp ファイルは必須です。</del> (MWSDK 2020-04 では、任意のファイル名でOKになりました)</li>
 <li>ビルド対象のファイルを追加する場合は build/Makefile を編集します。編集方法は <a href="makefile.html">Makefile の解説</a>をご覧ください。</li>
 </ul>
 </div>

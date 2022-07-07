@@ -8,7 +8,7 @@ description: "Building ACT"
 
 The application program written in the MWX library is called ACT. The first step is to build and write it.
 
-* About the build directory structure
+* About the build folder structure
 * About the build script
 * About building with VS Code
 
@@ -18,9 +18,9 @@ This page describes several methods of building, all of which ultimately involve
 
 
 
-## About the build directory structure
+## About the build folder structure
 
-Open the directory `MWSDK_ROOT` (e.g. `C:\MWSDK`) where you have installed the MWSDK. It has the following structure
+Open the folder `MWSDK_ROOT` (e.g. `C:\MWSDK`) where you have installed the MWSDK. It has the following structure
 
 ```
 MWSDK_ROOT
@@ -70,33 +70,33 @@ When trying to get it to work in practice, try the following combinations:
 
 
 
-Now let's take a look inside the PingPong directory from within ACT.
+Now let's take a look inside the PingPong folder from within ACT.
 
 {% hint style="info" %}
-You can also build other acts in `Act_samples`. In this case, the directory and file names should be read differently.
+You can also build other acts in `Act_samples`. In this case, the folder and file names should be read differently.
 {% endhint %}
 
 ```
 Act_samples
   +-PingPong
     +-PingPong.cpp   : ACT code
-    +-build          : build directory
+    +-build          : build folder
     +-.vscode        : setting files for VS Code
 ```
 
-You must have a `.cpp` file with the same name as the directory directly under the directory.
+You must have a `.cpp` file with the same name as the folder directly under the folder.
 
 {% hint style="info" %}
 If it is a small act, you can write it in this `.cpp` file. If you have a larger act, you can build it in multiple files by referring to the [Makefile description](makefile.md).
 {% endhint %}
 
 {% hint style="warning" %}
-The ACT file PingPong.cpp is located directly under the PingPong directory. If you change the name of the directory, make sure to rename the .cpp file to the same name as the directory.
+The ACT file PingPong.cpp is located directly under the PingPong folder. If you change the name of the folder, make sure to rename the .cpp file to the same name as the folder.
 {% endhint %}
 
 
 
-Next, open the build directory.
+Next, open the build folder.
 
 ```
 Act_samples
@@ -129,7 +129,7 @@ The following is a script (batch file) for Windows 10.
 
 After execution, a `bin` file will be created and will contain `PingPong_BLUE_???.bin` or `PingPong_RED_???.bin`. The `???`will be replaced by the version number or library version letter.
 
-![PingPong アクトのディレクトリを開く](<../.gitbook/assets/image (23).png>)
+![PingPong アクトのフォルダを開く](<../.gitbook/assets/image (23).png>)
 
 ![Double-click on build-BLUE.cmd (Run)](<../.gitbook/assets/image (24).png>)
 
@@ -144,7 +144,7 @@ If a BIN file is created, the build is successful.
 {% endhint %}
 
 {% hint style="info" %}
-The `objs_BLUE` directory is an intermediate file generated during the build process. You can delete it if you wish.
+The `objs_BLUE` folder is an intermediate file generated during the build process. You can delete it if you wish.
 {% endhint %}
 
 {% hint style="warning" %}
@@ -157,12 +157,12 @@ If you want to see the error messages efficiently, we recommend using a developm
 
 ### Clean (remove intermediate files)
 
-If you run `build-clean.cmd`, it will clean directories starting with `objs_`, but not BIN files.
+If you run `build-clean.cmd`, it will clean folders starting with `objs_`, but not BIN files.
 
 {% hint style="warning" %}
 If the build does not work, check the error messages first; often the cause of the error can be easily identified from a message on a line containing the string error.
 
-Delete the intermediate files in the `objs_?` directory and try running it again. (All operations, including `make clean`, will fail if there are any intermediate files left over from builds in other environments).
+Delete the intermediate files in the `objs_?` folder and try running it again. (All operations, including `make clean`, will fail if there are any intermediate files left over from builds in other environments).
 {% endhint %}
 
 ## Build on command line (Linux/macOS)
@@ -234,10 +234,10 @@ $ make -j8 TWELITE=BLUE
 
 ### About intermediate files
 
-When the build is done, the `objs_???` directory is created and an intermediate file is created in it. This file is dependent on the environment in which it was compiled, so if any files from other environments are left, make will fail and the build will fail.
+When the build is done, the `objs_???` folder is created and an intermediate file is created in it. This file is dependent on the environment in which it was compiled, so if any files from other environments are left, make will fail and the build will fail.
 
 {% hint style="warning" %}
-If `make` fails, directly **delete** the `objs_???` directory.
+If `make` fails, directly **delete** the `objs_???` folder.
 {% endhint %}
 
 
@@ -266,7 +266,7 @@ The VS Code definition files for the sample projects supplied with the MWSDK are
 Depending on the OS environment, security warnings may appear when running each executable program. It is necessary to configure the settings to suppress the warning. (Please consult with yourself or your system administrator to determine if you wish to **run the program with the warning suppressed.**)
 {% endhint %}
 
-In VS Code, you can either open the workspace file directly under the `Act_samples` directory, or open the act directory under `Act_samples`.
+In VS Code, you can either open the workspace file directly under the `Act_samples` folder, or open the act folder under `Act_samples`.
 
 {% hint style="warning" %}
 In the example below, a workspace is opened with an example screen of the English interface.
@@ -291,11 +291,11 @@ The progress of the build is shown in the TERMINAL section at the bottom of the 
 {% hint style="success" %}
 If the build is successful, you will see a message about the creation of the `.elf` file, along with its size information (`text data bss dec hex filename`), as shown in the highlighted part of the screenshot above.
 
-Also, a BIN file (in the above example, `PingPong_BLUE_???.bin`) file should be created under the `build` directory. Please check it.
+Also, a BIN file (in the above example, `PingPong_BLUE_???.bin`) file should be created under the `build` folder. Please check it.
 {% endhint %}
 
 {% hint style="info" %}
-The build definition adds a definition to convert directory names (e.g. `/c/User/...`) that do not conform to the Windows 10 file system (e.g. `C:/User/...`).
+The build definition adds a definition to convert folder names (e.g. `/c/User/...`) that do not conform to the Windows 10 file system (e.g. `C:/User/...`).
 
 The conversion is not complete, but you can extract the filename and line number of the error from the compilation message.
 
@@ -314,7 +314,7 @@ The execution command in `.vscode/tasks.json` is `sh -c "make ... | sed -E -e s#
 {% hint style="warning" %}
 If the build does not work, **check the error messages first**; it is often easy to identify the cause of an error from a message on a line containing the string error.。
 
-To be sure, clean (remove intermediate files in the `objs_???` directory) and rerun the build to be sure. (All operations, including `make clean`, will fail if there are intermediate files left over from builds in other environments).
+To be sure, clean (remove intermediate files in the `objs_???` folder) and rerun the build to be sure. (All operations, including `make clean`, will fail if there are intermediate files left over from builds in other environments).
 {% endhint %}
 
 
@@ -345,7 +345,7 @@ Store the complete set of tools in a folder named `MWSTAGE/Tools/ba-elf-ba2-r363
 
 ### Select a toolツールの選択
 
-`MWSDK/Tools/MkFiles/rules.mk` is used to determine the environment and to select the tools directory. The following is an excerpt of `rules.mk`, which judges the presence or absence of the `WSLENV` environment variable.
+`MWSDK/Tools/MkFiles/rules.mk` is used to determine the environment and to select the tools folder. The following is an excerpt of `rules.mk`, which judges the presence or absence of the `WSLENV` environment variable.
 
 ```
 # Configure for WSL (Windows Subsystem Linux)

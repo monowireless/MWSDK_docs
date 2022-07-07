@@ -105,7 +105,7 @@ $ pip3 install pyftdi
 
 ### 実行
 
-TWELITE SDK をインストールしたディレクトリを `${TWELITESDK}` と記載します。
+TWELITE SDK をインストールしたフォルダを `${TWELITESDK}` と記載します。
 
 スクリプトは以下になります。
 

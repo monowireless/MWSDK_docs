@@ -198,11 +198,8 @@ border: none;
 </ul>
 </nav>
 <h1 id="installing-the-twelite-sdk">Installing the TWELITE SDK</h1>
-<div class="success">
-<p>The following description corresponds to TWELITE STAGE SDK MWSDK2020_12 or later</p>
-</div>
 <div class="info">
-<p>If you have downloaded the TWELITE STAGE SDK, extract the distribution zip archive to a directory that <strong>does not contain Japanese or whitespace characters.</strong></p>
+<p>If you have downloaded the TWELITE STAGE SDK, extract the distribution zip archive to a folder that <strong>does not contain Japanese or whitespace characters.</strong></p>
 <p>See also about TWELITE STAGE:</p>
 <p><a target=_blank href="https://mono-wireless.com/jp/products/stage">Install, usage</a></p>
 <p><a target=_blank href="https://stage.twelite.info">Supplemental information about installation</a></p>
@@ -213,7 +210,7 @@ border: none;
 </div>
 <p><code>MWSDK_ROOT</code>, <code>MWSDK_ROOT_WINNAME</code>(for Windows10) need to be set.</p>
 <h4 id="windows1011">Windows10,11</h4>
-<p>In this example, the name of the extracted directory is <code>C:\MWSTAGE</code>. If you have installed the software in a different directory, please change the name.</p>
+<p>In this example, the name of the extracted folder is <code>C:\MWSTAGE</code>. If you have installed the software in a different folder, please change the name.</p>
 <p>Run <code>C:\MWSTAGE\Tools\SET_ENV.CMD</code> to set the following environment variables:</p>
 <ul>
 <li><code>MWSDK_ROOT</code></li>
@@ -226,24 +223,24 @@ MW_ROOT_WINNAME=C:\MWSTAGE\MWSDK\</code></pre>
 <p>To uninstall the TWELITE STAGE SDK from the installed PC, please do the following:</p>
 <ul>
 <li>Run <code>UNSET_ENV.cmd</code>. This will unset the environment variables.</li>
-<li>Delete the MWSTAGE directory.</li>
+<li>Delete the MWSTAGE folder.</li>
 </ul>
 </div>
 <h4 id="linux">Linux</h4>
 <p>Set the development environment and shell to reflect the MWX_ROOT environment variable.</p>
-<p>There are several ways to do this, but add the following setting to the <code>.profile</code> of your home directory (if the file does not exist, please create a new one). You can even build VSCode with this setting.</p>
+<p>There are several ways to do this, but add the following setting to the <code>.profile</code> of your home folder (if the file does not exist, please create a new one). You can even build VSCode with this setting.</p>
 <p><code>MWSDK_ROOT=/foo/bar/MWSTAGE/MWSDK/</code><br />
 <code>export MWSDK_ROOT</code></p>
-<p>To add it without using the editor, enter the command as follows. The $ is a prompt and will be displayed differently depending on your environment. The <code>/foo/bar/MSWSDK</code> part should be rewritten according to the installed directory.</p>
+<p>To add it without using the editor, enter the command as follows. The $ is a prompt and will be displayed differently depending on your environment. The <code>/foo/bar/MSWSDK</code> part should be rewritten according to the installed folder.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1">$ <span class="bu">cd</span> <span class="va">$HOME</span></a>
 <a class="sourceLine" id="cb2-2" title="2">$ <span class="bu">echo</span> MWSDK_ROOT=/foo/bar/MWSTAGE/MWSDK<span class="op">&gt;&gt;</span>.profile</a>
 <a class="sourceLine" id="cb2-3" title="3">$ <span class="bu">echo</span> export MWSDK_ROOT<span class="op">&gt;&gt;</span>.profile</a></code></pre></div>
 <h4 id="macos">macOS</h4>
 <p>Set the development environment and shell to reflect the <code>MWX_ROOT</code> environment variable.</p>
-<p>There are several ways to do this, but add the following settings to <code>.profile</code> in your home directory (create a new file if you don’t have one). You can even build VSCode with this setting.</p>
+<p>There are several ways to do this, but add the following settings to <code>.profile</code> in your home folder (create a new file if you don’t have one). You can even build VSCode with this setting.</p>
 <p><code>MWSDK_ROOT=/foo/bar/MWSTAGE/MWSDK/</code><br />
 <code>export MWSDK_ROOT</code></p>
-<p>To add it without using the editor, enter the command as follows. The $ is a prompt and will be displayed differently depending on your environment. The <code>/foo/bar/MSWSDK</code> part should be rewritten according to the installed directory.</p>
+<p>To add it without using the editor, enter the command as follows. The $ is a prompt and will be displayed differently depending on your environment. The <code>/foo/bar/MSWSDK</code> part should be rewritten according to the installed folder.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1">$ <span class="bu">cd</span> <span class="va">$HOME</span></a>
 <a class="sourceLine" id="cb3-2" title="2">$ <span class="bu">echo</span> MWSDK_ROOT=/foo/bar/MWSTAGE/MWSDK<span class="op">&gt;&gt;</span>.profile</a>
 <a class="sourceLine" id="cb3-3" title="3">$ <span class="bu">echo</span> export MWSDK_ROOT<span class="op">&gt;&gt;</span>.profile</a></code></pre></div>

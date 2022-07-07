@@ -9,11 +9,24 @@
 　 [License](content//about_mwx/license.md) <br />
 　 [用語](content//about_mwx/terms.md) <br />
 
+### [インストール・ビルド](content//install_n_build/README.md)
+
+　 [アクトのビルド](content//install_n_build/building-act.md) <br />
+　 [新しいプロジェクトの作成](content//install_n_build/create_new_project.md) <br />
+　 [環境 (OSなど)](content//install_n_build/environment.md) <br />
+　 [TWELITE STAGE SDK のインストール](content//install_n_build/install_sdk.md) <br />
+　 [VS Codeのインストール](content//install_n_build/install_vscode.md) <br />
+　 [ビルド定義 Makefile](content//install_n_build/makefile.md) <br />
+　 [他のプラットフォーム](content//install_n_build/nopurattofmu.md) <br />
+　 [アクトの実行](content//install_n_build/runtheact/README.md) <br />
+　　 [tweterm.py](content//install_n_build/runtheact/tweterm.py.md) <br />
+
 ### [サンプルアクト](content//act_samples/README.md)
 
 　 [act0 .. 4](content//act_samples/act_opening.md) <br />
 　 [BRD\_APPTWELITE](content//act_samples/brd_apptwelite.md) <br />
 　 [BRD\_ARIA](content//act_samples/brd_aria.md) <br />
+　 [I2C 温度湿度センサー](content//act_samples/brd_i2c_temphumid.md) <br />
 　 [PAL\_AMB-bhv](content//act_samples/pal_amb-behavior.md) <br />
 　 [PAL\_AMB-usenap](content//act_samples/pal_amb-usenap.md) <br />
 　 [PAL\_AMB](content//act_samples/pal_amb.md) <br />
@@ -119,22 +132,6 @@
 　　 [\<PAL\_MAG>](content//boards/pal/pal_mag.md) <br />
 　　 [\<PAL\_MOT>](content//boards/pal/pal_mot.md) <br />
 
-### [インストール・ビルド](content//install_n_build/README.md)
-
-　 [アクトのビルド](content//install_n_build/building-act.md) <br />
-　 [新しいプロジェクトの作成](content//install_n_build/create_new_project.md) <br />
-　 [環境 (OSなど)](content//install_n_build/environment.md) <br />
-　 [TWELITE SDK のインストール](content//install_n_build/install_sdk.md) <br />
-　 [VS Codeのインストール](content//install_n_build/install_vscode.md) <br />
-　 [ビルド定義 Makefile](content//install_n_build/makefile.md) <br />
-　 [他のプラットフォーム](content//install_n_build/nopurattofmu.md) <br />
-　 [アクトの実行](content//install_n_build/runtheact/README.md) <br />
-　　 [tweterm.py](content//install_n_build/runtheact/tweterm.py.md) <br />
-
-### [ネットワーク (NWK)](content//networks/README.md)
-
-　 [シンプル中継ネット \<NWK\_SIMPLE>](content//networks/nwk_simple.md) <br />
-
 ### [センサー・デバイス (SNS)](content//sensor_object/README.md)
 
 　 [BMx280 - 環境センサー](content//sensor_object/bme280bmp280-sens.md) <br />
@@ -144,6 +141,10 @@
 　 [SHT3x - 温湿度センサー](content//sensor_object/sht3x-sens.md) <br />
 　 [SHT4x - 温湿度センサー](content//sensor_object/sht4x.md) <br />
 　 [SHTC3 - 温湿度センサー](content//sensor_object/shtc3.md) <br />
+
+### [ネットワーク (NWK)](content//networks/README.md)
+
+　 [シンプル中継ネット \<NWK\_SIMPLE>](content//networks/nwk_simple.md) <br />
 
 ### [設定 （STG） - インタラクティブモード](content//settings/README.md)
 

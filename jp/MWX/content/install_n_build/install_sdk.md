@@ -4,21 +4,16 @@ author: "Mono Wireless Inc."
 description: "TWELITE SDK のインストール"
 ---
 
-# TWELITE SDK のインストール
-
-{% hint style="success" %}
-下の記述は TWELITE STAGE SDK MWSDK2020\_12 に対応します。
-{% endhint %}
-
+# TWELITE STAGE SDK のインストール
 {% hint style="info" %}
-TWELITE STAGE SDK をダウンロードした場合は、配布zipアーカイブを、**日本語や空白文字が含まれない**ディレクトリに展開します。
+TWELITE STAGE SDK をダウンロードした場合は、配布アーカイブ(ZIPなど)を、**日本語や空白文字が含まれない**フォルダに展開します。
 
 TWELITE STAGE については以下もご覧ください。
 
-* [インストール・使用方法](https://mono-wireless.com/jp/products/stage)
-* [インストール補足情報](https://stage.twelite.info)
-{% endhint %}
+* [概要・ダウンロード](https://mono-wireless.com/jp/products/stage)
+* [マニュアル](https://stage.twelite.info)
 
+{% endhint %}
 
 
 ### 3. 環境変数の設定
@@ -32,7 +27,7 @@ TWELITE STAGE アプリを用いる場合は、**環境変数の設定は不要*
 `MWSDK_ROOT`, `MWSDK_ROOT_WINNAME`(Windows10のみ) の設定が必要です。
 
 #### Windows
-ここでは展開後のディレクトリ名を `C:\MWSTAGE `とします。別のディレクトリにインストールした場合は、読み替えてください。
+ここでは展開後のフォルダ名を `C:\MWSTAGE `とします。別のフォルダにインストールした場合は、読み替えてください。
 
 `C:\MWSTAGE\Tools\SET_ENV.CMD` を実行してください。以下の環境変数を設定します。
 
@@ -52,19 +47,20 @@ MW_ROOT_WINNAME=C:\MWSTAGE\MWSDK\
 インストールしたPC上からTWELITE STAGE SDKをアンインストールするには以下を行ってください。
 
 * `UNSET_ENV.cmd`を実行してください。環境変数の設定を解除します。
-* MWSTAGEディレクトリを削除してください。
+* MWSTAGEフォルダを削除してください。
+{% endhint %}
 
 #### Linux
 開発環境やシェルに `MWX_ROOT`環境変数を反映されるように設定してください。
 
-方法はいくつかありますが、ホームディレクトリの`.profile`（ファイルがなければ新しく作成してください）に以下の設定を追加します。この設定でVSCodeのビルドまで可能です。
+方法はいくつかありますが、ホームフォルダの`.profile`（ファイルがなければ新しく作成してください）に以下の設定を追加します。この設定でVSCodeのビルドまで可能です。
 
 `MWSDK_ROOT=/foo/bar/MWSTAGE/MWSDK/`\
 `export MWSDK_ROOT`
 
 
 
-エディタを使用せずに追加するには以下のようにコマンド入力します。`$`はプロンプトで環境によって表示が違います。`/foo/bar/MSWSDK`の部分はインストールしたディレクトリに応じて書き換えてください。
+エディタを使用せずに追加するには以下のようにコマンド入力します。`$`はプロンプトで環境によって表示が違います。`/foo/bar/MSWSDK`の部分はインストールしたフォルダに応じて書き換えてください。
 
 ```bash
 $ cd $HOME
@@ -77,14 +73,14 @@ $ echo export MWSDK_ROOT>>.profile
 
 
 
-方法はいくつかありますが、ホームディレクトリの`.profile`（ファイルがなければ新しく作成してください）に以下の設定を追加します。この設定でVSCodeのビルドまで可能です。
+方法はいくつかありますが、ホームフォルダの`.profile`（ファイルがなければ新しく作成してください）に以下の設定を追加します。この設定でVSCodeのビルドまで可能です。
 
 `MWSDK_ROOT=/foo/bar/MWSTAGE/MWSDK/`\
 `export MWSDK_ROOT`
 
 
 
-エディタを使用せずに追加するには以下のようにコマンド入力します。`$`はプロンプトで環境によって表示が違います。`/foo/bar/MSWSDK`の部分はインストールしたディレクトリに応じて書き換えてください。
+エディタを使用せずに追加するには以下のようにコマンド入力します。`$`はプロンプトで環境によって表示が違います。`/foo/bar/MSWSDK`の部分はインストールしたフォルダに応じて書き換えてください。
 
 ```bash
 $ cd $HOME

@@ -214,5 +214,5 @@ public:
 ```
 
 * Contents may change depending on the version.
-* The main body will be stored in SM\_SIMPLE.hpp in the mwx library resource directory.
+* The main body will be stored in SM\_SIMPLE.hpp in the mwx library resource folder.
 

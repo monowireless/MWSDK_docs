@@ -1,8 +1,5 @@
 # TWELITE SDK (MWSDK) マニュアル
 
-| [English Document](https://sdk.twelite.info/v/en/) |
-| -------------------------------------------------: |
-
 
 
 TWELITE SDK は、モノワイヤレス株式会社が製造販売する TWELITE (トワイライト) 無線モジュールのファームウェアをビルドするための環境を提供します。本資料では MWSDK と記述することもあります。

@@ -23,12 +23,12 @@ MWSDKの他の更新が必要になる場合があります。更新時のリリ
 ライブラリのソースコードは GitHub ([https://github.com/monowireless/mwx](https://github.com/monowireless/mwx))にて公開しています。ライブラリのソースコードの差し替えは、以下の手順で行ってください。
 
 1. 各リリースのリンクよりGitのクローンを行うか zip 形式でソースコードをダウンロードします。
-2. 以下のディレクトリの内容を差し替えます。
+2. 以下のフォルダの内容を差し替えます。
 
 ```
-.../MWSTAGE/              --- TWELITE STAGE 配布ディレクトリ
-        .../MWSDK         --- MWSDKディレクトリ
-              .../TWENET/current/src/mwx <--　このディレクトリを差し替える
+.../MWSTAGE/              --- TWELITE STAGE 配布フォルダ
+        .../MWSDK         --- MWSDKフォルダ
+              .../TWENET/current/src/mwx <--　このフォルダを差し替える
 ```
 
 ## リリース前の更新

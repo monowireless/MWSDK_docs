@@ -9,7 +9,7 @@ description: Sample Acts
 To help you understand how the ACT works, we have prepared some samples.
 
 {% hint style="info" %}
-The samples can be found in Act\_samples in the directory where you installed the MWSDK.
+The samples can be found in Act\_samples in the folder where you installed the MWSDK.
 {% endhint %}
 
 ## Introduction to sample ACTs

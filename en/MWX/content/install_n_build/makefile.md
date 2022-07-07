@@ -8,15 +8,15 @@ description: "Build definition Makefile"
 The Makefile is stored in build/Makefile and is pre-defined to build the act by running the make command.
 
 {% hint style="info" %}
-**MWSDK 2020-04 automatically detects the .cpp file in the project directory, so there is usually no need to modify the Makefile.**
+**MWSDK 2020-04 automatically detects the .cpp file in the project folder, so there is usually no need to modify the Makefile.**
 
-**If the source file is to be stored in a subdirectory, it will need to be edited.**
+**If the source file is to be stored in a subfolder, it will need to be edited.**
 
 **MWSDK 2019-12 requires you to edit the Makefile if you have more than one .cpp file.**
 {% endhint %}
 
 {% hint style="warning" %}
-After copying the project directory from another environment, make sure to delete the `build/objs_???` directory. If any intermediate files from the other environment remain, make will fail.
+After copying the project folder from another environment, make sure to delete the `build/objs_???` folder. If any intermediate files from the other environment remain, make will fail.
 
 `(MWSDK 2020-04)` You can avoid errors by adding USE\_APPDEPS=0 to clean and then running make again.
 
@@ -47,7 +47,7 @@ Remove intermediate files from the build. Do this as `make TWELITE=BLUE clean`.
 
 ### cleanall
 
-Remove all intermediate files. Do this as `make cleanall`, the same as removing all of the `objs_???` directory in the build directory.
+Remove all intermediate files. Do this as `make cleanall`, the same as removing all of the `objs_???` folder in the build folder.
 
 
 
@@ -155,18 +155,18 @@ During compilation, it is passed as a definition like `-DVERSION_MAIN=0` `-DVERS
 ### Adding source files
 
 {% hint style="success" %}
-`(MWSDK 2020-04)` If you do not place files in subdirectories, you no longer need to specify additions. All .c .cpp files in the project file will be added.&#x20;
+`(MWSDK 2020-04)` If you do not place files in subfolders, you no longer need to specify additions. All .c .cpp files in the project file will be added.&#x20;
 {% endhint %}
 
 When you add a source file, you need `APPSRC_CXX` and `APP_COMMON_SRC_DIR_ADD?`.
 
 {% hint style="info" %}
-If you place source files in a subdirectory, you must specify the directory `APP_COMMON_SRC_DIR_ADD?`.
+If you place source files in a subfolder, you must specify the folder `APP_COMMON_SRC_DIR_ADD?`.
 {% endhint %}
 
 
 
-Append the name of the source file to \`APPSRC\_CXX'. This file name must **not** contain **a directory name**. Anything in a subdirectory should also be specified without a directory (i.e. if the same filename is in a subdirectory, the build will fail)
+Append the name of the source file to \`APPSRC\_CXX'. This file name must **not** contain **a folder name**. Anything in a subfolder should also be specified without a folder (i.e. if the same filename is in a subfolder, the build will fail)
 
 ```perl
 APPSRC_CXX += myAppBhvParent.cpp
@@ -177,14 +177,14 @@ APPSRC_CXX += myAppBhvChild-handlers.cpp
 
 
 
-Next, specify the search path if the source files are stored in a location other than the project directory. You can set up to **four**.
+Next, specify the search path if the source files are stored in a location other than the project folder. You can set up to **four**.
 
 ```perl
 APP_COMMON_SRC_DIR_ADD1 = ../Parent
 APP_COMMON_SRC_DIR_ADD2 = ../Child
 ```
 
-The directory specification is relative to the Makefile.
+The folder specification is relative to the Makefile.
 
 
 

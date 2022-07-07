@@ -132,10 +132,10 @@ border: none;
 </ul>
 </nav>
 <h1 id="creating-a-new-project">Creating a new project</h1>
-<p>To create a new project, copy the directory of an already existing sample act with a different name and edit the file name.</p>
+<p>To create a new project, copy the folder of an already existing sample act with a different name and edit the file name.</p>
 <div class="warning">
-<p>The destination directory does not have to be a directory under the MWSDK. However, the directory name <strong>must not contain any whitespace characters or Japanese names</strong>.</p>
-<p>Some workspace definitions in VS Code will not work if copied to a directory other than MWSDK. If you have added the source code directory for the mwx library to your workspace, please set it up anew.</p>
+<p>The destination folder does not have to be a folder under the MWSDK. However, the folder name <strong>must not contain any whitespace characters or Japanese names</strong>.</p>
+<p>Some workspace definitions in VS Code will not work if copied to a folder other than MWSDK. If you have added the source code folder for the mwx library to your workspace, please set it up anew.</p>
 <p>There is no effect on the build without the library source setting. This setting is for deeper code interpretation on VSCode and to improve editing efficiency.</p>
 </div>
 <p>The file structure of the project is as follows (we’ll use <code>PingPong</code> as an example)</p>
@@ -144,20 +144,20 @@ border: none;
     +-PingPong.cpp   : ACT file
     +-build          : build dir
     +-.vscode        : setting fils for VSCode    </code></pre>
-<p>Copy this <code>PingPong</code> directory to another location (but without Japanese characters or spaces in the directory name).</p>
+<p>Copy this <code>PingPong</code> folder to another location (but without Japanese characters or spaces in the folder name).</p>
 <pre><code>SomeDir
   +-AlphaBravo
     +-PingPong.cpp -&gt; AplhaBravo.cpp (Note: Changed file name)
     +-build          : build dir
     +-.vscode        : setting files for VSCode</code></pre>
-<p>The only thing you need to edit is the file name <code>PingPong.cpp</code>. Change it to <code>AlphaBravo.cpp</code>, the same as the directory name.</p>
+<p>The only thing you need to edit is the file name <code>PingPong.cpp</code>. Change it to <code>AlphaBravo.cpp</code>, the same as the folder name.</p>
 <div class="success">
 <p>Run <code>build\build-BLUE.cmd</code> and if a BIN file is generated, it’ is done (Windows 10).</p>
 <p>On Linux/macOS, run <code>make TWELITE=BLUE</code> to see if the build succeeds.</p>
 </div>
 <div class="info">
 <ul>
-<li><del>A .cpp file with the same name as the project directory name is mandatory.</del> (As of MWSDK 2020-04, arbitrary file names are now allowed)</li>
+<li><del>A .cpp file with the same name as the project folder name is mandatory.</del> (As of MWSDK 2020-04, arbitrary file names are now allowed)</li>
 <li>To add a file to be built, edit build/Makefile. See the Makefile documentation for instructions on how to edit it.</li>
 </ul>
 </div>

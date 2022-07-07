@@ -319,7 +319,7 @@ border: none;
 <a class="sourceLine" id="cb6-2" title="2"><span class="kw">operator</span> &lt;&lt; (<span class="dt">uint8_t</span> c)</a>
 <a class="sourceLine" id="cb6-3" title="3"><span class="kw">operator</span> &lt;&lt; (<span class="dt">uint16_t</span> c) </a>
 <a class="sourceLine" id="cb6-4" title="4"><span class="kw">operator</span> &lt;&lt; (<span class="dt">uint32_t</span> c)</a></code></pre></div>
-<p><code>int</code>型,<code>uint8_t</code>型は8bitの転送を行います。</p>
+<p><code>int</code>型,<code>uint8_t</code>型は8bitの転送を行います。データ並び順はビッグエンディアン形式（上位バイトが先に転送される）です。</p>
 <h3 id="演算子-1">()演算子</h3>
 <div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">operator</span>() (<span class="dt">uint8_t</span> val)</a>
 <a class="sourceLine" id="cb7-2" title="2"><span class="kw">operator</span>() (<span class="dt">int</span> val)</a></code></pre></div>
@@ -330,7 +330,7 @@ border: none;
 <a class="sourceLine" id="cb8-2" title="2"><span class="kw">operator</span> &gt;&gt; (<span class="dt">uint16_t</span>&amp; c)</a>
 <a class="sourceLine" id="cb8-3" title="3"><span class="kw">operator</span> &gt;&gt; (<span class="dt">uint32_t</span>&amp; c)</a>
 <a class="sourceLine" id="cb8-4" title="4"><span class="kw">operator</span> &gt;&gt; (<span class="dt">uint8_t</span>(&amp;c)[N]) <span class="co">// Nバイトの固定配列</span></a></code></pre></div>
-<p>それぞれのデータ型のサイズ分だけ読み出します。</p>
+<p>それぞれのデータ型のサイズ分だけ読み出します。データ並び順はビッグエンディアン形式（先に転送されたほうが上位バイトに格納される）です。</p>
 <h3 id="演算子-3">()演算子</h3>
 <div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" title="1"><span class="dt">int</span> <span class="kw">operator</span>() (<span class="dt">bool</span> b_stop = <span class="kw">false</span>)</a>
 <a class="sourceLine" id="cb9-2" title="2"></a>
