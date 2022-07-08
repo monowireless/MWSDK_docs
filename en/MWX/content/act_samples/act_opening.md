@@ -10,9 +10,8 @@ The acts starting with act0 are the ones introduced in [Starting an act - Openin
 | Name | Remark                                   |
 | ---- | ---------------------------------------- |
 | act0 | Templates with no processing description |
-| act1 | L-tica (flashing LED)                    |
-| act2 | L-tica with timer                        |
-| act3 | L-tica with two timers                   |
-| act4 | LED lighting using a button (switch)     |
+| act1 | Blinking LED                             |
+| act2 | Blinking LED with a timer                |
+| act3 | Blinking LED with two timers             |
+| act4 | Using a button (switch) to turn on LED   |
 |      |                                          |
-
