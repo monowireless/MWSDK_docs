@@ -19,7 +19,7 @@
 　　 [binファイル命名則](content//twelite-sdk-howto/birudonitsuite/binfuiru.md) <br />
 　　 [Makefile について](content//twelite-sdk-howto/birudonitsuite/makefile-nitsuite.md) <br />
 　　 [Version.mk について](content//twelite-sdk-howto/birudonitsuite/versionmk-nitsuite.md) <br />
-　 [ディレクトリ構成](content//twelite-sdk-howto/derekutori.md) <br />
+　 [フォルダ構成](content//twelite-sdk-howto/derekutori.md) <br />
 　 [ファームウェア書換](content//twelite-sdk-howto/fumuua/README.md) <br />
 　　 [ファームウェア書換用配線](content//twelite-sdk-howto/fumuua/fumuua.md) <br />
 　　 [tweterm.py](content//twelite-sdk-howto/fumuua/tweterm.py.md) <br />
@@ -77,7 +77,7 @@
 　　 [ENERGY SCAN](content//twelite-net-api-ref/mojru-raiburari/energy-scan.md) <br />
 　　 [NB SCAN](content//twelite-net-api-ref/mojru-raiburari/nb-scan.md) <br />
 　 [中継ネット API](content//twelite-net-api-ref/netto-api/README.md) <br />
-　　 [Functions](content//twelite-net-api-ref/netto-api/functions/README.md) <br />
+　　 [functions](content//twelite-net-api-ref/netto-api/functions/README.md) <br />
 　　　 [ToCoNet_Nwk_bInit()](content//twelite-net-api-ref/netto-api/functions/toconet_nwk_binit.md) <br />
 　　　 [ToCoNet_Nwk_bPause()](content//twelite-net-api-ref/netto-api/functions/toconet_nwk_bpause.md) <br />
 　　　 [ToCoNet_Nwk_bResume()](content//twelite-net-api-ref/netto-api/functions/toconet_nwk_bresume.md) <br />

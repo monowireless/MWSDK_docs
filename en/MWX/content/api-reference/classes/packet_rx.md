@@ -7,7 +7,7 @@ author: "Mono Wireless Inc."
 
 This class is a wrapper class for TWENET's `tsRxDataApp` structure.
 
-This class object is a wrapper class for [behavior](../behavior/README.md), callback function or by `the_twelite.receiver.read()`.
+This class object is a wrapper class for [behavior](../behavior/README.md) callback function or by [`on_rx_packets()`](../sys_callbacks/on_rx_packet.md).
 
 In `packet_rx`, in particular, the data payload of the packet can be handled by the `smplbuf` container, and utility functions such as `expand_bytes()` simplify the payload interpretation description.
 
@@ -110,3 +110,16 @@ Returns `true` for encrypted packets and `false` for plaintext.
 
 
 
+### get_network_type()
+```cpp
+uint8_t get_network_type() 
+```
+
+Returns network type of the packet identified by Network BEHAVIOR.
+
+| Value | Explanation                        |
+| ----------------------- | ------------------------- |
+| `mwx::NETWORK::LAYERED` | packets from `<NWK_LAYERED>` |
+| `mwx::NETWORK::SIMPLE`  | packets from `<NWK_SIMPLE>` |
+| `mwx::NETWORK::NONE`    | neworkless packets |
+| others                  | error or unknow packet type |

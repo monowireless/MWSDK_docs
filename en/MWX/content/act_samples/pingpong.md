@@ -226,7 +226,7 @@ Outputs a string to the serial port. `mwx::crlf` is a newline character.
 
 ###  loop()
 
-Loop functions are called as callback functions from the main loop of the TWENET library. The basic description here is to wait for the object to be used to become available and then process it. This section describes the use of some objects used in ACT.
+Loop function are called as callback functions from the main loop of the TWENET library. The basic description here is to wait for the object to be used to become available and then process it. This section describes the use of some objects used in ACT.
 
 {% hint style="warning" %}
 The main loop of the TWENET library processes incoming packets and interrupt information stored in the FIFO queue in advance as events, after which `loop()` is called. After exiting `loop()`, the CPU enters DOZE mode and waits until a new interrupt occurs with low current consumption.

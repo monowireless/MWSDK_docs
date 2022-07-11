@@ -68,7 +68,7 @@ You should always wait for polling (`while(bAHI_SpiPollBusy());`) on each transf
 
 
 
-## Functions
+## functions
 
 ### vAHI_SpiConfigure() 
 

@@ -193,7 +193,13 @@ border: none;
 <ul>
 <li><a href="#sample-acts">Sample ACTs</a><ul>
 <li><a href="#introduction-to-sample-acts">Introduction to sample ACTs</a><ul>
-<li><a href="#acts-advaiced">ACTs advaiced</a></li>
+<li><a href="#short-act-with-no-wireless-communication-and-only-microcontroller-functions">Short ACT with no wireless communication and only microcontroller functions</a></li>
+<li><a href="#example-of-act-description-with-i2c-sensor">Example of ACT description with I2C sensor</a></li>
+<li><a href="#basic-act-for-wireless-communication">Basic ACT for wireless communication</a></li>
+<li><a href="#act-on-parent-node-side">ACT on Parent Node side</a></li>
+<li><a href="#act-to-add-interactive-settings-mode">ACT to add Interactive settings mode</a></li>
+<li><a href="#act-to-operate-sensors-and-other-devices">ACT to operate sensors and other devices</a></li>
+<li><a href="#act-to-use-twelite-pal">ACT to use TWELITE PAL</a></li>
 <li><a href="#act-which-introduced-the-stand-alone-function">ACT, which introduced the stand-alone function</a></li>
 </ul></li>
 <li><a href="#get-the-latest-version.">Get the latest version.</a></li>
@@ -207,22 +213,61 @@ border: none;
 <p>The samples can be found in Act_samples in the folder where you installed the MWSDK.</p>
 </div>
 <h2 id="introduction-to-sample-acts">Introduction to sample ACTs</h2>
-<p>The following is intended to be viewed in order from top to bottom.</p>
-<p><a href="act_opening.html">act0..4</a> is a very simple example, without any radio functions, to give you an idea of the basic structure of Act.</p>
-<p><a href="scratch.html">Scratch</a> is a simple code that receives 1 byte commands from the UART, sends them and so on.</p>
-<p><a href="slp_wk_and_tx.html">Slp_Wk_and_Tx</a> uses a state machine and intermittent operation with sleep, repeating the process of sleep recovery, radio transmission and sleep.</p>
-<p><a href="parent_monostick.html">Parent_MONOSTICK</a> exclusively receives and outputs the reception result to the serial port. The wireless packets in this sample, which are addressed to the parent device (0x00) or to the child device broadcast (0xFE), can be received. It also includes a procedure to add the interactive mode <a href="../settings/stg_std.html">&lt;STG_STD&gt;</a> to Act.</p>
-<p><a href="pingpong.html">PingPong</a> is a sample of sending packets from one side to the other and receiving packets back by the other side. It contains basic procedures for sending and receiving.</p>
-<p><a href="brd_apptwelite.html">BRD_APPTWELITE</a> provides bidirectional communication using digital input, analogue input, digital output and analogue output. It also contains the procedure for adding the interactive mode <a href="../settings/stg_std.html">&lt;STG_STD&gt;</a> to Act.</p>
-<p><a href="pal_amb.html">PAL_AMB</a>, <a href="pal_mot-oneshot.html">PAL_MOT-single</a> and <a href="pal_mag.html">PAL_MAG</a> are samples for various PAL boards (you can also run PAL_MOT and PAL_MAG in TWELITE CUE by modifying the sample definitions). get, send and sleep sensor values on PAL board.</p>
-<h3 id="acts-advaiced">ACTs advaiced</h3>
+<p>Several samples are provided to help you understand how the act works.</p>
+<h3 id="short-act-with-no-wireless-communication-and-only-microcontroller-functions">Short ACT with no wireless communication and only microcontroller functions</h3>
+<ul>
+<li><a href="act_opening.html">act0..4</a> is a very simple example, without any radio functions, to give you an idea of the basic structure of Act.</li>
+</ul>
+<h3 id="example-of-act-description-with-i2c-sensor">Example of ACT description with I2C sensor</h3>
+<p>This is an example of a wireless sensor implementation that connects an I2C sensor and sends wireless packets while performing a brief operation by sleeping. Since this is a relatively simple and typical structure, it is recommended that you refer to it after reviewing <code>act0</code> through <code>act4</code>.</p>
+<ul>
+<li><a href="brd_i2c_temphumid.html">BRD_I2C_TEMPHUMID</a></li>
+</ul>
+<p>Typical elements for implementing wireless sensors in TWELITE (<a href=".%20/networks/nwk_simple.html">simple relay net <code>&lt;NWK_SIMPLE&gt;</code></a>, <a href=".%20/settings/stg_std.html">Interactive settings mode <code>&lt;STG_STD&gt;</code></a>, <a href=".%20/api-reference/predefined_objs/wire/README.html">I2C sensor handling <code>Wire</code></a>, intermittent operation with sleep, etc.).</p>
+<h3 id="basic-act-for-wireless-communication">Basic ACT for wireless communication</h3>
+<p>These are samples of sending or receiving wireless packets, each implemented from a slightly different perspective.</p>
+<ul>
+<li><a href="scratch.html">Scratch</a> is a simple code that receives 1 byte commands from the UART, sends them and so on.</li>
+<li><a href="slp_wk_and_tx.html">Slp_Wk_and_Tx</a> uses a state machine and intermittent operation with sleep, repeating the process of sleep recovery, radio transmission and sleep.</li>
+<li><a href="pingpong.html">PingPong</a> is a sample of sending packets from one side to the other and receiving packets back by the other side. It contains basic procedures for sending and receiving.</li>
+<li><a href="wirelessuart.html">WirelessUART</a> interprets the UART input into ASCII format using <a href="../api-reference/classes/ser_parser.html">serparser</a> and sends it.</li>
+</ul>
+<h3 id="act-on-parent-node-side">ACT on Parent Node side</h3>
+<div class="info">
+<p>Note: <a target=_blank href="https://wings.twelite.info/">App_Wings</a> can also be used to receive wireless packets for the ACTs included in this sample.</p>
+</div>
+<p>Refer to this when implementing your own Receiving Parent Node application.</p>
+<ul>
+<li><a href="parent_monostick.html">Parent_MONOSTICK</a> exclusively receives and outputs the reception result to the serial port. The wireless packets in this sample, which are addressed to the parent device (0x00) or to the child device broadcast (0xFE), can be received. It also includes a procedure to add the interactive mode <a href="../settings/stg_std.html">&lt;STG_STD&gt;</a> to Act.</li>
+<li><a href="rcv_univsl.html">Rcv_Univsl</a> is an example code for universal packets receiver (e.g. TWENET layered tree network, App_Twelite, Act, …). It alse uses EASTL library for container or some algorithm.</li>
+</ul>
+<h3 id="act-to-add-interactive-settings-mode">ACT to add Interactive settings mode</h3>
+<p>The explanation of the ACT using Interactive settings mode describes the general flow of the program. There are no major differences between the explanations for any of the samples. (Here we quote BRD_I2C_TEMPHUMID)</p>
+<ul>
+<li><a href="brd_i2c_temphumid.html">BRD_I2C_TEMPHUMID</a> executes I2C sensor device read/write commands and wirelessly transmits measurements obtained from I2C sensors. It also uses the Interactive settings mode <a href="../settings/stg_std.html">&lt;STG_STD&gt;</a> to Act.</li>
+<li>Setting provides a higher degree of customisation of the interactive mode <a href="../settings/stg_std.html">&lt;STG_STD&gt;</a>.</li>
+</ul>
+<h3 id="act-to-operate-sensors-and-other-devices">ACT to operate sensors and other devices</h3>
+<p>This sample obtains sensor information from built-in peripherals and external sensor devices.</p>
+<ul>
+<li><a href="brd_i2c_temphumid.html">BRD_I2C_TEMPHUMID</a> executes I2C sensor device read/write commands and wirelessly transmits measurements obtained from I2C sensors. It also uses the Interactive settings mode <a href="../settings/stg_std.html">&lt;STG_STD&gt;</a> to Act.</li>
+<li><a href="brd_apptwelite.html">BRD_APPTWELITE</a> provides bidirectional communication using digital input, analogue input, digital output and analogue output. It also contains the procedure for adding the interactive mode <a href="../settings/stg_std.html">&lt;STG_STD&gt;</a> to Act.</li>
+<li><a href="pulsecounter.html">PulseCounter</a> uses a pulse counter function to count the number of pulses detected on the input port, even during sleep, and to transmit this data wirelessly.</li>
+<li><a href="pal_amb-behavior.html">PAL_AMB_behavior</a> is a behavioural example: in PAL_AMB the temperature and humidity sensors are called by the code inside the library, but this sample also includes its own procedure for accessing the temperature and humidity sensors via I2C bus.</li>
+</ul>
+<h3 id="act-to-use-twelite-pal">ACT to use TWELITE PAL</h3>
+<p>Although a standard PAL application is written into TWELITE PAL, it is possible to write a description using ACT without using the PAL application. The MWX library provides standard procedures for MOTION SENSE PAL use.</p>
+<p>This is a sample for various PAL boards. This sample acquires sensor values, transmits these valuse, and sleeps on the PAL board.</p>
+<ul>
+<li><a href="pal_amb.html">PAL_AMB</a></li>
+<li><a href="pal_mot-oneshot.html">PAL_MOT-single</a></li>
+<li><a href="pal_mag.html">PAL_MAG</a></li>
+</ul>
+<p>The following is an example of an advanced application, which is a little more complicated to describe than the above ACT.</p>
 <ul>
 <li><a href="pal_amb-usenap.html">PAL_AMB_usenap</a> is a sample that aims to save more power by allowing the TWELITE microcontroller to sleep briefly during the sensor’s operating time, which can take several tens of milliseconds.</li>
-<li><a href="pal_amb-behavior.html">PAL_AMB_behavior</a> is a behavioural example: in PAL_AMB the temperature and humidity sensors are called by the code inside the library, but this sample also includes its own procedure for accessing the temperature and humidity sensors.</li>
+<li><a href="pal_amb-behavior.html">PAL_AMB_behavior</a> is a behavioural example: in PAL_AMB the temperature and humidity sensors are called by the code inside the library, but this sample also includes its own procedure for accessing the temperature and humidity sensors via I2C bus.</li>
 <li><a href="pal_mot.html">PAL_MOT_fifo</a> for continuous acquisition and wireless transmission of samples without interruption, using the accelerometer’s FIFO and FIFO interrupts.</li>
-<li><a href="pulsecounter.html">PulseCounter</a> uses a pulse counter function to count the number of pulses detected on the input port, even during sleep, and to transmit this data wirelessly.</li>
-<li><a href="wirelessuart.html">WirelessUART</a> interprets the UART input into ASCII format using <a href="../api-reference/classes/ser_parser.html">serparser</a> and sends it.</li>
-<li>Setting provides a higher degree of customisation of the interactive mode <a href="../settings/stg_std.html">&lt;STG_STD&gt;</a>.</li>
 </ul>
 <h3 id="act-which-introduced-the-stand-alone-function">ACT, which introduced the stand-alone function</h3>
 <p>Acts with names starting with <a href="unit_acts.html">Unit</a> are intended to introduce features and APIs.</p>

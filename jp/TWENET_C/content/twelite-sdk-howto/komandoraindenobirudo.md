@@ -17,7 +17,7 @@ VSCode を利用する場合、VSCode 内からコマンドラインが呼び出
 #### Windows
 SDK 添付の BASH (msysによる) を利用します。
 
-{MWSDKインストールディレクトリ} にある BASH.CMD をエクプローラから実行してください。Wks_TWELITE ワークスペースをカレントディレクトリにした bash コマンドラインが表示されます。ツールチェインへの PATH の TWELITE SDK 向けに設定します。
+{MWSDKインストールフォルダ} にある BASH.CMD をエクプローラから実行してください。Wks_TWELITE ワークスペースをカレントフォルダにした bash コマンドラインが表示されます。ツールチェインへの PATH の TWELITE SDK 向けに設定します。
 
 ```bash
 user1@MACHINE_NAME   /c/MWSDK/Wks_TWELITE
@@ -48,7 +48,7 @@ make: *** No targets specified and no makefile found.  Stop.
 
 例として Samp_PingPong をビルドしてみます。
 
-最初にビルドプロジェクト Samp_PingPong のビルドディレクトリに移動します。
+最初にビルドプロジェクト Samp_PingPong のビルドフォルダに移動します。
 
 ```bash
 $ pwd
@@ -73,7 +73,7 @@ make を実行する際には TWELITE=BLUE または TWELITE=RED の指定が必
 
 WARNING が出ますが、これは TWELITE BLUE のビルドであることを明示するためで、問題を指摘しているものではありません。
 
-make を実行せずに Build ディレクトリをクリーン状態にするには、Build ディレクトリ中の .bin ファイルと objs_\* ディレクトリを消去します。
+make を実行せずに Build フォルダをクリーン状態にするには、Build フォルダ中の .bin ファイルと objs_\* フォルダを消去します。
 {% endhint %}
 
 
@@ -97,6 +97,6 @@ Samp_PingPong_PingPong_BLUE_L1200_V0-1-4.bin
 {% hint style="info" %}
 ビルド実行後 [.bin ファイル](birudonitsuite/binfuiru.md)が出来上がっていれば成功です。ビルドが成功しない場合は、何らかのエラーメッセージが出ています。
 
-中間ファイルは objs\_{ARCH} ディレクトリに格納されます。
+中間ファイルは objs\_{ARCH} フォルダに格納されます。
 {% endhint %}
 

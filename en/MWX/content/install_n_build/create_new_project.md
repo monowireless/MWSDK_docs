@@ -9,10 +9,6 @@ To create a new project, copy the folder of an already existing sample act with 
 
 {% hint style="warning" %}
 The destination folder does not have to be a folder under the MWSDK. However, the folder name **must not contain any whitespace characters or Japanese names**.
-
-Some workspace definitions in VS Code will not work if copied to a folder other than MWSDK. If you have added the source code folder for the mwx library to your workspace, please set it up anew.
-
-There is no effect on the build without the library source setting. This setting is for deeper code interpretation on VSCode and to improve editing efficiency.
 {% endhint %}
 
 
@@ -47,8 +43,14 @@ On Linux/macOS, run `make TWELITE=BLUE` to see if the build succeeds.
 
 
 
-{% hint style="info" %}
-* ~~A .cpp file with the same name as the project folder name is mandatory.~~ (As of MWSDK 2020-04, arbitrary file names are now allowed)
-* To add a file to be built, edit build/Makefile. See the Makefile documentation for instructions on how to edit it.
-{% endhint %}
+## Edit Build Definition
+To add files to be built, edit `build/Makefile`. The `.c` `.cpp` files directly under the project will be added automatically, but other files will need to be edited.
 
+See [Makefile Description](makefile.md) for how to edit the file.。
+
+## Configuration for VSCode
+If you use VSCode, edit the definition under .vscode as necessary.
+
+Most of the examples included in the TWELITE STAGE SDK are as follows
+* The source code for the TWELITE STAGE SDK library cites `${env:MWSDK_TWENET_LIBSRC}/include/**` `${env:MWSDK_TWENET_LIBSRC}/src/**`. This environment variable `MWSDK_TWENET_LIBSRC` is automatically set when the project is opened in VSCode from the TWELITE STAGE app.
+* For the build task, no additional options such as `-D` are set by default.

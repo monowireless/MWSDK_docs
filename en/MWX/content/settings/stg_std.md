@@ -8,7 +8,7 @@ description: "BEHAVIOR for Interactve settings mode"
 \<STG\_STD> is a configuration BEHAVIOR with minimal configuration items.
 
 ```
-　　　　　　　　　　　　　　　設定画面例
+　　　　　　　Example of setting screen
 [CONFIG/MY_APP:0/SID=8102ECE3]
 a: (0x1234ABCD) Application ID [HEX:32bit]
 i: (         1) Device ID [1-100,etc]

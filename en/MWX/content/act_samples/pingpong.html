@@ -338,7 +338,7 @@ border: none;
 <div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" title="1">Serial &lt;&lt; <span class="st">&quot;--- PingPong sample (press &#39;t&#39; to transmit) ---&quot;</span> &lt;&lt; mwx::crlf;</a></code></pre></div>
 <p>Outputs a string to the serial port. <code>mwx::crlf</code> is a newline character.</p>
 <h3 id="loop">loop()</h3>
-<p>Loop functions are called as callback functions from the main loop of the TWENET library. The basic description here is to wait for the object to be used to become available and then process it. This section describes the use of some objects used in ACT.</p>
+<p>Loop function are called as callback functions from the main loop of the TWENET library. The basic description here is to wait for the object to be used to become available and then process it. This section describes the use of some objects used in ACT.</p>
 <div class="warning">
 <p>The main loop of the TWENET library processes incoming packets and interrupt information stored in the FIFO queue in advance as events, after which <code>loop()</code> is called. After exiting <code>loop()</code>, the CPU enters DOZE mode and waits until a new interrupt occurs with low current consumption.</p>
 <p>Therefore, code that assumes the CPU is always running will not work well.</p>

@@ -70,7 +70,7 @@ ADCの初期化を行います。setup()では、半導体内部のレギュレ�
 void begin(uint8_t bmPorts, uint8_t capt_tick = 1)
 ```
 
-１番目のパラメータにはADCを行いたいポートを指定します。ポートの指定はピンの定義で述べたポート番号に対応するビットをセットしたビットマップになります。例えば `PIN_ANALOGUE::A2`と`PIN_ANALOGUE::VCC`の２つのピンの値を得たい場合は `(1 <<PIN_ANALOGUE::A1 | 1<<PIN_ANALOGUE::VCC )`を指定します。[`pack_bits`](../functions-1/utility/pack\_bits.md)を用い`pack_bits(PIN_ANALOGUE::A1,PIN_ANALOGUE::VCC)`のように記述することもできます。
+１番目のパラメータにはADCを行いたいポートを指定します。ポートの指定はピンの定義で述べたポート番号に対応するビットをセットしたビットマップになります。例えば `PIN_ANALOGUE::A2`と`PIN_ANALOGUE::VCC`の２つのピンの値を得たい場合は `(1 <<PIN_ANALOGUE::A1 | 1<<PIN_ANALOGUE::VCC )`を指定します。[`pack_bits`](../funcs/utility/pack\_bits.md)を用い`pack_bits(PIN_ANALOGUE::A1,PIN_ANALOGUE::VCC)`のように記述することもできます。
 
 `begin()`の呼び出し後、速やかに最初のADC処理が開始され、その終了割り込から次のピンの処理を開始します。すべての処理が終われば(指定されている場合）コールバック関数が呼び出されます。次のタイマー割り込みが発生まで待ってから新たなADC処理を開始します。
 

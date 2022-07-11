@@ -245,7 +245,7 @@ border: none;
 <p>設定できるアドレスは0x00: 親機,0x01~0xEF: 子機, 0xFE:子機アドレス未指定の範囲です。</p>
 <p>送信先として指定するアドレスは0x00は親機宛、0x01~0xEFは指定の親機アドレス、0xFEは任意の子機アドレス、0xFFは親機を含む任意のアドレスです。</p>
 </div>
-<p>また<code>Buttons</code>オブジェクトを初期化します。連続参照によるチャタリング抑制アルゴリズムです。10msごとに5回連続同じ値になれば対象のポート(<code>PIN_BTN</code>のみ)の<code>HI</code>または<code>LOW</code>を確定します。<a href="../api-reference/functions-1/utility/pack_bits.html"><code>pack_bits(N1, N2, ..)</code></a>は<code>1UL&lt;&lt;N1 | 1UL &lt;&lt; N2 | ...</code>を行いビットマップを生成します。</p>
+<p>また<code>Buttons</code>オブジェクトを初期化します。連続参照によるチャタリング抑制アルゴリズムです。10msごとに5回連続同じ値になれば対象のポート(<code>PIN_BTN</code>のみ)の<code>HI</code>または<code>LOW</code>を確定します。<a href="../api-reference/funcs/utility/pack_bits.html"><code>pack_bits(N1, N2, ..)</code></a>は<code>1UL&lt;&lt;N1 | 1UL &lt;&lt; N2 | ...</code>を行いビットマップを生成します。</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" title="1">the_twelite.begin(); <span class="co">// start twelite!</span></a></code></pre></div>
 <p><code>the_twelite</code>を開始するための手続きです。act0..4では出てきませんでしたが<code>the_twelite</code>の設定や各種ビヘイビアの登録を行った場合は、必ず呼び出すようにしてください。</p>
 <h2 id="begin">begin()</h2>

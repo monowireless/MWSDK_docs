@@ -20,7 +20,7 @@ Updating is recommended if you are using the MWSDK for 2019/12, 2020/04 releases
 * \[TWENET] Added support for changing the parameters of the duplicate checker DUPCHK module.
 * \[MWX] Duplicate checker duplicate_checker was not initialized properly and did not remove duplicates as expected.
 * \[MWX] The implementation of format() has been made less model-dependent. The number of arguments is limited to 8 when 64-bit arguments are included.
-* MWSDK and below (excluding the Tools directory) are stored in the GitHub repository.
+* MWSDK and below (excluding the Tools folder) are stored in the GitHub repository.
 
 ### 000manifest
 

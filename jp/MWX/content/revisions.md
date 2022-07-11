@@ -39,6 +39,28 @@ MWSDKの他の更新が必要になる場合があります。更新時のリリ
 
 
 
+## 0.2.0 - 2022-03-01
+
+| ライブラリ名 | 依存バージョン                                               |
+| ------------ | ------------------------------------------------------------ |
+| mwx          | [0.2.0](https://github.com/monowireless/mwx/releases/tag/0.2.0) |
+| twesettings  | [0.2.6](https://github.com/monowireless/twesettings/releases/tag/0.2.6) |
+| TWENET C     | 1.3.5                                                        |
+
+* ヒープ領域へのメモリ確保を行う Wire オブジェクトを変更した。
+* `utils.h`での名前の衝突を避けるため、関数名を`G_OCTET()`から[`G_BYTE()`](api-reference/funcs/utility/byte-array-utils.md)に変更した。
+* `attachIntDio()`において、`vAHI_DioInterruptEnable()`の順番を変更した。
+* ユニバーサルレシーバ (NWK_LAYERED, NWK_SIMPLE またはネットワークレスパケットを同一実行コードで受信する) をサポートするために `the_twelite.network2` を追加した。
+* [NWK_LAYERED](./networks/nwk_layered.md) を追加 (現時点では親機受信のみ対応)
+* MWXの初期化時にアプリケーションのバージョンを設定する `MWX_Set_Usder_App_Ver()` 関数を導入した。
+* [mwx::pnew()](./api-reference/funcs/utility/pnew.md) を追加し配置newの記述を簡素化した。
+* [EASTL](api-reference/external_libraries/EASTL.md)のサポート追加
+  * EASTL用の`new[]`演算子の追加
+* MWXのソースコードのほとんどをプリコンパイルし、コンパイルの高速化を図った。
+* 修正されました。DIOイベントが無関係なポートに引き渡されていたのを修正。
+
+  
+
 ## 0.1.9 - 2021-12-15
 
 
@@ -72,7 +94,7 @@ MWSDKの他の更新が必要になる場合があります。更新時のリリ
 
 * `Serial1`のポート、代替ポートの定義が適切でなかった
 * `Serial`(UART0)のボーレートを変更できるようにした
-* 受信パケット(`on_rx_packet()`)、送信完了(`on_tx_comp()`)を知らせるイベントコールバックを追加
+* 受信パケット([`on_rx_packet()`](api-reference/sys_callbacks/on_rx_packet.md))、送信完了([`on_tx_comp()`](api-reference/sys_callbacks/on_tx_comp.md))を知らせるイベントコールバックを追加
   * コールバック関数の定義をしなければ従前の手続きも利用可能
 * `<STG_STD>`インタラクティブモード設定の定義ID間違いや一部デフォルト値の変更など
 * `<STG_STD>`インタラクティブモード設定でAppIDに加えて、チャネルと論理デバイスIDのデフォルト値を変更できるようにした

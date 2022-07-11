@@ -1,9 +1,9 @@
 ---
-title: class object
+title: Class Objects
 author: "Mono Wireless Inc."
-description: class object
+description: Class Objects
 ---
-# class object
+# Class Objects
 
 Class objects are predefined objects in the MWX library, such as `the_twelite`, which handles TWENET, and objects for using peripherals.
 

@@ -17,8 +17,8 @@ description: "保証・ライセンス"
 
 また導入パッケージなどお客様の環境に依存して動作しない場合もございます。
 
-```python
-# Copyright (C) 2019 Mono Wireless Inc. All Rights Reserved.
-# Released under MW-SLA-*J,*E (MONO WIRELESS SOFTWARE LICENSE
-# AGREEMENT)
+```cpp
+/* Copyright (C) 2019-2022 Mono Wireless Inc. All Rights Reserved.
+   Released under MW-SLA-*J,*E (MONO WIRELESS SOFTWARE LICENSE
+   AGREEMENT) */
 ```

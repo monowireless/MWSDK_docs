@@ -53,7 +53,7 @@ void setup() {
 送信先として指定するアドレスは0x00は親機宛、0x01\~0xEFは指定の親機アドレス、0xFEは任意の子機アドレス、0xFFは親機を含む任意のアドレスです。
 {% endhint %}
 
-また`Buttons`オブジェクトを初期化します。連続参照によるチャタリング抑制アルゴリズムです。10msごとに5回連続同じ値になれば対象のポート(`PIN_BTN`のみ)の`HI`または`LOW`を確定します。[`pack_bits(N1, N2, ..)`](../api-reference/functions-1/utility/pack\_bits.md)は`1UL<<N1 | 1UL << N2 | ...`を行いビットマップを生成します。
+また`Buttons`オブジェクトを初期化します。連続参照によるチャタリング抑制アルゴリズムです。10msごとに5回連続同じ値になれば対象のポート(`PIN_BTN`のみ)の`HI`または`LOW`を確定します。[`pack_bits(N1, N2, ..)`](../api-reference/funcs/utility/pack\_bits.md)は`1UL<<N1 | 1UL << N2 | ...`を行いビットマップを生成します。
 
 
 

@@ -26,7 +26,7 @@ The searcher should define `ToCoNet_USE_MOD_NBSCAN` and the searched should defi
 #include "ToCoNet_mod_prototype.h"
 ```
 
-## Functions
+## functions
 
 ### ToCoNet_EnergyScan_bStart()
 

@@ -71,7 +71,7 @@ void cbToCoNet_vHwEvent(uint32 u32DeviceId, uint32 u32ItemBitmap) {
 }
 ```
 
-### Functions
+### functions
 
 #### void vSnsObj_Init(tsSnsObj _\*_pSnsObj)
 

@@ -361,7 +361,7 @@ pack_bytes(pkt.get_payload() // set payload data objects.
 );	
 ```
 
-The payload of a packet is an array of [`smblbuf<uint8_t>`](../api-reference/classes/smplbuf/) derivatives obtained by `pkt.get_payload()`. You can set the value of this array directly, but here we use [`pack_bytes()`](../api-reference/functions-1/utility/pack\_bytes.md) to set the value.
+The payload of a packet is an array of [`smblbuf<uint8_t>`](../api-reference/classes/smplbuf/) derivatives obtained by `pkt.get_payload()`. You can set the value of this array directly, but here we use [`pack_bytes()`](../api-reference/funcs/utility/pack\_bytes.md) to set the value.
 
 {% hint style="info" %}
 The maximum length of the payload is 91 bytes in the above example, see[ NWK\_SIMPLE packet structure and maximum length](../networks/nwk\_simple.md#pakettoto) for more information.
@@ -397,7 +397,7 @@ The array object obtained from `.get_payload()` is an array of size 0 with no da
 
 Here we use `.begin()` to get a pointer to `uint8_t*`, write data using this pointer, and set the last written size with `.redim()`.
 
-Functions (macros) such as `S_OCTET()`, `S_WORD()`, and `S_DWORD()` are used to write data, for example, `S_OCTET(p, 'H')` is the same as `*p = 'H'; p++;`.
+functions (macros) such as `S_OCTET()`, `S_WORD()`, and `S_DWORD()` are used to write data, for example, `S_OCTET(p, 'H')` is the same as `*p = 'H'; p++;`.
 
 The last `.redim()` is a procedure to change the size of an array **without initializing the buffer**. Calling `.resize()` clears everything to zero.
 {% endhint %}

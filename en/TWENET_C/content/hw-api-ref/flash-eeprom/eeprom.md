@@ -17,7 +17,7 @@ A maximum of 64x56=3584 bytes are available.
 | `EEPROM_6X_SEGMENT_SIZE`  | EEPROM segment size (64 bytes)                                                                  |
 | `EEPROM_6X_USER_SEGMENTS` | Number of segments in EEPROM                                                                    |
 
-## Functions
+## functions
 
 ### EEP\_6x_bRead()
 

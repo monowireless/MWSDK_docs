@@ -293,6 +293,7 @@ Restart the watchdog timer.
 Three behaviors can be registered with `the_twelite`, and the following class objects are defined to store them.
 
 * `network` :  A behavior that implements a network. Normally, [`<NWK_SIMPLE>`](../../networks/nwk\_simple.md) is registered.
+* `network2` : BEHAVIOR that implements networking. Use this behavior if you want another network BEHAVIOR to process packets which were not accepted by the first `network` due to the data structure of the payload or other reasons. ([Reference: Using NWK\_LAYERED and NWK\_SIMPLE together](../../networks/nwk_layered.md))
 * `board`: Behaviors for board support. Procedures for using each device on the board are added.
 * `app`: Behaviors describing user applications. Behaviors can be written in terms of interrupts, events, and state transitions using state machines. It is also easy to define multiple application descriptions and select an application with completely different behavior at startup.
 * `settings`: Behavior for performing configuration (interactive mode). Registers [`<STG_STD>`](../../settings/stg\_std.md).

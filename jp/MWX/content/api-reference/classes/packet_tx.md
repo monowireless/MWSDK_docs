@@ -6,7 +6,7 @@ description: "packet_tx"
 
 # packet\_tx
 
-このクラスはTWENET Cライブラリの`tsTxDataApp`構造体のラッパクラスで、このクラスをベースとした派生クラスのオブジェクトをネットワークビヘイビアより取得して利用します。
+このクラスはTWENET Cライブラリの`tsTxDataApp`構造体のラッパクラスで、このクラスをベースとした派生クラスのオブジェクトをネットワークビヘイビアまたは[`on_tx_comp()`](../sys_callbacks/on_tx_comp.md)により取得します。
 
 ```cpp
 if (auto&& pkt = the_twelite.network.use<NWK_SIMPLE>().prepare_tx_packet()) {

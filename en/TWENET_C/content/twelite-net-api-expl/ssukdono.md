@@ -14,7 +14,7 @@ In the TWENET API, the main file contains the following definition.
 
 * Module declaration (mandate in the Main file)
 * Required header file includes
-* Callback Functions
+* Callback functions
 
 You can also put other procedure in files other than the main file.
 
@@ -50,7 +50,7 @@ void cbAppColdStart(bool_t bStart) {
 …
 ```
 
-### Callback Functions
+### Callback functions
 
 The [callback functions](../twelite-net-api-ref/krubakku/) should always be defined in the source code.
 

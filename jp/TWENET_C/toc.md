@@ -19,7 +19,7 @@
 　　 [binファイル命名則](content//twelite-sdk-howto/birudonitsuite/binfuiru.md) <br />
 　　 [Makefile について](content//twelite-sdk-howto/birudonitsuite/makefile-nitsuite.md) <br />
 　　 [Version.mk について](content//twelite-sdk-howto/birudonitsuite/versionmk-nitsuite.md) <br />
-　 [ディレクトリ構成](content//twelite-sdk-howto/derekutori.md) <br />
+　 [フォルダ構成](content//twelite-sdk-howto/derekutori.md) <br />
 　 [ファームウェア書換](content//twelite-sdk-howto/fumuua/README.md) <br />
 　　 [ファームウェア書換用配線](content//twelite-sdk-howto/fumuua/fumuua.md) <br />
 　　 [tweterm.py](content//twelite-sdk-howto/fumuua/tweterm.py.md) <br />
@@ -55,40 +55,6 @@
 　　 [ユーザ定義イベント処理関数フロー](content//twelite-net-api-expl/twenet-fur/yzaibentofur.md) <br />
 　 [用語](content//twelite-net-api-expl/yong-yu.md) <br />
 
-### [HW API リファレンス](content//hw-api-ref/README.md)
-
-　 [Flash, EEPROM](content//hw-api-ref/flash-eeprom/README.md) <br />
-　　 [EEPROM](content//hw-api-ref/flash-eeprom/eeprom.md) <br />
-　　 [Flash](content//hw-api-ref/flash-eeprom/flash.md) <br />
-　 [ペリフェラル](content//hw-api-ref/perifuraru/README.md) <br />
-　　 [ADC](content//hw-api-ref/perifuraru/adc/README.md) <br />
-　　　 [adc.c](content//hw-api-ref/perifuraru/adc/adc.c.md) <br />
-　　 [DIO](content//hw-api-ref/perifuraru/dio.md) <br />
-　　 [I2C](content//hw-api-ref/perifuraru/i2c.md) <br />
-　　 [SPI](content//hw-api-ref/perifuraru/spi.md) <br />
-　　 [TickTimer](content//hw-api-ref/perifuraru/ticktimer.md) <br />
-　　 [Timer](content//hw-api-ref/perifuraru/timer/README.md) <br />
-　　　 [Timerライブラリ](content//hw-api-ref/perifuraru/timer/timerraiburari/README.md) <br />
-　　　　 [tsTimerContext](content//hw-api-ref/perifuraru/timer/timerraiburari/tstimercontext.md) <br />
-　　　　 [vTimerConfig()](content//hw-api-ref/perifuraru/timer/timerraiburari/vtimerconfig.md) <br />
-　　　　 [vTimerDisable()](content//hw-api-ref/perifuraru/timer/timerraiburari/vtimerdisable.md) <br />
-　　　　 [vTimerStart()](content//hw-api-ref/perifuraru/timer/timerraiburari/vtimerstart.md) <br />
-　　　　 [vTimerStop()](content//hw-api-ref/perifuraru/timer/timerraiburari/vtimerstop.md) <br />
-　　 [UART](content//hw-api-ref/perifuraru/uart/README.md) <br />
-　　　 [fprintf ライブラリ](content//hw-api-ref/perifuraru/uart/fprintf-raiburari/README.md) <br />
-　　　　 [tsFILE](content//hw-api-ref/perifuraru/uart/fprintf-raiburari/tsfile.md) <br />
-　　　　 [vfPrintf()](content//hw-api-ref/perifuraru/uart/fprintf-raiburari/vfprintf.md) <br />
-　　　　 [vPutChar()](content//hw-api-ref/perifuraru/uart/fprintf-raiburari/vputchar.md) <br />
-　　　 [SERIAL ライブラリ](content//hw-api-ref/perifuraru/uart/serial-raiburari/README.md) <br />
-　　　　 [SERIAL_bRxQueueEmpty()](content//hw-api-ref/perifuraru/uart/serial-raiburari/serial_brxqueueempty.md) <br />
-　　　　 [SERIAL_i16RxChar()](content//hw-api-ref/perifuraru/uart/serial-raiburari/serial_i16rxchar.md) <br />
-　　　　 [SERIAL_vFlush()](content//hw-api-ref/perifuraru/uart/serial-raiburari/serial_vflush.md) <br />
-　　　　 [SERIAL_vInit()](content//hw-api-ref/perifuraru/uart/serial-raiburari/serial_vinit.md) <br />
-　　　　 [SERIAL_vInitEx()](content//hw-api-ref/perifuraru/uart/serial-raiburari/serial_vinitex.md) <br />
-　　　　 [tsSerialPortSetup](content//hw-api-ref/perifuraru/uart/serial-raiburari/tsserialportsetup.md) <br />
-　　　　 [tsUartOpt](content//hw-api-ref/perifuraru/uart/serial-raiburari/tsuartopt.md) <br />
-　　 [WakeTimer](content//hw-api-ref/perifuraru/waketimer.md) <br />
-
 ### [TWELITE NET API リファレンス](content//twelite-net-api-ref/README.md)
 
 　 [構造体](content//twelite-net-api-ref/gou-zao-ti/README.md) <br />
@@ -111,7 +77,7 @@
 　　 [ENERGY SCAN](content//twelite-net-api-ref/mojru-raiburari/energy-scan.md) <br />
 　　 [NB SCAN](content//twelite-net-api-ref/mojru-raiburari/nb-scan.md) <br />
 　 [中継ネット API](content//twelite-net-api-ref/netto-api/README.md) <br />
-　　 [Functions](content//twelite-net-api-ref/netto-api/functions/README.md) <br />
+　　 [functions](content//twelite-net-api-ref/netto-api/functions/README.md) <br />
 　　　 [ToCoNet_Nwk_bInit()](content//twelite-net-api-ref/netto-api/functions/toconet_nwk_binit.md) <br />
 　　　 [ToCoNet_Nwk_bPause()](content//twelite-net-api-ref/netto-api/functions/toconet_nwk_bpause.md) <br />
 　　　 [ToCoNet_Nwk_bResume()](content//twelite-net-api-ref/netto-api/functions/toconet_nwk_bresume.md) <br />
@@ -154,6 +120,40 @@
 　　　 [ToCoNet_Event_SetState()](content//twelite-net-api-ref/yzaibento/toconet_event-api/toconet_event_setstate.md) <br />
 　　　 [ToCoNet_Event_u32TickFrNewState()](content//twelite-net-api-ref/yzaibento/toconet_event-api/toconet_event_u32tickfrnewstate.md) <br />
 　　　 [ToCoNet_Event_vKeepStateOnRamHoldSleep()](content//twelite-net-api-ref/yzaibento/toconet_event-api/toconet_event_vkeepstateonramholdsleep.md) <br />
+
+### [HW API リファレンス](content//hw-api-ref/README.md)
+
+　 [Flash, EEPROM](content//hw-api-ref/flash-eeprom/README.md) <br />
+　　 [EEPROM](content//hw-api-ref/flash-eeprom/eeprom.md) <br />
+　　 [Flash](content//hw-api-ref/flash-eeprom/flash.md) <br />
+　 [ペリフェラル](content//hw-api-ref/perifuraru/README.md) <br />
+　　 [ADC](content//hw-api-ref/perifuraru/adc/README.md) <br />
+　　　 [adc.c](content//hw-api-ref/perifuraru/adc/adc.c.md) <br />
+　　 [DIO](content//hw-api-ref/perifuraru/dio.md) <br />
+　　 [I2C](content//hw-api-ref/perifuraru/i2c.md) <br />
+　　 [SPI](content//hw-api-ref/perifuraru/spi.md) <br />
+　　 [TickTimer](content//hw-api-ref/perifuraru/ticktimer.md) <br />
+　　 [Timer](content//hw-api-ref/perifuraru/timer/README.md) <br />
+　　　 [Timerライブラリ](content//hw-api-ref/perifuraru/timer/timerraiburari/README.md) <br />
+　　　　 [tsTimerContext](content//hw-api-ref/perifuraru/timer/timerraiburari/tstimercontext.md) <br />
+　　　　 [vTimerConfig()](content//hw-api-ref/perifuraru/timer/timerraiburari/vtimerconfig.md) <br />
+　　　　 [vTimerDisable()](content//hw-api-ref/perifuraru/timer/timerraiburari/vtimerdisable.md) <br />
+　　　　 [vTimerStart()](content//hw-api-ref/perifuraru/timer/timerraiburari/vtimerstart.md) <br />
+　　　　 [vTimerStop()](content//hw-api-ref/perifuraru/timer/timerraiburari/vtimerstop.md) <br />
+　　 [UART](content//hw-api-ref/perifuraru/uart/README.md) <br />
+　　　 [fprintf ライブラリ](content//hw-api-ref/perifuraru/uart/fprintf-raiburari/README.md) <br />
+　　　　 [tsFILE](content//hw-api-ref/perifuraru/uart/fprintf-raiburari/tsfile.md) <br />
+　　　　 [vfPrintf()](content//hw-api-ref/perifuraru/uart/fprintf-raiburari/vfprintf.md) <br />
+　　　　 [vPutChar()](content//hw-api-ref/perifuraru/uart/fprintf-raiburari/vputchar.md) <br />
+　　　 [SERIAL ライブラリ](content//hw-api-ref/perifuraru/uart/serial-raiburari/README.md) <br />
+　　　　 [SERIAL_bRxQueueEmpty()](content//hw-api-ref/perifuraru/uart/serial-raiburari/serial_brxqueueempty.md) <br />
+　　　　 [SERIAL_i16RxChar()](content//hw-api-ref/perifuraru/uart/serial-raiburari/serial_i16rxchar.md) <br />
+　　　　 [SERIAL_vFlush()](content//hw-api-ref/perifuraru/uart/serial-raiburari/serial_vflush.md) <br />
+　　　　 [SERIAL_vInit()](content//hw-api-ref/perifuraru/uart/serial-raiburari/serial_vinit.md) <br />
+　　　　 [SERIAL_vInitEx()](content//hw-api-ref/perifuraru/uart/serial-raiburari/serial_vinitex.md) <br />
+　　　　 [tsSerialPortSetup](content//hw-api-ref/perifuraru/uart/serial-raiburari/tsserialportsetup.md) <br />
+　　　　 [tsUartOpt](content//hw-api-ref/perifuraru/uart/serial-raiburari/tsuartopt.md) <br />
+　　 [WakeTimer](content//hw-api-ref/perifuraru/waketimer.md) <br />
 
 ### [Utils リファレンス、他](content//utils-ref/README.md)
 

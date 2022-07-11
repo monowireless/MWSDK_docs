@@ -64,7 +64,7 @@ TWELITE NET 1.3.0 (2020/04) 以降は TWELITE STAGE として配布されます�
 
 > [https://github.com/monowireless/MWSDK_COMMON_SNAP/releases](https://github.com/monowireless/MWSDK_COMMON_SNAP/releases)
 
-リリースごとのMWSDKファイル（共通部分）を一括格納しています。MWSDKの更新方法は、このリポジトリから zip ファイルをダウンロードして、ディレクトリやファイルを更新前のものと差し替えます。
+リリースごとのMWSDKファイル（共通部分）を一括格納しています。MWSDKの更新方法は、このリポジトリから zip ファイルをダウンロードして、フォルダやファイルを更新前のものと差し替えます。
 
 
 
@@ -72,19 +72,19 @@ TWELITE NET 1.3.0 (2020/04) 以降は TWELITE STAGE として配布されます�
 
 ![GitHub画面例](<../.gitbook/assets/image (55).png>)
 
-レポジトリには以下のディレクトリが含まれます。
+レポジトリには以下のフォルダが含まれます。
 
 * ChipLib
 * LICENSE
 * MkFiles
 * TWENET
 
-この４つのディレクトリをTWELITE STAGEの配布ディレクトリ内で**差し替え**ます。
+この４つのフォルダをTWELITE STAGEの配布フォルダ内で**差し替え**ます。
 
 ```
-.../MWSTAGE/              --- TWELITE STAGE 配布ディレクトリ
-        .../MWSDK         --- MWSDKディレクトリ
-              .../ChipLib <-- 以下の４ディレクトリを差し替える
+.../MWSTAGE/              --- TWELITE STAGE 配布フォルダ
+        .../MWSDK         --- MWSDKフォルダ
+              .../ChipLib <-- 以下の４フォルダを差し替える
               .../LICENSE
               .../MkFiles
               .../TWENET
@@ -107,7 +107,7 @@ zip ファイルによるダウンロードを行った場合、サブモジュ�
 #### リポジトリ利用について
 
 * GITのsubmoduleを用いています。GitHubのサイトから.zip形式などでアーカイブをダウンロードした場合、submoduleの含まれるファイルは含まれません。(submodule付きのクローンを行うgitコマンド例は後述)
-* MWSDK_COMMON リポジトリは、配布の MWSDK ディレクトリから Tools ディレクトリと一部ファイル(Windows版の環境変数登録用の cmd ファイル)を除外したものです。Tools ディレクトリは配布済みのものを利用してください。
+* MWSDK_COMMON リポジトリは、配布の MWSDK フォルダから Tools フォルダと一部ファイル(Windows版の環境変数登録用の cmd ファイル)を除外したものです。Tools フォルダは配布済みのものを利用してください。
 
 
 
@@ -120,7 +120,7 @@ zip ファイルによるダウンロードを行った場合、サブモジュ�
 まず最初に配布のMWSDK(TWELITE STAGE)を展開しておきます。以下のような構成になっていると思います。
 
 ```
-=== ディレクトリ構成 ===
+=== フォルダ構成 ===
 .../MWSTAGE +- MWSDK +- TWENET
                       - ChipLib
                       - ...
@@ -129,13 +129,13 @@ zip ファイルによるダウンロードを行った場合、サブモジュ�
 
 
 
-配布時の MWSDK ディレクトリを別の名前に変更します。
+配布時の MWSDK フォルダを別の名前に変更します。
 
 ```
-$ cd .../MWSTAGE    ...はお客さまのインストールディレクトリ
+$ cd .../MWSTAGE    ...はお客さまのインストールフォルダ
 $ mv MWSDK MWSDK.orig
 
-=== ディレクトリ構成 ===
+=== フォルダ構成 ===
 .../MWSTAGE +- MWSDK.ORIG
                   +- TWENET
                    - ...
@@ -144,7 +144,7 @@ $ mv MWSDK MWSDK.orig
 
 
 
-MWSTAGE ディレクトリ上で GitHubより MWSDK_COMMON をクローンします。submodulesのファイルを取得するため`--recurse-submodules`オプションを追加します。
+MWSTAGE フォルダ上で GitHubより MWSDK_COMMON をクローンします。submodulesのファイルを取得するため`--recurse-submodules`オプションを追加します。
 
 ```
 $ pwd
@@ -152,7 +152,7 @@ $ pwd
 $ git clone --recurse-submodules https://github.com/monowireless/MWSDK_COMMON MWSDK
 ...(少し時間がかかります)
 
-=== ディレクトリ構成 ===
+=== フォルダ構成 ===
 .../MWSTAGE +- MWSDK
                   +- TWENET
                    - ... (Tools は含まれない)
@@ -164,12 +164,12 @@ $ git clone --recurse-submodules https://github.com/monowireless/MWSDK_COMMON MW
 
 
 
-最後に MWSDK.ORIG/Tools ディレクトリを MWSDK に移植します。
+最後に MWSDK.ORIG/Tools フォルダを MWSDK に移植します。
 
 ```
 $ mv MWSDK.ORIG/Tools MWSDK/
 
-=== ディレクトリ構成 ===
+=== フォルダ構成 ===
 .../MWSTAGE +- MWSDK
                   +- TWENET
                    - ...

@@ -21,7 +21,7 @@ The TWELITE SDK (MWSDK) includes the followings:
   * the mwx library
   * more libraries
 * TWELITE SDK manual (this document)
-  * Explanation of the MWSDK directory and MWSDK in general.
+  * Explanation of the MWSDK folder and MWSDK in general.
   * How to rewrite the application or build it from source code without using TWELITE STAGE.
   * Details on how to program the firmware.
   * Explanation of wireless packets and relay networks.
@@ -42,6 +42,6 @@ The terms related to the following are not specifically explained in the text.
 
 ### Notation in this document
 
-* Use `/` (slash) as the directory (path) separator; on Windows it is `\` (backslash or Yen mark), but replace it.
+* Use `/` (slash) as the folder (path) separator; on Windows it is `\` (backslash or Yen mark), but replace it.
 * In some cases, two `\` characters (a backslash and a space) are inserted in the table. This is to encourage line breaks during display. (For example, `veryVeryLong DefName` should be replaced with `veryVeryLongDefName`.
 

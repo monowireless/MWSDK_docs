@@ -256,7 +256,7 @@ MWX_DIO_EVENT(N, arg)
 
 DIO (digital IO) interrupt event. `N` specifies the target DIO number. The `arg` is a definition for future extension.
 
-To generate an interrupt, use [`pinMode()`](../functions-1/dio/pinmode.md), [`attachDioInt()`](../functions-1/dio/attachintdio.md).
+To generate an interrupt, use [`pinMode()`](../funcs/dio/pinmode.md), [`attachDioInt()`](../funcs/dio/attachintdio.md).
 
 
 

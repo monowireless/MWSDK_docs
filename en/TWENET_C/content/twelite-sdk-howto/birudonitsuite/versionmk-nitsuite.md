@@ -4,7 +4,7 @@
 In the latest MWSDK (TWELITE Stage), the definition corresponding to Version.mk is in `build/makefile`.
 {% endhint %}
 
-The Version.mk file is stored in the Source directory of each target, is referenced by the Makefile, and is used to determine the version of the output file name, etc.
+The Version.mk file is stored in the Source folder of each target, is referenced by the Makefile, and is used to determine the version of the output file name, etc.
 
 You can specify this as follows:
 

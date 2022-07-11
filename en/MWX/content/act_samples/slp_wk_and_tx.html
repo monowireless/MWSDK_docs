@@ -426,7 +426,7 @@ border: none;
 <a class="sourceLine" id="cb20-3" title="3">    , <span class="dt">uint32_t</span>(millis()) <span class="co">// put timestamp here.</span></a>
 <a class="sourceLine" id="cb20-4" title="4">    , <span class="dt">uint16_t</span>(sensor.dummy_work_ct_now) <span class="co">// put dummy sensor information.</span></a>
 <a class="sourceLine" id="cb20-5" title="5">);  </a></code></pre></div>
-<p>The payload of a packet is an array of <a href="../api-reference/classes/smplbuf/README.html"><code>smblbuf&lt;uint8_t&gt;</code></a> derivatives obtained by <code>pkt.get_payload()</code>. You can set the value of this array directly, but here we use <a href="../api-reference/functions-1/utility/pack_bytes.html"><code>pack_bytes()</code></a> to set the value.</p>
+<p>The payload of a packet is an array of <a href="../api-reference/classes/smplbuf/README.html"><code>smblbuf&lt;uint8_t&gt;</code></a> derivatives obtained by <code>pkt.get_payload()</code>. You can set the value of this array directly, but here we use <a href="../api-reference/funcs/utility/pack_bytes.html"><code>pack_bytes()</code></a> to set the value.</p>
 <div class="info">
 <p>The maximum length of the payload is 91 bytes in the above example, see<a href="../networks/nwk_simple.html#%22pakettoto">NWK_SIMPLE packet structure and maximum length</a> for more information.</p>
 </div>
@@ -454,7 +454,7 @@ border: none;
 <a class="sourceLine" id="cb21-14" title="14">pay.redim(p - pay.begin());</a></code></pre></div>
 <p>The array object obtained from <code>.get_payload()</code> is an array of size 0 with no data stored in it, but it is expanded by writing data to it (actually, writing data to an internal fixed-length buffer and updating the data size in internal management). The final size is the data size of the payload.</p>
 <p>Here we use <code>.begin()</code> to get a pointer to <code>uint8_t*</code>, write data using this pointer, and set the last written size with <code>.redim()</code>.</p>
-<p>Functions (macros) such as <code>S_OCTET()</code>, <code>S_WORD()</code>, and <code>S_DWORD()</code> are used to write data, for example, <code>S_OCTET(p, &#39;H&#39;)</code> is the same as <code>*p = &#39;H&#39;; p++;</code>.</p>
+<p>functions (macros) such as <code>S_OCTET()</code>, <code>S_WORD()</code>, and <code>S_DWORD()</code> are used to write data, for example, <code>S_OCTET(p, &#39;H&#39;)</code> is the same as <code>*p = &#39;H&#39;; p++;</code>.</p>
 <p>The last <code>.redim()</code> is a procedure to change the size of an array <strong>without initializing the buffer</strong>. Calling <code>.resize()</code> clears everything to zero.</p>
 </div>
 <p>Finally, <code>.transmit()</code> is called to request sending. The return value is of the type <code>MWX_APIRET</code>. After the request, the actual transmission takes place, which may take several to several tens of milliseconds to complete, depending on the transmission parameters and the size of the transmission. On completion, <code>on_tx_comp()</code> is called.</p>

@@ -16,7 +16,7 @@ Starting process, interface to MAC layer, etc.
 
 General algorithms and procedures for peripherals.
 
-(The source is provided in the SDK: `MWSDK/TWENET/???? /TWENETUtils/Source`, where"????" is the name of the directory corresponding to the library version)
+(The source is provided in the SDK: `MWSDK/TWENET/???? /TWENETUtils/Source`, where"????" is the name of the folder corresponding to the library version)
 
 
 

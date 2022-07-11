@@ -3,7 +3,7 @@
 ## TWELITE STAGE (MWSDK2020-04 or later)
 
 {% hint style="success" %}
-TWELITE STAGE (MWSDK2020-04 or later) extracts the distribution zip archive to a directory that does <mark style="color:red;">**not contain Japanese or whitespace characters**</mark>.
+TWELITE STAGE (MWSDK2020-04 or later) extracts the distribution zip archive to a folder that does <mark style="color:red;">**not contain Japanese or whitespace characters**</mark>.
 
 If you do not want to use TWELITE STAGE for the build, but want to use the make command, please refer [here](https://mwx.twelite.info/install_n_build/install_sdk) and set the MWSDK_ROOT environment variable.
 {% endhint %}
@@ -34,10 +34,10 @@ To install the TWELITE SDK, follow the steps below.
 Extract the TWELITE SDK archive.
 
 {% hint style="danger" %}
-Avoid the following directories.
+Avoid the following folders.
 
-* deep directory
-* Directories that contain Japanese names or spaces
+* deep folder
+* folders that contain Japanese names or spaces
 {% endhint %}
 
 {% hint style="info" %}

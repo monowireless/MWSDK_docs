@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Mono Wireless Inc." />
-  <title>VS Codeのインストール</title>
+  <title>VSCodeのインストール</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -123,25 +123,26 @@ border: none;
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">VS Codeのインストール</h1>
+<h1 class="title">VSCodeのインストール</h1>
 <p class="author">Mono Wireless Inc.</p>
 </header>
 <nav id="TOC">
 <ul>
-<li><a href="#vs-codeのインストール">VS Codeのインストール</a><ul>
+<li><a href="#vscodeのインストール">VSCodeのインストール</a><ul>
 <li><a href="#vscode-のインストール">VSCode のインストール</a><ul>
-<li><a href="#section"></a></li>
 <li><a href="#プラグインの導入">プラグインの導入</a></li>
+<li><a href="#各osでの特記事項">各OSでの特記事項</a></li>
 </ul></li>
 <li><a href="#注記事項">注記事項</a></li>
 </ul></li>
 </ul>
 </nav>
-<h1 id="vs-codeのインストール">VS Codeのインストール</h1>
-<p>MWSDKでは、アクト（ソースコード）記述をより容易に行うため、VisualStudio Code(VS Code)を紹介しています。添付のアクトには、VS Codeで適切にコード解釈が行われるように設定したファイルが含まれます。</p>
+<h1 id="vscodeのインストール">VSCodeのインストール</h1>
+<p>TWELTIE STAGE SDK では、アクト（ソースコード）記述をより容易に行うため、VisualStudio Code(VSCode)を紹介しています。添付のアクトには、VSCodeで適切にコード解釈が行われるように設定したファイルが含まれます。</p>
 <div class="warning">
-<p>VS Codeはソースファイルやヘッダファイルを読み込み、ソースコードを解釈し、これによりソースコードの記述の助けとなる関数定義情報や、関数・メソッド名の補完などを行います。C言語の開発に比べて、MWXライブラリでは読み込まれるヘッダファイルの分量が多くなります。環境によってはエディタの動作が重く感じる場合があります。</p>
+<p>VSCodeはソースファイルやヘッダファイルを読み込み、ソースコードを解釈し、これによりソースコードの記述の助けとなる関数定義情報や、関数・メソッド名の補完などを行います。C言語の開発に比べて、MWXライブラリでは読み込まれるヘッダファイルの分量が多くなります。環境によってはエディタの動作が重く感じる場合があります。</p>
 </div>
+<p>ソースコードの解析や VSCode からのビルドを行うために、ライブラリソースコードが格納されるフォルダの情報などの情報が必要になります。これらの情報は TWELITE STAGE アプリから VSCode を呼び出すことによって反映されます。（具体的には適切な環境変数を設定して VSCode を始動します。プロジェクトの設定は環境変数を参照しています）</p>
 <h2 id="vscode-のインストール">VSCode のインストール</h2>
 <div class="danger">
 <p>当サポートでは VSCode のインストール方法、使用方法のお問い合わせについては対応いたしません。一般で得られる情報を参照ください。</p>
@@ -150,18 +151,24 @@ border: none;
 <p>VSCode では、以下のことができます。</p>
 <ul>
 <li>ソースコードの編集</li>
-<li>GIT への接続（お客様が独自にソース管理を GIT 上で行う場合）</li>
 <li>ソースコード解釈に基づく intellisense（＊全ての定義が正確に解釈されることを保証するわけではありません）</li>
 </ul>
 <p>VSCode はリンク先より入手してください。</p>
 <div class="pageref">
 <a target=_blank href="https://code.visualstudio.com">https://code.visualstudio.com</a>
 </div>
-<h3 id="section"></h3>
 <h3 id="プラグインの導入">プラグインの導入</h3>
 <p>Visual Studio Code が C/C++ 言語の記述を解釈できるようにするために、プラグインをインストールします。</p>
 <ul>
 <li>C/C++ for Visual Studio Code</li>
+</ul>
+<h3 id="各osでの特記事項">各OSでの特記事項</h3>
+<p>TWELITE STAGE から VSCode を呼び出すために、<code>code</code> コマンドが有効になっている必要があります。</p>
+<p>以下は code.visualstudio.com の情報です。</p>
+<ul>
+<li><a target=_blank href="https://code.visualstudio.com/docs/setup/mac">macOS</a> - code コマンドを実行できるように PATH 設定が必要です。</li>
+<li><a target=_blank href="https://code.visualstudio.com/docs/setup/windows">Windows</a></li>
+<li><a target=_blank href="https://code.visualstudio.com/docs/setup/linux">Linux</a></li>
 </ul>
 <h2 id="注記事項">注記事項</h2>
 <div class="warning">
@@ -169,7 +176,7 @@ border: none;
 <p>TWELITE STAGEからVSCodeを始動した場合、上記の環境変数などを設定します。既に始動済みであるような場合など、設定が反映されない場合もあります。</p>
 </div>
 <div class="warning">
-<p>VS Code のソースコードの解釈はコンパイラでの解釈とは完全には一致しません。またソースコードの編集状況によっては解釈がより不完全な状態になる場合もあります。</p>
+<p>VSCode のソースコードの解釈はコンパイラでの解釈とは完全には一致しません。またソースコードの編集状況によっては解釈がより不完全な状態になる場合もあります。</p>
 </div>
 </body>
 </html>

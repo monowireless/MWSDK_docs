@@ -68,7 +68,7 @@ Initializes ADCs. setup() starts the regulator inside the semiconductor, specifi
 void begin(uint8_t bmPorts, uint8_t capt_tick = 1)
 ```
 
-The first parameter specifies the port where the ADC is to be made. The port specification is a bitmap with the bits set corresponding to the port numbers mentioned in the pin definition.For example, if you want to get the values of two pins `PIN_ANALOGUE::A2` and `PIN_ANALOGUE::VCC`, specify `(1 <<PIN_ANALOGUE::A1 | 1<<PIN_ANALOGUE::VCC )`. You can also use [`pack_bits`](../functions-1/utility/pack\_bits.md) and write `pack_bits(PIN_ANALOGUE::A1,PIN_ANALOGUE::VCC)`.
+The first parameter specifies the port where the ADC is to be made. The port specification is a bitmap with the bits set corresponding to the port numbers mentioned in the pin definition.For example, if you want to get the values of two pins `PIN_ANALOGUE::A2` and `PIN_ANALOGUE::VCC`, specify `(1 <<PIN_ANALOGUE::A1 | 1<<PIN_ANALOGUE::VCC )`. You can also use [`pack_bits`](../funcs/utility/pack\_bits.md) and write `pack_bits(PIN_ANALOGUE::A1,PIN_ANALOGUE::VCC)`.
 
 After calling `begin()`, the first ADC processing starts immediately, and the processing of the next pin starts from its end interrupt. When all processing is finished (if specified), the callback function is called. It waits until the next timer interrupt occurs before starting a new ADC process.
 

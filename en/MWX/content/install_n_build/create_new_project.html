@@ -128,15 +128,16 @@ border: none;
 </header>
 <nav id="TOC">
 <ul>
-<li><a href="#creating-a-new-project">Creating a new project</a></li>
+<li><a href="#creating-a-new-project">Creating a new project</a><ul>
+<li><a href="#edit-build-definition">Edit Build Definition</a></li>
+<li><a href="#configuration-for-vscode">Configuration for VSCode</a></li>
+</ul></li>
 </ul>
 </nav>
 <h1 id="creating-a-new-project">Creating a new project</h1>
 <p>To create a new project, copy the folder of an already existing sample act with a different name and edit the file name.</p>
 <div class="warning">
 <p>The destination folder does not have to be a folder under the MWSDK. However, the folder name <strong>must not contain any whitespace characters or Japanese names</strong>.</p>
-<p>Some workspace definitions in VS Code will not work if copied to a folder other than MWSDK. If you have added the source code folder for the mwx library to your workspace, please set it up anew.</p>
-<p>There is no effect on the build without the library source setting. This setting is for deeper code interpretation on VSCode and to improve editing efficiency.</p>
 </div>
 <p>The file structure of the project is as follows (we’ll use <code>PingPong</code> as an example)</p>
 <pre><code>Act_samples
@@ -155,11 +156,11 @@ border: none;
 <p>Run <code>build\build-BLUE.cmd</code> and if a BIN file is generated, it’ is done (Windows 10).</p>
 <p>On Linux/macOS, run <code>make TWELITE=BLUE</code> to see if the build succeeds.</p>
 </div>
-<div class="info">
-<ul>
-<li><del>A .cpp file with the same name as the project folder name is mandatory.</del> (As of MWSDK 2020-04, arbitrary file names are now allowed)</li>
-<li>To add a file to be built, edit build/Makefile. See the Makefile documentation for instructions on how to edit it.</li>
-</ul>
-</div>
+<h2 id="edit-build-definition">Edit Build Definition</h2>
+<p>To add files to be built, edit <code>build/Makefile</code>. The <code>.c</code> <code>.cpp</code> files directly under the project will be added automatically, but other files will need to be edited.</p>
+<p>See <a href="makefile.html">Makefile Description</a> for how to edit the file.。</p>
+<h2 id="configuration-for-vscode">Configuration for VSCode</h2>
+<p>If you use VSCode, edit the definition under .vscode as necessary.</p>
+<p>Most of the examples included in the TWELITE STAGE SDK are as follows * The source code for the TWELITE STAGE SDK library cites <code>${env:MWSDK_TWENET_LIBSRC}/include/**</code> <code>${env:MWSDK_TWENET_LIBSRC}/src/**</code>. This environment variable <code>MWSDK_TWENET_LIBSRC</code> is automatically set when the project is opened in VSCode from the TWELITE STAGE app. * For the build task, no additional options such as <code>-D</code> are set by default.</p>
 </body>
 </html>

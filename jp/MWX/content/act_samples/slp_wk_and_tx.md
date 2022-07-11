@@ -361,7 +361,7 @@ pack_bytes(pkt.get_payload() // set payload data objects.
 );	
 ```
 
-パケットのペイロード（データ部分）は`pkt.get_payload()`により得られる[`smblbuf<uint8_t>派生`](../api-reference/classes/smplbuf/)の配列です。この配列に対して直接値を設定しても構いませんが、ここでは[`pack_bytes()`](../api-reference/functions-1/utility/pack\_bytes.md)を用いた値の設定を行います。
+パケットのペイロード（データ部分）は`pkt.get_payload()`により得られる[`smblbuf<uint8_t>派生`](../api-reference/classes/smplbuf/)の配列です。この配列に対して直接値を設定しても構いませんが、ここでは[`pack_bytes()`](../api-reference/funcs/utility/pack\_bytes.md)を用いた値の設定を行います。
 
 {% hint style="info" %}
 ペイロードの最大長は上記の例では91バイトですが、詳しくは[NWK\_SIMPLEパケット構造と最大長](../networks/nwk\_simple.md#pakettonoto)を参照ください。

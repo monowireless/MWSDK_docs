@@ -8,7 +8,7 @@ description: "packet_rx"
 
 このクラスはTWENETの`tsRxDataApp`構造体のラッパークラスです。
 
-このクラスオブジェクトは、[ビヘイビア](../behavior/)の[コールバック関数](../behavior/#receive)または`the_twelite.receiver.read()`により取得できます。
+このクラスオブジェクトは、[ビヘイビア](../behavior/README.md)のコールバック関数または[`on_rx_packets()`](../sys_callbacks/on_rx_packet.md)により取得できます。
 
 `packet_rx`では、特にパケットのデータペイロードを`smplbuf`コンテナで取り扱えるようにし、`expand_bytes()`などのユーティリティ関数によりペイロードの解釈記述を簡素化しています。
 
@@ -112,3 +112,17 @@ bool is_secure_pkt()
 
 
 
+
+### get_network_type()
+```cpp
+uint8_t get_network_type() 
+```
+
+ネットワークビヘイビアで識別されるパケットのネットワークタイプを返す。
+
+| 値 | 解説                        |
+| ----------------------- | ------------------------- |
+| `mwx::NETWORK::LAYERED` | `<NWK_LAYERED>` からのパケット |
+| `mwx::NETWORK::SIMPLE`  | `<NWK_SIMPLE>`  からのパケット |
+| `mwx::NETWORK::NONE`    | ネットワークを介さないパケット (App\_Tweliteなど) |
+| その他                  | エラーまたは識別できないパケット |

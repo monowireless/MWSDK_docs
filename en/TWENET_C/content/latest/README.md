@@ -6,7 +6,7 @@
 TWELITE NET 1.3.0 (2020/04) and later will be distributed as part of TWELITE STAGE.
 
 ```
-*** TWELITE STAGE Directory Structure ***
+*** TWELITE STAGE folder Structure ***
 {STAGE TO FOLDER}/
   TWELITE_Stage.exe            -- STAGE executable (Windows)
   dll/                         -- for STAGE exe (Windows)
@@ -64,7 +64,7 @@ Our support team cannot answer questions about how to use Git or GitHub. We reco
 
 > [https://github.com/monowireless/MWSDK_COMMON_SNAP/releases](https://github.com/monowireless/MWSDK_COMMON_SNAP/releases)
 
-To update the MWSDK, download the zip file from this repository, and replace the directory and files with the ones before the update.
+To update the MWSDK, download the zip file from this repository, and replace the folder and files with the ones before the update.
 
 
 
@@ -72,19 +72,19 @@ The links include links to the complete set of files in each release (the prelim
 
 ![GitHub画面例](<../.gitbook/assets/image (55).png>)
 
-The repository contains the following directories:
+The repository contains the following folders:
 
 * ChipLib
 * LICENSE
 * MkFiles
 * TWENET
 
-**Replace** these four directories in the TWELITE STAGE distribution directory。
+**Replace** these four folders in the TWELITE STAGE distribution folder。
 
 ```
-.../MWSTAGE/              --- TWELITE STAGE distribution directory
-        .../MWSDK         --- MWSDKdirectory
-              .../ChipLib <-- Replace the following four directories
+.../MWSTAGE/              --- TWELITE STAGE distribution folder
+        .../MWSDK         --- MWSDKfolder
+              .../ChipLib <-- Replace the following four folders
               .../LICENSE
               .../MkFiles
               .../TWENET
@@ -107,7 +107,7 @@ If you download a zip file, the files will not be stored in the folder that corr
 #### About Repository Use
 
 * GIT submodule is used; if you download an archive from GitHub site in .zip format or other format, the files containing submodule will not be included. (See below for an example of git command to clone with submodule)
-* The MWSDK_COMMON repository is the distributed MWSDK directory without the Tools directory and some files (the cmd file for registering environment variables in the Windows version).
+* The MWSDK_COMMON repository is the distributed MWSDK folder without the Tools folder and some files (the cmd file for registering environment variables in the Windows version).
 
 
 
@@ -120,7 +120,7 @@ In this section, we will describe how to clone the contents of MWSDK from GitHub
 The first step is to extract the MWSDK (TWELITE STAGE) from the distribution. It will have the following structure.
 
 ```
-=== directory structure ===
+=== folder structure ===
 .../MWSTAGE +- MWSDK +- TWENET
                       - ChipLib
                       - ...
@@ -129,13 +129,13 @@ The first step is to extract the MWSDK (TWELITE STAGE) from the distribution. It
 
 
 
-Rename the MWSDK directory at the time of distribution to something else.
+Rename the MWSDK folder at the time of distribution to something else.
 
 ```
-$ cd .../MWSTAGE    ...is the customer's installation directory
+$ cd .../MWSTAGE    ...is the customer's installation folder
 $ mv MWSDK MWSDK.orig
 
-=== directory structure ===
+=== folder structure ===
 .../MWSTAGE +- MWSDK.ORIG
                   +- TWENET
                    - ...
@@ -144,7 +144,7 @@ $ mv MWSDK MWSDK.orig
 
 
 
-In the MWSTAGE directory, clone MWSDK_COMMON from GitHub, and add the `--recurse-submodules` option to retrieve the submodules files.
+In the MWSTAGE folder, clone MWSDK_COMMON from GitHub, and add the `--recurse-submodules` option to retrieve the submodules files.
 
 ```
 $ pwd
@@ -152,7 +152,7 @@ $ pwd
 $ git clone --recurse-submodules https://github.com/monowireless/MWSDK_COMMON MWSDK
 ...(It'll take a while.)
 
-=== directory structure ===
+=== folder structure ===
 .../MWSTAGE +- MWSDK
                   +- TWENET
                    - ... (Tools is not included)
@@ -164,12 +164,12 @@ $ git clone --recurse-submodules https://github.com/monowireless/MWSDK_COMMON MW
 
 
 
-Finally, transplant the `MWSDK.ORIG/Tools` directory to MWSDK.
+Finally, transplant the `MWSDK.ORIG/Tools` folder to MWSDK.
 
 ```
 $ mv MWSDK.ORIG/Tools MWSDK/
 
-=== ディレクトリ構成 ===
+=== フォルダ構成 ===
 .../MWSTAGE +- MWSDK
                   +- TWENET
                    - ...

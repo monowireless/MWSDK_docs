@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Mono Wireless Inc." />
-  <title>Installing VS Code</title>
+  <title>Installing VSCode</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -123,26 +123,27 @@ border: none;
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Installing VS Code</h1>
+<h1 class="title">Installing VSCode</h1>
 <p class="author">Mono Wireless Inc.</p>
 </header>
 <nav id="TOC">
 <ul>
-<li><a href="#installing-vs-code">Installing VS Code</a><ul>
 <li><a href="#installing-vscode">Installing VSCode</a><ul>
-<li><a href="#section"></a></li>
+<li><a href="#installing-vscode-1">Installing VSCode</a><ul>
+<li><a href="#special-note-for-each-os">Special note for each OS</a></li>
 <li><a href="#installing-plug-ins">Installing plug-ins</a></li>
 </ul></li>
 <li><a href="#notes">Notes</a></li>
 </ul></li>
 </ul>
 </nav>
-<h1 id="installing-vs-code">Installing VS Code</h1>
-<p>VisualStudio Code (VS Code) is recommended to make Act (source code) writing easier. The attached Act contains a file that has been configured to ensure that the code is interpreted properly in VS Code.</p>
+<h1 id="installing-vscode">Installing VSCode</h1>
+<p>VisualStudio Code (VSCode) is recommended to make Act (source code) writing easier. The attached Act contains a file that has been configured to ensure that the code is interpreted properly in VSCode.</p>
 <div class="warning">
-<p>VS Code reads source files and header files and interprets the source code, thus providing function definition information and function and method name completion to help you write source code. The MWX library requires more header files to be loaded than the C library. In comparison to C development, the MWX library requires more header files to be loaded and the editor may be slower in some environments.</p>
+<p>VSCode reads source files and header files and interprets the source code, thus providing function definition information and function and method name completion to help you write source code. The MWX library requires more header files to be loaded than the C library. In comparison to C development, the MWX library requires more header files to be loaded and the editor may be slower in some environments.</p>
 </div>
-<h2 id="installing-vscode">Installing VSCode</h2>
+<p>The project settings of VSCode requires some information, such as library source code location, to analyse source codes. These inforamtion are passed by TWELITE STAGE app as environmental variable when launching VSCode. Therefore, application instance of VSCode should not be present when launching from TWELITE STAGE app, otherwise VSCode will not refer to these environmental values.</p>
+<h2 id="installing-vscode-1">Installing VSCode</h2>
 <div class="danger">
 <p>Please note that this support does not cover questions about how to install or use VSCode. Please refer to the information available in the public domain.</p>
 <p>Depending on your environment, you may need to configure security settings or other settings in order to install the software. Please check with your system administrator whether installation is possible, and refer to the distributor or general information for instructions.</p>
@@ -150,14 +151,20 @@ border: none;
 <p>VSCode allows you to do the following:</p>
 <ul>
 <li>Editing the source code</li>
-<li>Connection to GIT (if you do your own source control on GIT)</li>
 <li>The IntelliSense based on source code interpretation (*not all definitions can be guaranteed to be interpreted correctly)</li>
 </ul>
 <p>VSCode can be downloaded from the link below.</p>
 <div class="pageref">
 <a target=_blank href="https://code.visualstudio.com">https://code.visualstudio.com</a>
 </div>
-<h3 id="section"></h3>
+<h3 id="special-note-for-each-os">Special note for each OS</h3>
+<p>The <code>code</code> command must be enabled to invoke VSCode from TWELITE STAGE.</p>
+<p>The following information is from code.visualstudio.com</p>
+<ul>
+<li><a target=_blank href="https://code.visualstudio.com/docs/setup/mac">macOS</a> - PATH must be set so that the <code>code</code> command can be executed.</li>
+<li><a target=_blank href="https://code.visualstudio.com/docs/setup/windows">Windows</a></li>
+<li><a target=_blank href="https://code.visualstudio.com/docs/setup/linux">Linux</a></li>
+</ul>
 <h3 id="installing-plug-ins">Installing plug-ins</h3>
 <p>To enable Visual Studio Code to interpret C/C++ language descriptions, install a plugin.</p>
 <ul>
@@ -169,7 +176,7 @@ border: none;
 <p>When launching VSCode from TWELITE STAGE, those settings such as <code>MWSDK_ROOT</code> will be setup automatically. In some cases, such as when you have already started VSCode, the settings may not be reflected.</p>
 </div>
 <div class="warning">
-<p>VS Code’s interpretation of source code is not always the same as the compiler’s interpretation. Also, depending on how the source code is edited, the interpretation may be more incomplete. </p>
+<p>VSCode’s interpretation of source code is not always the same as the compiler’s interpretation. Also, depending on how the source code is edited, the interpretation may be more incomplete.</p>
 </div>
 </body>
 </html>

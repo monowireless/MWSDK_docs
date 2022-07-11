@@ -200,13 +200,14 @@ border: none;
 <li><a href="#get_addr_src_long-get_addr_src_lid">get_addr_src_long(), get_addr_src_lid()</a></li>
 <li><a href="#get_addr_dst">get_addr_dst()</a></li>
 <li><a href="#is_secure_pkt">is_secure_pkt()</a></li>
+<li><a href="#get_network_type">get_network_type()</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </nav>
 <h1 id="packet_rx">packet_rx</h1>
 <p>このクラスはTWENETの<code>tsRxDataApp</code>構造体のラッパークラスです。</p>
-<p>このクラスオブジェクトは、<a href="../behavior/README.html">ビヘイビア</a>の<a href="../behavior/#receive">コールバック関数</a>または<code>the_twelite.receiver.read()</code>により取得できます。</p>
+<p>このクラスオブジェクトは、<a href="../behavior/README.html">ビヘイビア</a>のコールバック関数または<a href="../sys_callbacks/on_rx_packet.html"><code>on_rx_packets()</code></a>により取得できます。</p>
 <p><code>packet_rx</code>では、特にパケットのデータペイロードを<code>smplbuf</code>コンテナで取り扱えるようにし、<code>expand_bytes()</code>などのユーティリティ関数によりペイロードの解釈記述を簡素化しています。</p>
 <div class="info">
 <p>現時点では、シンプル中継ネットワーク<code>&lt;NWK_SIMPLE&gt;</code>で必要とされるものを中心にメソッド等のインタフェースを実装しています。</p>
@@ -262,5 +263,34 @@ border: none;
 <h3 id="is_secure_pkt">is_secure_pkt()</h3>
 <div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" title="1"><span class="dt">bool</span> is_secure_pkt()</a></code></pre></div>
 <p>暗号化パケットの場合は <code>true</code> を返し、平文の時は<code>false</code> を返します。</p>
+<h3 id="get_network_type">get_network_type()</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" title="1"><span class="dt">uint8_t</span> <span class="dt">get_network_type</span>() </a></code></pre></div>
+<p>ネットワークビヘイビアで識別されるパケットのネットワークタイプを返す。</p>
+<table>
+<thead>
+<tr class="header">
+<th>値</th>
+<th>解説</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mwx::NETWORK::LAYERED</code></td>
+<td><code>&lt;NWK_LAYERED&gt;</code> からのパケット</td>
+</tr>
+<tr class="even">
+<td><code>mwx::NETWORK::SIMPLE</code></td>
+<td><code>&lt;NWK_SIMPLE&gt;</code> からのパケット</td>
+</tr>
+<tr class="odd">
+<td><code>mwx::NETWORK::NONE</code></td>
+<td>ネットワークを介さないパケット (App_Tweliteなど)</td>
+</tr>
+<tr class="even">
+<td>その他</td>
+<td>エラーまたは識別できないパケット</td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>

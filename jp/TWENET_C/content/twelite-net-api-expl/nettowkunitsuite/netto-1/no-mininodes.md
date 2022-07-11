@@ -83,9 +83,9 @@ void cbToCoNet_vRxEvent(tsRxDataApp *pRx) {
 
 ## vProcessEvCore()
 
-システム始動時 [`E_EVENT_START_UP`](../../../twelite-net-api-ref/yzaibento/ibento.md) に、[`tsToCoNet_NwkLyTr_Config`](../../../twelite-net-api-ref/netto-api/layertree-netto/tstoconet_nwklytr_context.md) 構造体の設定、[`ToCoNet_NwkLyTr_psConfig_MiniNodes()`](../../../twelite-net-api-ref/netto-api/layertree-netto/toconet_nwklytr_psconfig_mininodes.md) 関数の実行、 [`ToCoNet_Nwk_bInit()`](../../../twelite-net-api-ref/netto-api/functions/toconet_nwk_binit.md) 関数によるネットワークの初期化、[`ToCoNet_Nwk_bStart()`](../../../twelite-net-api-ref/netto-api/functions/toconet_nwk_bstart.md) 関数によるネットワークの開始を行います。 
+システム始動時 [`E_EVENT_START_UP`](../../../twelite-net-api-ref/yzaibento/ibento.md) に、[`tsToCoNet_NwkLyTr_Config`](../../../twelite-net-api-ref/netto-api/layertree-netto/tstoconet_nwklytr_context.md) 構造体の設定、[`ToCoNet_NwkLyTr_psConfig_MiniNodes()`](../../../twelite-net-api-ref/netto-api/layertree-netto/toconet_nwklytr_psconfig_mininodes.md) 関数の実行、 [`ToCoNet_Nwk_bInit()`](../../../twelite-net-api-ref/netto-api/sys_callbacks/toconet_nwk_binit.md) 関数によるネットワークの初期化、[`ToCoNet_Nwk_bStart()`](../../../twelite-net-api-ref/netto-api/sys_callbacks/toconet_nwk_bstart.md) 関数によるネットワークの開始を行います。 
 
-スリープ前には[`ToCoNet_Nwk_bPause()`](../../../twelite-net-api-ref/netto-api/functions/toconet_nwk_bpause.md)、スリープからの起床時には [`ToCoNet_Nwk_bResumte()`](../../../twelite-net-api-ref/netto-api/functions/toconet_nwk_bresume.md) を実行します。
+スリープ前には[`ToCoNet_Nwk_bPause()`](../../../twelite-net-api-ref/netto-api/sys_callbacks/toconet_nwk_bpause.md)、スリープからの起床時には [`ToCoNet_Nwk_bResumte()`](../../../twelite-net-api-ref/netto-api/sys_callbacks/toconet_nwk_bresume.md) を実行します。
 
 ```c
 static tsToCoNet_NwkLyTr_Config sNwkLayerTreeConfig;

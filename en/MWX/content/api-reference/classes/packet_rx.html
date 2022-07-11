@@ -200,13 +200,14 @@ border: none;
 <li><a href="#get_addr_src_long-get_addr_src_lid">get_addr_src_long(), get_addr_src_lid()</a></li>
 <li><a href="#get_addr_dst">get_addr_dst()</a></li>
 <li><a href="#is_secure_pkt">is_secure_pkt()</a></li>
+<li><a href="#get_network_type">get_network_type()</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </nav>
 <h1 id="packet_rx">packet_rx</h1>
 <p>This class is a wrapper class for TWENET’s <code>tsRxDataApp</code> structure.</p>
-<p>This class object is a wrapper class for <a href="../behavior/README.html">behavior</a>, callback function or by <code>the_twelite.receiver.read()</code>.</p>
+<p>This class object is a wrapper class for <a href="../behavior/README.html">behavior</a> callback function or by <a href="../sys_callbacks/on_rx_packet.html"><code>on_rx_packets()</code></a>.</p>
 <p>In <code>packet_rx</code>, in particular, the data payload of the packet can be handled by the <code>smplbuf</code> container, and utility functions such as <code>expand_bytes()</code> simplify the payload interpretation description.</p>
 <div class="info">
 <p>At this time, we have implemented methods and other interfaces, mainly those required for the simple relay network <code>&lt;NWK_SIMPLE&gt;</code>.</p>
@@ -262,5 +263,34 @@ border: none;
 <h3 id="is_secure_pkt">is_secure_pkt()</h3>
 <div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" title="1"><span class="dt">bool</span> is_secure_pkt()</a></code></pre></div>
 <p>Returns <code>true</code> for encrypted packets and <code>false</code> for plaintext.</p>
+<h3 id="get_network_type">get_network_type()</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" title="1"><span class="dt">uint8_t</span> <span class="dt">get_network_type</span>() </a></code></pre></div>
+<p>Returns network type of the packet identified by Network BEHAVIOR.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Value</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mwx::NETWORK::LAYERED</code></td>
+<td>packets from <code>&lt;NWK_LAYERED&gt;</code></td>
+</tr>
+<tr class="even">
+<td><code>mwx::NETWORK::SIMPLE</code></td>
+<td>packets from <code>&lt;NWK_SIMPLE&gt;</code></td>
+</tr>
+<tr class="odd">
+<td><code>mwx::NETWORK::NONE</code></td>
+<td>neworkless packets</td>
+</tr>
+<tr class="even">
+<td>others</td>
+<td>error or unknow packet type</td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>

@@ -27,7 +27,7 @@ This function may cause a hang-up depending on the timing of its use. It is reco
 #include "ToCoNet_mod_prototype.h"
 ```
 
-## Functions
+## functions
 
 ### ToCoNet_EnergyScan_bStart()
 

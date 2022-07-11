@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Mono Wireless Inc." />
+  <title>I2C 温度湿度センサー</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <style type="text/css">body { line-height: 1.3em; }
+p { line-height: 1.5em; }
+img {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 66%;
+}
+h1, h2, h3 {
+padding: 1em 1em; border-left: 0.5em solid #000;
+background: #f4f4f4;
+}
+h1.title {
+all: initial;
+font-size: 1em;
+border-left: 3em solid #000;
+padding: 0em 0.5em 0em 0.5em;
+font-weight: bold;
+}
+p.author, h2.author {
+all: initial;
+font-size: 1em;
+border-left: 0.5em solid #000;
+padding: 0em 0.5em 0em 0.5em;
+font-weight: bold;
+}
+p.date, h3.date {
+all: initial;
+font-size: 1em;
+border-left: 0.5em solid #000;
+border-right: 10em solid #000;
+padding: 0em 0.5em 0em 0.5em;
+font-weight: bold;
+}
+p.caption {
+text-align: center;
+font-weight: bold;
+}
+table {
+width: 85%;
+margin: auto;
+border-collapse: collapse;
+border-spacing: 4px;
+}
+pre {
+width: 85%;
+padding: 0.5em 1em;
+margin: auto;
+border:1px solid #333;
+padding: 4px;
+}
+td, th {
+border-collapse: collapse;
+border:1px solid #333;
+}
+div.success {
+width: 90%;
+margin: 0.5em 1em;
+margin-left: auto;
+margin-right: auto;
+padding: 0.5em 1em;
+border: dashed 2px #408040;
+background-color: #e0FFe0;
+}
+div.warning {
+width: 90%;
+margin: 0.5em 1em;
+margin-left: auto;
+margin-right: auto;
+padding: 0.5em 1em;
+border: dashed 2px #807060;
+background-color: #FFF8E8;
+}
+div.danger {
+width: 90%;
+margin: 0.5em 1em;
+margin-left: auto;
+margin-right: auto;
+padding: 0.5em 1em;
+border: dashed 2px #FF0000;
+background-color: #FFE0E0;
+}
+div.info {
+width: 90%;
+margin: 0.5em 1em;
+margin-left: auto;
+margin-right: auto;
+padding: 0.5em 1em;
+border: dashed 2px #404080;
+background-color: #e8e8FF;
+}
+div.pageref {
+padding: 0.5em 1em;
+margin: 2em 0;
+color: #232323;
+background: #fff8e8;
+border-left: solid 10px #ffc06e;
+}
+code {
+
+padding: 0.2em 0.2em 0.2em 0.2em; background: #f0f0f0;
+border: solid 1px #808080;
+border-radius: 0.2em;
+}
+pre code {
+background: #ffffff;
+border: none;
+}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">I2C 温度湿度センサー</h1>
+<p class="author">Mono Wireless Inc.</p>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#i2c-温度湿度センサー">I2C 温度湿度センサー</a><ul>
+<li><a href="#アクトの機能">アクトの機能</a></li>
+<li><a href="#アクトの使い方">アクトの使い方</a><ul>
+<li><a href="#必要なtwelite">必要なTWELITE</a></li>
+</ul></li>
+<li><a href="#アクトの解説">アクトの解説</a><ul>
+<li><a href="#インクルード">インクルード</a></li>
+<li><a href="#センサードライバ">センサードライバ</a></li>
+<li><a href="#setup-1">setup()</a></li>
+<li><a href="#loop">loop()</a></li>
+<li><a href="#on_tx_comp">on_tx_comp()</a></li>
+<li><a href="#sleepnow">sleepNow()</a></li>
+<li><a href="#wakeup">wakeup()</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="i2c-温度湿度センサー">I2C 温度湿度センサー</h1>
+<p>I2C センサーデバイスを用い、定期起床からの計測および送信を行う例です。</p>
+<p>接続する I2C デバイスとして、当社製の <a target=_blank href="https://mono-wireless.com/jp/products/twelite-pal/sense/amb-pal.html">環境センサーパル AMBIENT SENSE PAL</a> または <a target=_blank href="https://mono-wireless.com/jp/products/twelite-aria/index.html">TWELITE ARIA BLUE または RED</a> を用いていますが、お使いのデバイス用にI2Cコマンド送受信部分を書き換えて使用してください。</p>
+<div class="success">
+<p>このアクトには以下が含まれます。</p>
+<ul>
+<li>無線パケットの送受信</li>
+<li>インタラクティブモードによる設定 - <a href="../settings/stg_std.html">&lt;STG_STD&gt;</a></li>
+<li>ステートマシンによる状態遷移制御 - <a href="../api-reference/classes/smsimple-suttomashin.html">&lt;SM_SIMPLE&gt;</a></li>
+</ul>
+</div>
+<h2 id="アクトの機能">アクトの機能</h2>
+<ul>
+<li>I2C デバイスのコマンド送受信を行います。</li>
+<li>コイン電池で動作させるための、スリープ機能を利用します。</li>
+</ul>
+<h2 id="アクトの使い方">アクトの使い方</h2>
+<h3 id="必要なtwelite">必要なTWELITE</h3>
+<table>
+<colgroup>
+<col style="width: 14%"></col>
+<col style="width: 85%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>役割</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>親機</td>
+<td><a target=_blank href="https://mono-wireless.com/jp/products/MoNoStick/">MONOSTICK BLUEまたはRED</a>アクト<a href="parent_monostick.html">Parent_MONOSTICK</a>を動作させる。</td>
+</tr>
+<tr class="even">
+<td>子機</td>
+<td>- <a target=_blank href="https://mono-wireless.com/jp/products/twelite-pal/BnR/index.html">BLUE PAL または RED PAL</a> + <a target=_blank href="https://mono-wireless.com/jp/products/twelite-pal/sense/amb-pal.html">環境センサーパル AMBIENT SENSE PAL</a><br>- <a target=_blank href="https://mono-wireless.com/jp/products/twelite-aria/index.html">TWELITE ARIA BLUE または RED</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="アクトの解説">アクトの解説</h2>
+<h3 id="インクルード">インクルード</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1"><span class="pp">#include </span><span class="im">&lt;TWELITE&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="pp">#include </span><span class="im">&lt;NWK_SIMPLE&gt;</span><span class="co">// ネットワークサポート</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="pp">#include </span><span class="im">&lt;STG_STD&gt;</span><span class="pp">   </span><span class="co">// インタラクティブモード</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="pp">#include </span><span class="im">&lt;SM_SIMPLE&gt;</span><span class="pp"> </span><span class="co">// 簡易ステートマシン</span></a></code></pre></div>
+<p>無線送受信に必要な <code>&lt;NWK_SIMPLE&gt;</code>、インタラクティブモードを追加するための <code>&lt;STG_STD&gt;</code>、アプリケーションループの記述を簡素化するための <code>&lt;SM_SIMPLE&gt;</code> をインクルードしています。</p>
+<h3 id="センサードライバ">センサードライバ</h3>
+<p>この例では SHTC3 (TWELITE AMB PAL) と、SHT40 (TWELITE ARIA) の２種類のコードがあり <code>#ifdef</code> により切り替えています。コードの移植性のため２種類は同じ関数インタフェースとして定義しています。２種類のコードは同メーカ、同系列のセンサーであるため似通っています。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" title="1"><span class="co">/*** sensor select, define either of USE_SHTC3 or USE_SHT40  */</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co">// use SHTC3 (TWELITE PAL)</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="pp">#define U</span>SE_SHTC3</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co">// use SHT40 (TWELITE ARIA)</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="pp">#undef USE_SHT40</span></a></code></pre></div>
+<p>以下では SHTC3 の例を示します。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" title="1"><span class="pp">#if defined(USE_SHTC3)</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co">// for SHTC3</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">struct</span> SHTC3 {</a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="dt">uint8_t</span> I2C_ADDR;</a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="dt">uint8_t</span> CONV_TIME;</a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="dt">bool</span> setup() { ... }</a>
+<a class="sourceLine" id="cb3-8" title="8">    <span class="dt">bool</span> begin() { ... }</a>
+<a class="sourceLine" id="cb3-9" title="9">    <span class="dt">int</span> get_convtime() { <span class="cf">return</span> CONV_TIME; }</a>
+<a class="sourceLine" id="cb3-10" title="10">    <span class="dt">bool</span> read(<span class="dt">int16_t</span> &amp;i16Temp, <span class="dt">int16_t</span> &amp;i16Humd) { ... }</a>
+<a class="sourceLine" id="cb3-11" title="11">} sensor_device;</a></code></pre></div>
+<p>ここではソースコードを整理するため I2C センサー関連の手続きを構造体(クラス) STHC3 にまとめています。この構造体には I2C アドレス <code>I2C_ADDR</code> と、値取得のための待ち時間 <code>CONV_TIME</code> をメンバー変数として持っており、<code>sensor_device</code> という実体名で宣言しています。</p>
+<p>この構造体（クラス）は以下のメンバー関数を持っています。 | 関数名 | 解説 | | —— | —- | | <code>setup()</code> | 構造体の初期化を行う。（コンパイラの制約でグローバル宣言した場合コンストラクタが呼び出されないため）コンストラクタの代わりに呼び出す。 | | <code>begin()</code> | センサー値の取得を開始する。開始後、適切なセンサー値が得られるまで一定時間待つ必要がある。 | | <code>get_convtime()</code> | センサー値の取得待ち時間を返す。 | | <code>read(int&amp;, int&amp;)</code> | センサー値を取得する。 |</p>
+<p>処理を一つ一つ見ていきます。</p>
+<h4 id="setup">setup()</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" title="1"><span class="dt">bool</span> setup() {</a>
+<a class="sourceLine" id="cb4-2" title="2">    <span class="co">// here, initialize some member vars instead of constructor.</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    I2C_ADDR = <span class="bn">0x70</span>;</a>
+<a class="sourceLine" id="cb4-4" title="4">    CONV_TIME = <span class="dv">10</span>;</a>
+<a class="sourceLine" id="cb4-5" title="5">    <span class="cf">return</span> <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb4-6" title="6">}</a></code></pre></div>
+<p>メンバー変数に I2C アドレスと、センサー値取得待ち時間を設定します。</p>
+<p>これらの値は原則として固定値ですので変数設定する必要はありません。変数として扱う有効な例として、設定によってより高精度なセンサー稼働をさせるような場合に必要な変換時間を管理する、設定によって I2C の副アドレスを選択するような場合などが考えられます。</p>
+<h4 id="begin">begin()</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" title="1"><span class="dt">bool</span> begin() {</a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="co">// start read</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="cf">if</span> (<span class="kw">auto</span>&amp;&amp; wrt = Wire.get_writer(I2C_ADDR)) {</a>
+<a class="sourceLine" id="cb5-4" title="4">        wrt &lt;&lt; <span class="bn">0x60</span>; <span class="co">// SHTC3_TRIG_H</span></a>
+<a class="sourceLine" id="cb5-5" title="5">        wrt &lt;&lt; <span class="bn">0x9C</span>; <span class="co">// SHTC3_TRIG_L</span></a>
+<a class="sourceLine" id="cb5-6" title="6">    } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb5-7" title="7">        <span class="cf">return</span> <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb5-8" title="8">    }</a>
+<a class="sourceLine" id="cb5-9" title="9">    <span class="cf">return</span> <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb5-10" title="10">}</a></code></pre></div>
+<p>センサーを動作させるために指令を書き込みます。</p>
+<p>MWXライブラリではI2Cバスへの書き込みに２つの記述方法がありますが、こちらは<a href="../api-reference/predefined_objs/wire/wire-helperclass.html">ヘルパー関数</a>を用いる方法です。</p>
+<p><em>if</em> 文中で <code>Wire.get_writer(I2C_ADDR)</code> は、アドレス<code>I2C_ADDR</code>に対応するI2Cデバイスを開き、その読み書き用のオブジェクトを生成します。読み書きオブジェクト <code>wrt</code> は <em>if</em> 節の <code>(bool)</code> 評価により、デバイスのオープンに失敗したときなどには <em>false</em> を返します。<em>true</em>が戻った時は無事にオープンできたことになり <em>if</em>節内の処理を行います。</p>
+<p>ここでは <code>wrt &lt;&lt; 0x60;</code> のように、ストリーム演算子 <code>&lt;&lt;</code> を用いて１バイト I2C デバイスに書き込んでいます。このストリーム演算子は原則 <code>uint8_t</code> 型の１バイトを書き込むためのものです。</p>
+<h4 id="get_convtime">get_convtime()</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" title="1"><span class="dt">int</span> get_convtime() {</a>
+<a class="sourceLine" id="cb6-2" title="2">    <span class="cf">return</span> CONV_TIME;</a>
+<a class="sourceLine" id="cb6-3" title="3">}</a></code></pre></div>
+<p><code>CONV_TIME</code>の値を返すための関数です。</p>
+<h4 id="read">read()</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" title="1"><span class="dt">bool</span> read(<span class="dt">int16_t</span> &amp;i16Temp, <span class="dt">int16_t</span> &amp;i16Humd) {</a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="co">// read result</span></a>
+<a class="sourceLine" id="cb7-3" title="3">    <span class="dt">uint16_t</span> u16temp, u16humd;</a>
+<a class="sourceLine" id="cb7-4" title="4">    <span class="dt">uint8_t</span> u8temp_csum, u8humd_csum;</a>
+<a class="sourceLine" id="cb7-5" title="5">    <span class="cf">if</span> (<span class="kw">auto</span>&amp;&amp; rdr = Wire.get_reader(I2C_ADDR, <span class="dv">6</span>)) {</a>
+<a class="sourceLine" id="cb7-6" title="6">        rdr &gt;&gt; u16temp;</a>
+<a class="sourceLine" id="cb7-7" title="7">        rdr &gt;&gt; u8temp_csum; <span class="co">// skip the crc8 check</span></a>
+<a class="sourceLine" id="cb7-8" title="8">        rdr &gt;&gt; u16humd;</a>
+<a class="sourceLine" id="cb7-9" title="9">        rdr &gt;&gt; u8humd_csum; <span class="co">// skip the crc8 check</span></a>
+<a class="sourceLine" id="cb7-10" title="10">    } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb7-11" title="11">        <span class="cf">return</span> <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb7-12" title="12">    }</a>
+<a class="sourceLine" id="cb7-13" title="13"></a>
+<a class="sourceLine" id="cb7-14" title="14">    <span class="co">// check CRC and save the values</span></a>
+<a class="sourceLine" id="cb7-15" title="15">    <span class="cf">if</span> (   (CRC8_u8CalcU16(u16temp, <span class="bn">0xff</span>) == u8temp_csum)</a>
+<a class="sourceLine" id="cb7-16" title="16">        &amp;&amp; (CRC8_u8CalcU16(u16humd, <span class="bn">0xff</span>) == u8humd_csum))</a>
+<a class="sourceLine" id="cb7-17" title="17">    {</a>
+<a class="sourceLine" id="cb7-18" title="18">        i16Temp = (<span class="dt">int16_t</span>)(-<span class="dv">4500</span> + ((<span class="dv">17500</span> * <span class="dt">int32_t</span>(u16temp)) &gt;&gt; <span class="dv">16</span>));</a>
+<a class="sourceLine" id="cb7-19" title="19">        i16Humd = (<span class="dt">int16_t</span>)((<span class="dt">int32_t</span>(u16humd) * <span class="dv">10000</span>) &gt;&gt; <span class="dv">16</span>);</a>
+<a class="sourceLine" id="cb7-20" title="20">    } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb7-21" title="21">        <span class="cf">return</span> <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb7-22" title="22">    }</a>
+<a class="sourceLine" id="cb7-23" title="23"></a>
+<a class="sourceLine" id="cb7-24" title="24">    <span class="cf">return</span> <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb7-25" title="25">}</a></code></pre></div>
+<p>センサーデータを読み出します。</p>
+<p>SHTC3では、<code>begin()</code>によりセンサー読み出しを開始してから、数ms待ち時間をおいてセンサー値を読み出します。 センサー値の並びは以下のようになっています。</p>
+<table>
+<thead>
+<tr class="header">
+<th>バイト</th>
+<th>解説</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>温度センサー値(上位バイト)</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>温度センサー値(下位バイト)</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>バイト0,1のCRC8値</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>湿度センサー値(上位バイト)</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>湿度センサー値(下位バイト)</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>バイト3,4のCRC8値</td>
+</tr>
+</tbody>
+</table>
+<p>※ SHTC3では、センサー取得開始時に与えるパラメータによって、データの並び順も変化しますが上記<code>begin()</code>で書き込んだ<code>0x609C</code> コマンドで開始した場合は、温度データが先に来ます。</p>
+<p><code>begin()</code>ではデータを書き出していましたが、ここではデータを読み込みます。データを読み込むには同様に <code>Wire.get_reader()</code> により、ヘルパーオブジェクト <code>rdr</code> を生成します。エラーがなければ <code>rdr</code> は <em>if</em> 節中で <em>true</em> を返します。ここで <code>get_reader(I2C_ADDR, 6)</code> の２番目に与えたパラメータ <code>6</code> は、読み出しバイト数です。このバイト数を読みだした時点で I2C バスの読出しを終了する手続きを行います。（デバイスによっては、こういった手続きを省略しても動作するものもありますが、通常は適切な値を与えるようにしてください）</p>
+<p>読み出しはストリーム演算子 <code>&gt;&gt;</code> により行っています。読み出し方法にはほかにもいくつかあります。詳しくは<a href="../api-reference/predefined_objs/wire/wire-helperclass.html">ヘルパー関数</a> を参照してください。ストリーム演算子を用いる場合は、事前に宣言した <code>uint8_t</code>, <code>uint16_t</code>, <code>uint32_t</code> 型の変数に値を入力します。<code>rdr &gt;&gt; u16temp</code> は、<code>uint16_t</code>型の変数に対して２バイトI2Cバスから読み出し<strong>ビッグエンディアン形式(１バイト目は上位バイト)</strong>で格納します。</p>
+<h3 id="setup-1">setup()</h3>
+<p><code>setup()</code>関数は TWELITE 無線マイコンが指導したときに１度だけ呼び出される関数です。この関数では、各種初期化を行います。</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" title="1"><span class="dt">void</span> setup() {</a>
+<a class="sourceLine" id="cb8-2" title="2">    <span class="co">/*** SETUP section */</span></a>
+<a class="sourceLine" id="cb8-3" title="3">    ...</a>
+<a class="sourceLine" id="cb8-4" title="4">}</a></code></pre></div>
+<h4 id="ステートマシン-sm_simple">ステートマシン SM_SIMPLE</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" title="1"><span class="co">// application state defs</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw">enum</span> <span class="kw">class</span> STATE : <span class="dt">uint8_t</span> {</a>
+<a class="sourceLine" id="cb9-3" title="3">    INTERACTIVE = <span class="dv">255</span>,</a>
+<a class="sourceLine" id="cb9-4" title="4">    INIT = <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb9-5" title="5">    SENSOR,</a>
+<a class="sourceLine" id="cb9-6" title="6">    TX,</a>
+<a class="sourceLine" id="cb9-7" title="7">    TX_WAIT_COMP,</a>
+<a class="sourceLine" id="cb9-8" title="8">    GO_SLEEP</a>
+<a class="sourceLine" id="cb9-9" title="9">};</a>
+<a class="sourceLine" id="cb9-10" title="10"></a>
+<a class="sourceLine" id="cb9-11" title="11"><span class="co">// simple state machine.</span></a>
+<a class="sourceLine" id="cb9-12" title="12">SM_SIMPLE&lt;STATE&gt; step;</a>
+<a class="sourceLine" id="cb9-13" title="13"></a>
+<a class="sourceLine" id="cb9-14" title="14"><span class="dt">void</span> setup() {</a>
+<a class="sourceLine" id="cb9-15" title="15">    ...</a>
+<a class="sourceLine" id="cb9-16" title="16">    <span class="co">/// init vars or objects</span></a>
+<a class="sourceLine" id="cb9-17" title="17">    step.setup(); <span class="co">// initialize state machine</span></a>
+<a class="sourceLine" id="cb9-18" title="18">    ...</a>
+<a class="sourceLine" id="cb9-19" title="19">}</a></code></pre></div>
+<p>ステートマシン（状態遷移マシン）は、都度呼び出される <code>loop()</code> 文中の記述を簡素化するために用います。もちろん、アプリケーションの記述を行うのに、この例で使用する <code>SM_SMPLE</code> を使用しなくても構いません。</p>
+<p><a href="./smsimple-suttomashin.html">SM_SIMPLE</a>は、ごく短いコードで実装されており、状態への遷移と、タイムアウトの管理、フラグの管理を簡易的に行えます。状態はあらかじめ列挙体で定義しておきます。上記の例では <code>enum class STATE</code> です。ステートマシンの実体は定義済みの列挙体 <code>STATE</code> をパラメータとして <code>SM_SMPLE&lt;STATE&gt; step</code> のように宣言します。</p>
+<h4 id="ビヘイビアの登録">ビヘイビアの登録</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" title="1"><span class="dt">void</span> setup() {</a>
+<a class="sourceLine" id="cb10-2" title="2">    ...</a>
+<a class="sourceLine" id="cb10-3" title="3">    <span class="co">/// load board and settings objects</span></a>
+<a class="sourceLine" id="cb10-4" title="4">    <span class="kw">auto</span>&amp;&amp; set = the_twelite.settings.use&lt;STG_STD&gt;(); <span class="co">// load save/load settings(interactive mode) support</span></a>
+<a class="sourceLine" id="cb10-5" title="5">    <span class="kw">auto</span>&amp;&amp; nwk = the_twelite.network.use&lt;NWK_SIMPLE&gt;(); <span class="co">// load network support</span></a>
+<a class="sourceLine" id="cb10-6" title="6">    ...</a>
+<a class="sourceLine" id="cb10-7" title="7">}</a></code></pre></div>
+<p>ビヘイビアは、プログラム中で利用する機能のまとまりです。各種イベントが発生したときの振る舞いが記述されています。</p>
+<p>ここでは、インタラクティブモード画面 <code>&lt;STG_STD&gt;</code> と、シンプル中継ネットワーク <code>&lt;NWK_SMPLE&gt;</code> の２種類のビヘイビアを利用します。</p>
+<h4 id="インタラクティブモードの設定-stg_std">インタラクティブモードの設定 STG_STD</h4>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" title="1">    ...</a>
+<a class="sourceLine" id="cb11-2" title="2">    <span class="co">/// configure settings</span></a>
+<a class="sourceLine" id="cb11-3" title="3">    <span class="co">// configure settings</span></a>
+<a class="sourceLine" id="cb11-4" title="4">    set &lt;&lt; SETTINGS::appname(FOURCHARS);</a>
+<a class="sourceLine" id="cb11-5" title="5">    set &lt;&lt; SETTINGS::appid_default(DEFAULT_APP_ID); <span class="co">// set default appID</span></a>
+<a class="sourceLine" id="cb11-6" title="6">    set &lt;&lt; SETTINGS::ch_default(DEFAULT_CHANNEL); <span class="co">// set default channel</span></a>
+<a class="sourceLine" id="cb11-7" title="7">    set.hide_items(E_STGSTD_SETID::OPT_DWORD2, E_STGSTD_SETID::OPT_DWORD3, E_STGSTD_SETID::OPT_DWORD4,  E_STGSTD_SETID::ENC_KEY_STRING, E_STGSTD_SETID::ENC_MODE);</a></code></pre></div>
+<p>記述するアプリケーションに合わせたインタラクティブモードの設定項目にするため、 <a href="../settings/stg_std.html">STG_STG</a> に対して初期設定を行います。</p>
+<ul>
+<li><code>SETTINGS::appname</code> : アプリケーション名（文字列）を指定します。インタラクティブモード画面上で先頭行に表示されます。画面上の文字数には余裕がないので最小限の文字列にします。</li>
+<li><code>SETTINGS::appid_default</code> : アプリケーションIDの規定値です。独自のアプリケーションで独自の規定アプリケーションIDを持たせたい場合に実行します。</li>
+<li><code>SETTINGS::ch_default</code> : チャネルの規定値です。独自のアプリケーションで既定のチャネルを持たせたい場合に実行します。</li>
+</ul>
+<p>続いて <code>set.hide_items()</code> では、既定のインタラクティブモードの画面上で不要な設定項目を削除しています。すべて表示しても構わない場合は、この呼び出しを行う必要はありません。</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb12-1" title="1">    <span class="co">// if SET(DIO12)=LOW is detected, start with intaractive mode.</span></a>
+<a class="sourceLine" id="cb12-2" title="2">    <span class="cf">if</span> (digitalRead(PIN_DIGITAL::DIO12) == PIN_STATE::LOW) {</a>
+<a class="sourceLine" id="cb12-3" title="3">        set &lt;&lt; SETTINGS::open_at_start();</a>
+<a class="sourceLine" id="cb12-4" title="4">        step.next(STATE::INTERACTIVE);</a>
+<a class="sourceLine" id="cb12-5" title="5">        <span class="cf">return</span>;</a>
+<a class="sourceLine" id="cb12-6" title="6">    }</a></code></pre></div>
+<p>DIO12 のピンが LOW (GNDレベル) で、電源投入またはリセットされた場合は、インタラクティブモードで起動する記述です。<code>digitalRead()</code>でピンの状態を読み取り、<code>SETTINGS::open_at_start()</code>を反映させます。</p>
+<p>インタラクティブモード中に通常のアプリケーション処理が行われてしまうと不都合であるため、ステートマシンの状態を <code>STATE::INTERACTIVE</code> に設定します。この状態では、一切の入力等の処理を行わず同じ状態にとどまります。</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb13-1" title="1">    <span class="co">// load values</span></a>
+<a class="sourceLine" id="cb13-2" title="2">    set.reload(); <span class="co">// load from EEPROM.</span></a>
+<a class="sourceLine" id="cb13-3" title="3">    OPT_BITS = set.u32opt1(); <span class="co">// this value is not used in this example.</span></a>
+<a class="sourceLine" id="cb13-4" title="4">    </a>
+<a class="sourceLine" id="cb13-5" title="5">    <span class="co">// LID is configured DIP or settings.</span></a>
+<a class="sourceLine" id="cb13-6" title="6">    LID = set.u8devid(); <span class="co">// 2nd is setting.</span></a>
+<a class="sourceLine" id="cb13-7" title="7">    <span class="cf">if</span> (LID == <span class="dv">0</span>) LID = <span class="bn">0xFE</span>; <span class="co">// if still 0, set 0xFE (anonymous child)</span></a></code></pre></div>
+<p>最後にインタラクティブモードのデータを読み込みます。<code>set.reload()</code> を呼び出すことで、EEPROM に書き込まれたデータを読み込みます。設定が行われず EEPROM に何も情報がない場合は、規定値として読みだせます。</p>
+<p>ここではオプションビット <code>set.u32opt1()</code> と、８ビットの論理ID <code>set.u8devid()</code> を読み出します。LID が <code>0</code> の場合は、通常親機として運用されるため、この値が記録されている場合は <code>0xFE</code> (IDを割り振らない子機) としています。</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb14-1" title="1">    <span class="co">/// configure system basics</span></a>
+<a class="sourceLine" id="cb14-2" title="2">    the_twelite &lt;&lt; set; <span class="co">// apply settings (from interactive mode)</span></a>
+<a class="sourceLine" id="cb14-3" title="3">    nwk &lt;&lt; set; <span class="co">// apply settings (from interactive mode)</span></a>
+<a class="sourceLine" id="cb14-4" title="4">    nwk &lt;&lt; NWK_SIMPLE::logical_id(LID); <span class="co">// set LID again (LID can also be configured by DIP-SW.)    </span></a>
+<a class="sourceLine" id="cb14-5" title="5">    ...</a></code></pre></div>
+<p>最後に <code>the_twelite</code>　と <code>nwk</code> に設定情報（の一部）を反映させています。アプリケーションIDやチャネルといった無線通信に必須の情報が反映されます。上記ではこれらの設定に対する明示的な読み出しコードは存在しませんが <code>set.reload()</code> で、設定がなければ規定値に、あれば設定値が読み出されます。</p>
+<h4 id="ペリフェラルの初期化">ペリフェラルの初期化</h4>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb15-1" title="1">    <span class="co">/*** </span><span class="re">BEGIN</span><span class="co"> section */</span></a>
+<a class="sourceLine" id="cb15-2" title="2">    Wire.begin(); <span class="co">// start two wire serial bus.</span></a></code></pre></div>
+<p>I2C センサーの初期化設定を行っています。</p>
+<h4 id="mwx-の開始">MWX の開始</h4>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb16-1" title="1">    <span class="co">// let the TWELITE begin!</span></a>
+<a class="sourceLine" id="cb16-2" title="2">    the_twelite.begin();</a>
+<a class="sourceLine" id="cb16-3" title="3"></a>
+<a class="sourceLine" id="cb16-4" title="4">    <span class="co">/*** INIT message */</span></a>
+<a class="sourceLine" id="cb16-5" title="5">    Serial &lt;&lt; <span class="st">&quot;--- TEMP&amp;HUMID:&quot;</span> &lt;&lt; FOURCHARS &lt;&lt; <span class="st">&quot; ---&quot;</span> &lt;&lt; mwx::crlf;</a>
+<a class="sourceLine" id="cb16-6" title="6">    Serial  &lt;&lt; format(<span class="st">&quot;-- app:x%08x/ch:</span><span class="sc">%d</span><span class="st">/lid:</span><span class="sc">%d</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb16-7" title="7">                    , the_twelite.get_appid()</a>
+<a class="sourceLine" id="cb16-8" title="8">                    , the_twelite.get_channel()</a>
+<a class="sourceLine" id="cb16-9" title="9">                    , nwk.get_config().u<span class="dv">8</span><span class="bu">L</span><span class="er">id</span></a>
+<a class="sourceLine" id="cb16-10" title="10">                )</a>
+<a class="sourceLine" id="cb16-11" title="11">            &lt;&lt; mwx::crlf;</a>
+<a class="sourceLine" id="cb16-12" title="12">    Serial  &lt;&lt; format(<span class="st">&quot;-- pw:</span><span class="sc">%d</span><span class="st">/retry:</span><span class="sc">%d</span><span class="st">/opt:x%08x&quot;</span></a>
+<a class="sourceLine" id="cb16-13" title="13">                    , the_twelite.get_tx_power()</a>
+<a class="sourceLine" id="cb16-14" title="14">                    , nwk.get_config().u<span class="dv">8</span><span class="er">RetryDefault</span></a>
+<a class="sourceLine" id="cb16-15" title="15">                    , OPT_BITS</a>
+<a class="sourceLine" id="cb16-16" title="16">            )</a>
+<a class="sourceLine" id="cb16-17" title="17">            &lt;&lt; mwx::crlf;</a></code></pre></div>
+<p><code>the_twelite.begin()</code> は MWX ライブラリの初期化完了を宣言する手続きです。この処理を行わないと、MWX ライブラリは適切に動作しません。</p>
+<p>起動時のメッセージなどもここで表示します。</p>
+<h3 id="loop">loop()</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb17-1" title="1"><span class="dt">void</span> loop() {</a>
+<a class="sourceLine" id="cb17-2" title="2">    <span class="cf">do</span> {</a>
+<a class="sourceLine" id="cb17-3" title="3">        <span class="cf">switch</span> (step.state()) {</a>
+<a class="sourceLine" id="cb17-4" title="4">         <span class="co">// 各状態の振る舞い</span></a>
+<a class="sourceLine" id="cb17-5" title="5">        <span class="cf">case</span> STATE::INIT:</a>
+<a class="sourceLine" id="cb17-6" title="6">        ...</a>
+<a class="sourceLine" id="cb17-7" title="7">        <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb17-8" title="8">        ...</a>
+<a class="sourceLine" id="cb17-9" title="9">        }</a>
+<a class="sourceLine" id="cb17-10" title="10">    <span class="cf">while</span>(step.b_more_loop());</a>
+<a class="sourceLine" id="cb17-11" title="11">}   </a></code></pre></div>
+<p><code>loop()</code>は、<a href="../api-reference/classes/smsimple-suttomashin.html">SM_SIMPLEステートマシン</a><code>step</code>を用いた制御を行っています。スリープ復帰からセンサー値取得、無線パケット送信、送信完了待ち、スリープといった一連の流れを簡潔に表現するためです。</p>
+<p>上記の <em>do while</em> 文の制御構造を記述しておきます。ステート（状態）は <code>step.state()</code> で判定します。<em>while</em> の条件式は <code>step.b_more_loop()</code> となっています。これは、ある状態からさらに別の状態に遷移したときに、<code>loop()</code> を抜けずに連続的に処理したい場合があるためです。つまり、別の状態に遷移して <em>switch</em> 節を抜けた場合、次の状態の <em>case</em> 節が呼び出されます。この動作には注意してください。</p>
+<h4 id="case-stateinteractive">case STATE::INTERACTIVE:</h4>
+<p>インタラクティブモード中にメインループが動作するのは都合が悪いため、この状態に固定します。</p>
+<h4 id="case-stateinit">case STATE::INIT:</h4>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb18-1" title="1"><span class="co">// start sensor capture</span></a>
+<a class="sourceLine" id="cb18-2" title="2">sensor_device.begin();</a>
+<a class="sourceLine" id="cb18-3" title="3">step.set_timeout(sensor_device.get_convtime()); <span class="co">// set timeout</span></a>
+<a class="sourceLine" id="cb18-4" title="4">step.next(STATE::SENSOR);</a></code></pre></div>
+<p>センサーのデータ取得を開始します。<code>set_timeout()</code> で、センサー取得の時間待ちを行います。</p>
+<p>時間待ちの非常に長いセンサーなどは、ここでいったんスリープを行うといった処理を記述すると電池寿命を延ばすことができますが、構造が複雑になるためこの例では割愛します。必要な場合は<a href="./pal_amb-usenap.html">スリープ待ちの例</a>を参照してください。</p>
+<h4 id="case-statesensor">case STATE::SENSOR:</h4>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb19-1" title="1"><span class="cf">if</span> (step.is_timeout()) {</a>
+<a class="sourceLine" id="cb19-2" title="2">    <span class="co">// the sensor data should be ready (wait some)</span></a>
+<a class="sourceLine" id="cb19-3" title="3">    sensor_device.read(sensor.i16temp, sensor.i16humid);</a>
+<a class="sourceLine" id="cb19-4" title="4"></a>
+<a class="sourceLine" id="cb19-5" title="5">    Serial &lt;&lt; <span class="st">&quot;..finish sensor capture.&quot;</span> &lt;&lt; mwx::crlf</a>
+<a class="sourceLine" id="cb19-6" title="6">        &lt;&lt; <span class="st">&quot;     : temp=&quot;</span> &lt;&lt; div100(sensor.i16temp) &lt;&lt; <span class="ch">&#39;C&#39;</span> &lt;&lt; mwx::crlf</a>
+<a class="sourceLine" id="cb19-7" title="7">        &lt;&lt; <span class="st">&quot;       humd=&quot;</span> &lt;&lt; div100(sensor.i16humid) &lt;&lt; <span class="ch">&#39;%&#39;</span> &lt;&lt; mwx::crlf</a>
+<a class="sourceLine" id="cb19-8" title="8">        ;</a>
+<a class="sourceLine" id="cb19-9" title="9">    Serial.flush();</a>
+<a class="sourceLine" id="cb19-10" title="10"></a>
+<a class="sourceLine" id="cb19-11" title="11">    step.next(STATE::TX);</a>
+<a class="sourceLine" id="cb19-12" title="12">}</a></code></pre></div>
+<p>センサーの値を <code>sensor_device.read()</code> により取得して <code>sensor</code> 構造体に値を格納します。</p>
+<p>最初に <code>step.is_timeout()</code> によるタイムアウトチェックを行います。タイムアウトの起点は先ほどの <code>step.set_timeout()</code> です。タイムアウトしない場合は、<em>if</em> 節は実行されず、そのまま <code>loop()</code> を抜けます。次のハードウェアイベント（多くの場合はシステムタイマーである1ms ごとに割り込みを発生する<a href="../api-reference/predefined_objs/ticktimer.html">TickTimer</a>の割り込み）が来るまではTWELITE マイコンは低電力でCPUが待機するDOZE(ドーズ)モードになります。</p>
+<p>無線センサーとしてセンサー側の TWELITE のシリアルポートに結果を出力する必要はありませんが、動作確認を容易にするためシリアルポートに取得値を表示しています。ここで <code>Serial.flush()</code> を行い出力待ちを行っていますが、これは TWELITE がスリープするまでにシリアルポート出力が終わらないことを想定した記述です。この処理も、電池消耗の原因になるため<code>Serial.flush()</code>を行わないようにするか、シリアルポートへの出力をしないようにします。</p>
+<p>ここで使用する <a href="../api-reference/funcs/utility/div100.html"><code>div100()</code></a> は、低コストで100の除算を行う関数です。TWELITE 無線マイコンには除算回路がありませんので、除算処理は極力行わないことを推奨します。</p>
+<h4 id="case-statetx">case STATE::TX:</h4>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb20-1" title="1">step.next(STATE::GO_SLEEP); <span class="co">// set default next state (for error handling.)</span></a>
+<a class="sourceLine" id="cb20-2" title="2"></a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="co">// get new packet instance.</span></a>
+<a class="sourceLine" id="cb20-4" title="4"><span class="cf">if</span> (<span class="kw">auto</span>&amp;&amp; pkt = the_twelite.network.use&lt;NWK_SIMPLE&gt;().prepare_tx_packet()) {</a>
+<a class="sourceLine" id="cb20-5" title="5">    ...</a>
+<a class="sourceLine" id="cb20-6" title="6">}</a></code></pre></div>
+<p>通信手続きを記述します。この状態で待ち処理などを行うことはなく、処理を実行したら速やかに次の状態に遷移します。あらかじめ <code>step.next(STATE::GO_SLEEP)</code> と記述しているのは、エラーなどの検出は複数個所で行われるため、すべての場所で同じ記述を行うことを避けるためです。</p>
+<p><code>if (auto&amp;&amp; pkt = the_twelite.network.use&lt;NWK_SIMPLE&gt;().prepare_tx_packet())</code> では、送信パケットのオブジェクトを生成し、オブジェクトの生成に成功したら <em>if</em> 節を実行するという処理です。</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb21-1" title="1"><span class="co">// set tx packet behavior</span></a>
+<a class="sourceLine" id="cb21-2" title="2">pkt &lt;&lt; tx_addr(<span class="bn">0x00</span>)  <span class="co">// 0..0xFF (LID 0:parent, FE:child w/ no id, FF:LID broad cast), 0x8XXXXXXX (long address)</span></a>
+<a class="sourceLine" id="cb21-3" title="3">    &lt;&lt; tx_retry(<span class="bn">0x1</span>) <span class="co">// set retry (0x1 send two times in total)</span></a>
+<a class="sourceLine" id="cb21-4" title="4">    &lt;&lt; tx_packet_delay(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>); <span class="co">// send packet w/ delay</span></a></code></pre></div>
+<p>最初に送信の設定を行います。宛先 <code>tx_addr(0x00)</code> を親機 <code>0x00</code> に設定し、再送回数 <code>tx_retry(0x1)</code> を１回にし、パケットの遅延の設定 <code>tx_packet_delay(0, 0, 2)</code> を初回送信までの遅延は 0、再送間隔を 2ms と設定しています。</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb22-1" title="1">pack_bytes(pkt.get_payload() </a>
+<a class="sourceLine" id="cb22-2" title="2">    , make_pair(FOURCHARS, <span class="dv">4</span>)  </a>
+<a class="sourceLine" id="cb22-3" title="3">    , <span class="dt">uint16_t</span>(sensor.i16temp)</a>
+<a class="sourceLine" id="cb22-4" title="4">    , <span class="dt">uint16_t</span>(sensor.i16humid)</a>
+<a class="sourceLine" id="cb22-5" title="5">    );</a></code></pre></div>
+<p>パケットのペイロード部に識別子の<code>FOURCHARS</code>とセンサーデータを格納します。得られた値のうち温度値は <code>int16_t</code>ですが、送信パケットのデータ構造は符号なしで格納するため、<code>uint16_t</code>にキャストしています。</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb23-1" title="1"><span class="co">// do transmit</span></a>
+<a class="sourceLine" id="cb23-2" title="2">MWX_APIRET ret = pkt.transmit();</a>
+<a class="sourceLine" id="cb23-3" title="3"></a>
+<a class="sourceLine" id="cb23-4" title="4"><span class="cf">if</span> (ret) {</a>
+<a class="sourceLine" id="cb23-5" title="5">    step.clear_flag(); <span class="co">// waiting for flag is set.</span></a>
+<a class="sourceLine" id="cb23-6" title="6">    step.set_timeout(<span class="dv">100</span>); <span class="co">// set timeout</span></a>
+<a class="sourceLine" id="cb23-7" title="7">    step.next(STATE::TX_WAIT_COMP);</a>
+<a class="sourceLine" id="cb23-8" title="8">}</a></code></pre></div>
+<p><code>pkt.transmit()</code> を呼び送信要求を行います。この時点ではまだ送信処理は始らず、送信要求を内部のキューに設定しただけです。MWXライブラリ内で適切なタイミングで送信要求が処理されます。</p>
+<p>送信要求に成功した場合 <code>ret</code> は <em>true</em> になります。完了を判定するためのフラグの初期化 <code>step.clear_flag()</code>、送信失敗時など予期しないエラーを処理するためのタイムアウト <code>step.set_timeout(100)</code> を設定し、次の状態を <code>STATE::TX_WAIT_COMP</code> にします（<code>STATE::GO_SLEEP</code> の指定は上書きされます)。</p>
+<h4 id="case-statetx_wait_comp">case STATE::TX_WAIT_COMP:</h4>
+<p>ここでは送信の完了待ちを行います。タイムアウトの判定（エラー時）または送信完了イベントの判定を行います。</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb24-1" title="1"><span class="cf">if</span> (step.is_timeout()) { <span class="co">// maybe fatal error.</span></a>
+<a class="sourceLine" id="cb24-2" title="2">    the_twelite.reset_system();</a>
+<a class="sourceLine" id="cb24-3" title="3">}</a>
+<a class="sourceLine" id="cb24-4" title="4"><span class="cf">if</span> (step.is_flag_ready()) { <span class="co">// when tx is performed</span></a>
+<a class="sourceLine" id="cb24-5" title="5">    Serial &lt;&lt; <span class="st">&quot;..transmit complete.&quot;</span> &lt;&lt; mwx::crlf;</a>
+<a class="sourceLine" id="cb24-6" title="6">    Serial.flush();</a>
+<a class="sourceLine" id="cb24-7" title="7">    step.next(STATE::GO_SLEEP);</a>
+<a class="sourceLine" id="cb24-8" title="8">}</a></code></pre></div>
+<h4 id="statego_sleep">STATE::GO_SLEEP:</h4>
+<p><code>sleepNow()</code>の処理を行います。この関数を呼び出すことで TWELITE 無線マイコンはスリープ状態になります。</p>
+<h3 id="on_tx_comp">on_tx_comp()</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb25-1" title="1"><span class="dt">void</span> on_tx_comp(mwx::packet_ev_tx&amp; ev, <span class="dt">bool_t</span> &amp;b_handled) {</a>
+<a class="sourceLine" id="cb25-2" title="2">    step.set_flag(ev.bStatus);</a>
+<a class="sourceLine" id="cb25-3" title="3">}</a></code></pre></div>
+<p>送信完了時に呼び出されるシステムイベントです。ここでは<code>.set_flag()</code>を呼び出し<code>step</code>のフラグをセットします。</p>
+<h3 id="sleepnow">sleepNow()</h3>
+<p>スリープに入る手続きをまとめています。</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb26-1" title="1"><span class="dt">void</span> sleepNow() {</a>
+<a class="sourceLine" id="cb26-2" title="2">    step.on_sleep(<span class="kw">false</span>); <span class="co">// reset state machine.</span></a>
+<a class="sourceLine" id="cb26-3" title="3"></a>
+<a class="sourceLine" id="cb26-4" title="4">    <span class="co">// randomize sleep duration.</span></a>
+<a class="sourceLine" id="cb26-5" title="5">    <span class="dt">uint32_t</span> u32ct = <span class="dv">1750</span> + random(<span class="dv">0</span>,<span class="dv">500</span>);</a>
+<a class="sourceLine" id="cb26-6" title="6"></a>
+<a class="sourceLine" id="cb26-7" title="7">    <span class="co">// output message</span></a>
+<a class="sourceLine" id="cb26-8" title="8">    Serial &lt;&lt; <span class="st">&quot;..sleeping &quot;</span> &lt;&lt; <span class="dt">int</span>(u32ct) &lt;&lt; <span class="st">&quot;ms.&quot;</span> &lt;&lt; mwx::crlf;</a>
+<a class="sourceLine" id="cb26-9" title="9">    Serial.flush(); <span class="co">// wait until all message printed.</span></a>
+<a class="sourceLine" id="cb26-10" title="10">    </a>
+<a class="sourceLine" id="cb26-11" title="11">    <span class="co">// do sleep.</span></a>
+<a class="sourceLine" id="cb26-12" title="12">    the_twelite.sleep(u32ct);</a>
+<a class="sourceLine" id="cb26-13" title="13">}</a></code></pre></div>
+<p>スリープ前に<code>.on_sleep(false)</code>によりステートマシンの状態を初期化します。パラメータのfalseはスリープ復帰後<code>STATE::INIT(=0)</code>から始めます。</p>
+<p>ここでは、起床までの時間を乱数により 1750ms から 2250ms の間に設定しています。これにより他の同じような周期で送信するデバイスのパケットとの連続的な衝突を避けます。</p>
+<div class="info">
+<p>周期が完全に一致すると、互いのパケットで衝突が起き通信が困難になります。通常は時間の経過とともにタイマー周期が互いにずれるため、しばらくすると通信が回復し、また時間がたつと衝突が起きるという繰り返しになります。</p>
+</div>
+<p>8,9行目、この例ではシリアルポートからの出力を待ってスリープに入ります。通常は消費エネルギーを最小化したいため、スリープ前のシリアルポートの出力は最小限（または無し）にします。</p>
+<p>12行目、スリープに入るには <code>the_twelite.sleep()</code> を呼びます。この呼び出しの中で、ボード上のハードウェアのスリープ前の手続きなどが行われます。</p>
+<p>パラメータとしてスリープ時間をmsで指定しています。</p>
+<div class="danger">
+<p>TWELITE PAL では、必ず60秒以内に一度起床し、ウォッチドッグタイマーをリセットしなければなりません。スリープ時間は<code>60000</code>を超えないように指定してください。</p>
+</div>
+<h3 id="wakeup">wakeup()</h3>
+<p>スリープから復帰し起床すると <code>wakeup()</code> が呼び出されます。そのあと<code>loop()</code> が都度呼び出されます。<code>wakeup()</code>の前に、UARTなどの各ペリフェラルやボード上のデバイスのウェイクアップ処理が行われます。例えばLEDの点灯制御を再始動します。</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb27-1" title="1"><span class="dt">void</span> wakeup() {</a>
+<a class="sourceLine" id="cb27-2" title="2">    Serial  &lt;&lt; mwx::crlf</a>
+<a class="sourceLine" id="cb27-3" title="3">            &lt;&lt; <span class="st">&quot;--- PAL_AMB:&quot;</span> &lt;&lt; FOURCHARS &lt;&lt; <span class="st">&quot; wake up ---&quot;</span></a>
+<a class="sourceLine" id="cb27-4" title="4">            &lt;&lt; mwx::crlf</a>
+<a class="sourceLine" id="cb27-5" title="5">            &lt;&lt; <span class="st">&quot;..start sensor capture again.&quot;</span></a>
+<a class="sourceLine" id="cb27-6" title="6">            &lt;&lt; mwx::crlf;</a>
+<a class="sourceLine" id="cb27-7" title="7">    ...</a>
+<a class="sourceLine" id="cb27-8" title="8">}</a></code></pre></div>
+</body>
+</html>

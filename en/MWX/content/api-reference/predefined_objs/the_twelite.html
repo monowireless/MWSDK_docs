@@ -384,6 +384,7 @@ Designation of a wake-up timer to be used for sleep. Specify
 <p>Three behaviors can be registered with <code>the_twelite</code>, and the following class objects are defined to store them.</p>
 <ul>
 <li><code>network</code> : A behavior that implements a network. Normally, <a href="../../networks/nwk_simple.html"><code>&lt;NWK_SIMPLE&gt;</code></a> is registered.</li>
+<li><code>network2</code> : BEHAVIOR that implements networking. Use this behavior if you want another network BEHAVIOR to process packets which were not accepted by the first <code>network</code> due to the data structure of the payload or other reasons. (<a href="../../networks/nwk_layered.html">Reference: Using NWK_LAYERED and NWK_SIMPLE together</a>)</li>
 <li><code>board</code>: Behaviors for board support. Procedures for using each device on the board are added.</li>
 <li><code>app</code>: Behaviors describing user applications. Behaviors can be written in terms of interrupts, events, and state transitions using state machines. It is also easy to define multiple application descriptions and select an application with completely different behavior at startup.</li>
 <li><code>settings</code>: Behavior for performing configuration (interactive mode). Registers <a href="../../settings/stg_std.html"><code>&lt;STG_STD&gt;</code></a>.</li>

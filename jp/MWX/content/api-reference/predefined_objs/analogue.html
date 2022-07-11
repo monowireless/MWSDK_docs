@@ -299,7 +299,7 @@ pinMode(PIN_DIGITAL::DIO1, PIN_MODE::INPUT);</code></pre>
 </table>
 <h3 id="begin">begin()</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" title="1"><span class="dt">void</span> begin(<span class="dt">uint8_t</span> bmPorts, <span class="dt">uint8_t</span> capt_tick = <span class="dv">1</span>)</a></code></pre></div>
-<p>１番目のパラメータにはADCを行いたいポートを指定します。ポートの指定はピンの定義で述べたポート番号に対応するビットをセットしたビットマップになります。例えば <code>PIN_ANALOGUE::A2</code>と<code>PIN_ANALOGUE::VCC</code>の２つのピンの値を得たい場合は <code>(1 &lt;&lt;PIN_ANALOGUE::A1 | 1&lt;&lt;PIN_ANALOGUE::VCC )</code>を指定します。<a href="../functions-1/utility/pack_bits.html"><code>pack_bits</code></a>を用い<code>pack_bits(PIN_ANALOGUE::A1,PIN_ANALOGUE::VCC)</code>のように記述することもできます。</p>
+<p>１番目のパラメータにはADCを行いたいポートを指定します。ポートの指定はピンの定義で述べたポート番号に対応するビットをセットしたビットマップになります。例えば <code>PIN_ANALOGUE::A2</code>と<code>PIN_ANALOGUE::VCC</code>の２つのピンの値を得たい場合は <code>(1 &lt;&lt;PIN_ANALOGUE::A1 | 1&lt;&lt;PIN_ANALOGUE::VCC )</code>を指定します。<a href="../funcs/utility/pack_bits.html"><code>pack_bits</code></a>を用い<code>pack_bits(PIN_ANALOGUE::A1,PIN_ANALOGUE::VCC)</code>のように記述することもできます。</p>
 <p><code>begin()</code>の呼び出し後、速やかに最初のADC処理が開始され、その終了割り込から次のピンの処理を開始します。すべての処理が終われば(指定されている場合）コールバック関数が呼び出されます。次のタイマー割り込みが発生まで待ってから新たなADC処理を開始します。</p>
 <p>２番目のパラメータは、ACを開始するまでのタイマー割り込みの回数を指定します。例えば<code>TickTimer</code>は1msごとに呼び出されますが、パラメータに<code>16</code>を指定すれば 16msごとの処理になります。</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" title="1"><span class="dt">void</span> begin()</a></code></pre></div>

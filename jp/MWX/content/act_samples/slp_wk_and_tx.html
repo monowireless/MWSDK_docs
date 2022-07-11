@@ -426,7 +426,7 @@ border: none;
 <a class="sourceLine" id="cb20-3" title="3">    , <span class="dt">uint32_t</span>(millis()) <span class="co">// put timestamp here.</span></a>
 <a class="sourceLine" id="cb20-4" title="4">    , <span class="dt">uint16_t</span>(sensor.dummy_work_ct_now) <span class="co">// put dummy sensor information.</span></a>
 <a class="sourceLine" id="cb20-5" title="5">);  </a></code></pre></div>
-<p>パケットのペイロード（データ部分）は<code>pkt.get_payload()</code>により得られる<a href="../api-reference/classes/smplbuf/README.html"><code>smblbuf&lt;uint8_t&gt;派生</code></a>の配列です。この配列に対して直接値を設定しても構いませんが、ここでは<a href="../api-reference/functions-1/utility/pack_bytes.html"><code>pack_bytes()</code></a>を用いた値の設定を行います。</p>
+<p>パケットのペイロード（データ部分）は<code>pkt.get_payload()</code>により得られる<a href="../api-reference/classes/smplbuf/README.html"><code>smblbuf&lt;uint8_t&gt;派生</code></a>の配列です。この配列に対して直接値を設定しても構いませんが、ここでは<a href="../api-reference/funcs/utility/pack_bytes.html"><code>pack_bytes()</code></a>を用いた値の設定を行います。</p>
 <div class="info">
 <p>ペイロードの最大長は上記の例では91バイトですが、詳しくは<a href="../networks/nwk_simple.html#%22pakettonoto">NWK_SIMPLEパケット構造と最大長</a>を参照ください。</p>
 </div>

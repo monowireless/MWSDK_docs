@@ -1,17 +1,19 @@
 ---
-title: "Installing VS Code"
+title: "Installing VSCode"
 author: "Mono Wireless Inc."
-description: "Installing VS Code"
+description: "Installing VSCode"
 ---
 
-# Installing VS Code
+# Installing VSCode
 
-VisualStudio Code (VS Code) is recommended to make Act (source code) writing easier. The attached Act contains a file that has been configured to ensure that the code is interpreted properly in VS Code.
+VisualStudio Code (VSCode) is recommended to make Act (source code) writing easier. The attached Act contains a file that has been configured to ensure that the code is interpreted properly in VSCode.
 
 {% hint style="warning" %}
-VS Code reads source files and header files and interprets the source code, thus providing function definition information and function and method name completion to help you write source code. The MWX library requires more header files to be loaded than the C library. In comparison to C development, the MWX library requires more header files to be loaded and the editor may be slower in some environments.
+VSCode reads source files and header files and interprets the source code, thus providing function definition information and function and method name completion to help you write source code. The MWX library requires more header files to be loaded than the C library. In comparison to C development, the MWX library requires more header files to be loaded and the editor may be slower in some environments.
 {% endhint %}
 
+
+The project settings of VSCode requires some information, such as library source code location, to analyse source codes. These inforamtion are passed by TWELITE STAGE app as environmental variable when launching VSCode. Therefore, application instance of VSCode should not be present when launching from TWELITE STAGE app, otherwise VSCode will not refer to these environmental values.
 
 
 ## Installing VSCode
@@ -25,23 +27,33 @@ Depending on your environment, you may need to configure security settings or ot
 VSCode allows you to do the following:
 
 * Editing the source code
-* Connection to GIT (if you do your own source control on GIT)
 * The IntelliSense based on source code interpretation (\*not all definitions can be guaranteed to be interpreted correctly)
-
-
 
 VSCode can be downloaded from the link below.
 
 {% embed url="https://code.visualstudio.com" %}
 
-###
+
+
+### Special note for each OS
+
+The `code` command must be enabled to invoke VSCode from TWELITE STAGE.
+
+
+
+The following information is from code.visualstudio.com
+
+* [macOS](https://code.visualstudio.com/docs/setup/mac) - PATH must be set so that the `code` command can be executed.
+* [Windows](https://code.visualstudio.com/docs/setup/windows)
+* [Linux](https://code.visualstudio.com/docs/setup/linux)
+
+
 
 ### Installing plug-ins
 
 To enable Visual Studio Code to interpret C/C++ language descriptions, install a plugin.
 
 * C/C++ for Visual Studio Code
-
 
 
 ## Notes
@@ -53,5 +65,5 @@ When launching VSCode from TWELITE STAGE, those settings such as `MWSDK_ROOT` wi
 {% endhint %}
 
 {% hint style="warning" %}
-VS Code's interpretation of source code is not always the same as the compiler's interpretation. Also, depending on how the source code is edited, the interpretation may be more incomplete.&#x20;
+VSCode's interpretation of source code is not always the same as the compiler's interpretation. Also, depending on how the source code is edited, the interpretation may be more incomplete.
 {% endhint %}

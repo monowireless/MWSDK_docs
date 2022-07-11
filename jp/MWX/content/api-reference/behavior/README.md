@@ -258,7 +258,7 @@ MWX_DIO_EVENT(N, arg)
 
 DIO(ディジタルIO)割り込み・イベントです。`N`は対象DIOの番号を指定します。`arg`は将来の拡張のための定義です。
 
-割り込みを発生させるためには[`pinMode()`](../functions-1/dio/pinmode.md)による適切な入力設定, [`attachDioInt()`](../functions-1/dio/attachintdio.md)による割り込み開始の設定が必要です。
+割り込みを発生させるためには[`pinMode()`](../funcs/dio/pinmode.md)による適切な入力設定, [`attachDioInt()`](../funcs/dio/attachintdio.md)による割り込み開始の設定が必要です。
 
 
 

@@ -109,7 +109,7 @@ $ pip3 install pyftdi
 
 ### 実行
 
-The directory where the TWELITE SDK was installed is described as `${TWELITESDK}`.
+The folder where the TWELITE SDK was installed is described as `${TWELITESDK}`.
 
 The script can be found below.
 

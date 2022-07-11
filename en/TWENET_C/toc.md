@@ -19,7 +19,7 @@
 　　 [bin file naming conventions](content//twelite-sdk-howto/birudonitsuite/binfuiru.md) <br />
 　　 [About Makefile](content//twelite-sdk-howto/birudonitsuite/makefile-nitsuite.md) <br />
 　　 [about Version.mk](content//twelite-sdk-howto/birudonitsuite/versionmk-nitsuite.md) <br />
-　 [directory structure](content//twelite-sdk-howto/derekutori.md) <br />
+　 [folder structure](content//twelite-sdk-howto/derekutori.md) <br />
 　 [program firmware](content//twelite-sdk-howto/fumuua/README.md) <br />
 　　 [Wiring for firmware programming](content//twelite-sdk-howto/fumuua/fumuua.md) <br />
 　　 [tweterm.py](content//twelite-sdk-howto/fumuua/tweterm.py.md) <br />
@@ -77,7 +77,7 @@
 　　 [ENERGY SCAN](content//twelite-net-api-ref/mojru-raiburari/energy-scan.md) <br />
 　　 [NB SCAN](content//twelite-net-api-ref/mojru-raiburari/nb-scan.md) <br />
 　 [RelayNet API](content//twelite-net-api-ref/netto-api/README.md) <br />
-　　 [Functions](content//twelite-net-api-ref/netto-api/functions/README.md) <br />
+　　 [functions](content//twelite-net-api-ref/netto-api/functions/README.md) <br />
 　　　 [ToCoNet_Nwk_bInit()](content//twelite-net-api-ref/netto-api/functions/toconet_nwk_binit.md) <br />
 　　　 [ToCoNet_Nwk_bPause()](content//twelite-net-api-ref/netto-api/functions/toconet_nwk_bpause.md) <br />
 　　　 [ToCoNet_Nwk_bResume()](content//twelite-net-api-ref/netto-api/functions/toconet_nwk_bresume.md) <br />

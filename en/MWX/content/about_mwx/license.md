@@ -1,6 +1,7 @@
 ---
 title: "License"
 author: "Mono Wireless Inc."
+description: "License"
 ---
 
 # License
@@ -19,8 +20,8 @@ In response to reports of defects, Mono-Wireless, Inc. does not promise to fix o
 
 There are also cases where the software may not work depending on the customer's environment, such as the package installed.
 
-```python
-# Copyright (C) 2019 Mono Wireless Inc. All Rights Reserved.
-# Released under MW-SLA-*J,*E (MONO WIRELESS SOFTWARE LICENSE
-# AGREEMENT)
+```cpp
+/* Copyright (C) 2019-2022 Mono Wireless Inc. All Rights Reserved.
+   Released under MW-SLA-*J,*E (MONO WIRELESS SOFTWARE LICENSE
+   AGREEMENT) */
 ```

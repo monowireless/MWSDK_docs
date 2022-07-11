@@ -10,12 +10,10 @@ description: "新しいプロジェクトの作成"
 
 {% hint style="warning" %}
 コピー先のフォルダは MWSDK 配下のフォルダでなくても構いません。ただし、フォルダ名に**空白文字や日本語名が含まれてはいけません**。
-
-MWSDK以外のフォルダにコピーした場合 VS Code のワークスペース定義の一部が機能しなくなります。ワークスペースにmwxライブラリのソースコードフォルダが追加されている場合は、新たに設定してください。
-
-ライブラリソース設定をしなくても**ビルドには影響はありません**。より深いコード解釈をVSCode上で行い、編集効率を上げるための設定です。
 {% endhint %}
 
+{% hint style="info" %}
+{% endhint %}
 
 
 プロジェクトのファイル構造は以下のようになっています（ここでは `PingPong `を例に挙げます）。
@@ -25,7 +23,7 @@ Act_samples
   +-PingPong
     +-PingPong.cpp   : アクトファイル
     +-build          : ビルドフォルダ
-    +-.vscode        : VS Code 用の設定ファイル    
+    +-.vscode        : VSCode 用の設定ファイル    
 ```
 
 この `PingPong `フォルダを別の場所（ただしフォルダ名に日本語や空白が含まない）にコピーします。
@@ -35,7 +33,7 @@ SomeDir
   +-AlphaBravo
     +-PingPong.cpp -> AplhaBravo.cpp ※ファイル名を変更
     +-build          : ビルドフォルダ
-    +-.vscode        : VS Code 用の設定ファイル
+    +-.vscode        : VSCode 用の設定ファイル
 ```
 
 編集の必要があるのは、`PingPong.cpp` のファイル名です。これをフォルダ名と同じ`AlphaBravo.cpp`に変更します。
@@ -47,9 +45,14 @@ Linux/WSL/macOS では`make TWELITE=BLUE`を実行して、ビルドが成功す
 {% endhint %}
 
 
+## ビルド定義の編集
+ビルド対象のファイルを追加する場合は build/Makefile を編集します。プロジェクト直下にある `.c` `.cpp` ファイルは自動で追加されますが、それ以外のファイルについては編集が必要です。
 
-{% hint style="info" %}
-* ~~プロジェクトのフォルダ名と同じ名前の .cpp ファイルは必須です。~~ (MWSDK 2020-04 では、任意のファイル名でOKになりました)
-* ビルド対象のファイルを追加する場合は build/Makefile を編集します。編集方法は [Makefile の解説](makefile.md)をご覧ください。
-{% endhint %}
+編集方法は [Makefile の解説](makefile.md)をご覧ください。
 
+## VSCode用の設定
+VSCode を利用する場合は、必要に応じて .vscode 以下の定義を編集してください。
+
+TWELITE STAGE SDK に含まれるサンプルの多くは、以下のようになっています。
+* TWELITE STAGE SDK ライブラリのソースコードは `${env:MWSDK_TWENET_LIBSRC}/include/**` `${env:MWSDK_TWENET_LIBSRC}/src/**` を引用する。この環境変数 `MWSDK_TWENET_LIBSRC` は TWELITE STAGE アプリから VSCode でプロジェクトを開いた場合には自動で設定されます。
+* ビルドタスクについては、デフォルトで `-D` などの追加的なオプション等は設定されていない。

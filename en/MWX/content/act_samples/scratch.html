@@ -245,7 +245,7 @@ border: none;
 <p>The addresses that can be set are 0x00: parent unit, 0x01~0xEF: child unit, 0xFE: unspecified child unit address range.</p>
 <p>The address to be specified as the transmission destination is 0x00 for the parent machine, 0x01~0xEF for the specified parent machine address, 0xFE for any child machine address, and 0xFF for any address including the parent machine.</p>
 </div>
-<p>It also initializes the Buttons object. This is a chatter-suppressing algorithm by successive references, which determines HI or LOW of the target port (PIN_BTN only) if the value is the same 5 times in 10ms. <a href="../api-reference/functions-1/utility/pack_bits.html"><code>pack_bits</code></a><code>(N1, N2, ...)</code> pack_bits(N1, N2, …)’ does <code>1UL&lt;&lt;N1 | 1UL &lt;&lt; N2 | ...</code> to make a bitmap.</p>
+<p>It also initializes the Buttons object. This is a chatter-suppressing algorithm by successive references, which determines HI or LOW of the target port (PIN_BTN only) if the value is the same 5 times in 10ms. <a href="../api-reference/funcs/utility/pack_bits.html"><code>pack_bits</code></a><code>(N1, N2, ...)</code> pack_bits(N1, N2, …)’ does <code>1UL&lt;&lt;N1 | 1UL &lt;&lt; N2 | ...</code> to make a bitmap.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" title="1">the_twelite.begin(); <span class="co">// start twelite!</span></a></code></pre></div>
 <p>This is the procedure to start <code>the_twelite</code>, it didn’t appear in act0..4, but you should call it if you set up <code>the_twelite</code> or register various behaviors.</p>
 <h2 id="begin">begin()</h2>

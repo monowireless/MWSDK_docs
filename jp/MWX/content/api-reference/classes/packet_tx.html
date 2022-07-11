@@ -206,7 +206,7 @@ border: none;
 </ul>
 </nav>
 <h1 id="packet_tx">packet_tx</h1>
-<p>このクラスはTWENET Cライブラリの<code>tsTxDataApp</code>構造体のラッパクラスで、このクラスをベースとした派生クラスのオブジェクトをネットワークビヘイビアより取得して利用します。</p>
+<p>このクラスはTWENET Cライブラリの<code>tsTxDataApp</code>構造体のラッパクラスで、このクラスをベースとした派生クラスのオブジェクトをネットワークビヘイビアまたは<a href="../sys_callbacks/on_tx_comp.html"><code>on_tx_comp()</code></a>により取得します。</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1"><span class="cf">if</span> (<span class="kw">auto</span>&amp;&amp; pkt = the_twelite.network.use&lt;NWK_SIMPLE&gt;().prepare_tx_packet()) {</a>
 <a class="sourceLine" id="cb1-2" title="2">    pkt &lt;&lt; tx_addr(<span class="bn">0x00</span>)</a>
 <a class="sourceLine" id="cb1-3" title="3">        &lt;&lt; tx_retry(<span class="bn">0x1</span>)</a>

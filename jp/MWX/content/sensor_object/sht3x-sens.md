@@ -132,7 +132,7 @@ Serial << crlf << "SHT3X:"
   << format(" T=%c%d.%02d", humd.neg ? '-' : ' ', humd.quo, humd.rem);
 ```
 
-ここでは[`div100()`](../api-reference/functions-1/utility/div100.md)を用いて100倍値を整数部と小数部に分解しています。
+ここでは[`div100()`](../api-reference/funcs/utility/div100.md)を用いて100倍値を整数部と小数部に分解しています。
 
 
 

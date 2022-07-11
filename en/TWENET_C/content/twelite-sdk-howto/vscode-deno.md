@@ -51,7 +51,7 @@ Switches the C definition specific to each type of TWELITE module.
 {% hint style="warning" %}
 It is not guaranteed that the code interpretation and compiler interpretation will match perfectly. In addition, some definitions may not be interpreted due to header file descriptions.
 
-The header file to be loaded does not directly refer to the header file of the compiler or library, but refers to a copy under `{SDK directory}/Tools/VSCode/include`.
+The header file to be loaded does not directly refer to the header file of the compiler or library, but refers to a copy under `{SDK folder}/Tools/VSCode/include`.
 {% endhint %}
 
 ## About JSON files
@@ -60,7 +60,7 @@ The above build and code interpretation are defined in the JSON file.
 
 ### .vscode/c_cpp_properties.json
 
-Define implicit and other definitions at build time, and specify the include directory.
+Define implicit and other definitions at build time, and specify the include folder.
 
 If additional definitions are needed, duplicate or edit the entries for `"name" : "TWELITE_BLUE"` or `"name" : "TWELITE_RED"` in the existing files.
 
@@ -93,7 +93,7 @@ You will need to edit `"label"`, `"options"`, `"cwd"`, and so on.
 ```
 
 {% hint style="info" %}
-* The `"options": { "cwd" ... }` setting specifies the build directory.。
+* The `"options": { "cwd" ... }` setting specifies the build folder.。
 * If you want to add a make argument, add an entry after `TWELITE=XXX` in `"args"`.
 {% endhint %}
 

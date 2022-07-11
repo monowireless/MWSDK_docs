@@ -132,7 +132,7 @@ Serial << crlf << "SHT3X:"
   << format(" T=%c%d.%02d", humd.neg ? '-' : ' ', humd.quo, humd.rem);
 ```
 
-Here [`div100()`](../api-reference/functions-1/utility/div100.md) is used to decompose 100x values into integer and decimal parts.
+Here [`div100()`](../api-reference/funcs/utility/div100.md) is used to decompose 100x values into integer and decimal parts.
 
 
 

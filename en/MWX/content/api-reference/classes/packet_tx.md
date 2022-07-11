@@ -5,7 +5,7 @@ author: "Mono Wireless Inc."
 
 # packet\_tx
 
-This class is a wrapper class for the `tsTxDataApp` structure of the TWENET C library, and objects of derived classes based on this class are obtained from network behaviors and used.
+This class is a wrapper class for the `tsTxDataApp` structure of the TWENET C library, and objects of derived classes based on this class are obtained from network behaviors or [`on_tx_comp()`](../sys_callbacks/on_tx_comp.md).
 
 ```cpp
 if (auto&& pkt = the_twelite.network.use<NWK_SIMPLE>().prepare_tx_packet()) {

@@ -253,7 +253,7 @@ border: none;
 <a class="sourceLine" id="cb1-3" title="3"><span class="pp">#include </span><span class="im">&lt;MONOSTICK&gt;</span></a>
 <a class="sourceLine" id="cb1-4" title="4"><span class="pp">#include </span><span class="im">&lt;NWK_SIMPLE&gt;</span></a>
 <a class="sourceLine" id="cb1-5" title="5"><span class="pp">#include </span><span class="im">&lt;STG_STD&gt;</span></a></code></pre></div>
-<p>MONOSTICK用のボードビヘイビア<a href="../boards/less-than-monostick-greater-than.html"><code>&lt;MONOSTICK&gt;</code></a>をインクルードしています。このボードサポートには、LEDの制御、ウォッチドッグ対応が含まれます。</p>
+<p>MONOSTICK用のボードビヘイビア<a href="../boards/monostick.html"><code>&lt;MONOSTICK&gt;</code></a>をインクルードしています。このボードサポートには、LEDの制御、ウォッチドッグ対応が含まれます。</p>
 <ul>
 <li>&lt;NWK_SIMPLE&gt; 簡易中継ネットの定義を読み込みます</li>
 <li>&lt;STG_STD&gt; インタラクティブモードの定義を読み込みます。</li>
@@ -340,7 +340,7 @@ border: none;
 <a class="sourceLine" id="cb10-15" title="15">    &lt;&lt; <span class="st">&quot;-&gt; &quot;</span>;</a>
 <a class="sourceLine" id="cb10-16" title="16">    </a></code></pre></div>
 <p>この関数では最初に４文字識別データを<code>fourchars[5]</code>配列に読み込みます。</p>
-<p>読み込みは<a href="../api-reference/functions-1/utility/expand_bytes.html"><code>expand_bytes()</code></a>関数を用います。この関数の第１・第２パラメータはC++の標準ライブラリの作法に倣い、受信パケットのペイロード部の先頭ポインタ<code>.begin()</code>と末尾ポインタの次<code>.end()</code>を与えます。続くパラメータは可変引数として、読み込むデータ変数を与えます。戻り値はエラー時は_<code>nullptr</code>_、それ以外は次の解釈ポインタとなります。末尾まで解釈した場合は<code>.end()</code>が戻ります。ここでのパラメータは<code>uint8_t fourchars[4]</code>です。</p>
+<p>読み込みは<a href="../api-reference/funcs/utility/expand_bytes.html"><code>expand_bytes()</code></a>関数を用います。この関数の第１・第２パラメータはC++の標準ライブラリの作法に倣い、受信パケットのペイロード部の先頭ポインタ<code>.begin()</code>と末尾ポインタの次<code>.end()</code>を与えます。続くパラメータは可変引数として、読み込むデータ変数を与えます。戻り値はエラー時は_<code>nullptr</code>_、それ以外は次の解釈ポインタとなります。末尾まで解釈した場合は<code>.end()</code>が戻ります。ここでのパラメータは<code>uint8_t fourchars[4]</code>です。</p>
 <div class="info">
 <p>この記述で対応するのは配列長さ<code>N</code>が指定される<code>uint8_t[N]</code>型のみで、<code>uint8*</code>型、<code>char*</code>型、<code>char[]</code>型などを用いる場合は、<code>make_pair(char*,int)</code>を用いた指定が必要になります。</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" title="1"><span class="dt">char</span> fourchars[<span class="dv">5</span>]{}; <span class="co">// 終端文字\0も含め5バイト確保する</span></a>
@@ -368,7 +368,7 @@ border: none;
 <a class="sourceLine" id="cb12-16" title="16">    }</a>
 <a class="sourceLine" id="cb12-17" title="17">}</a></code></pre></div>
 <p>他の解釈部の判定をスキップするように<code>b_handled</code>を_<code>true</code>_に設定します。</p>
-<p><code>&quot;TXSP&quot;</code>のパケットでは<code>uint32_t</code>型のシステムタイマーカウントと、<code>uint16_t</code>型のダミーカウンタの値が格納されています。各々変数を宣言して<a href="../api-reference/functions-1/utility/expand_bytes.html"><code>expand_bytes()</code></a>関数を用い読み込みます。上述と違うのは、読み出しの最初のポインタとして第一パラメータが<code>np</code>となっている点です。<code>tick_ms</code>と<code>u16work_ct</code>をパラメータとして与え、ビッグエンディアン形式のバイト列としてペイロードに格納された値を読み出します。</p>
+<p><code>&quot;TXSP&quot;</code>のパケットでは<code>uint32_t</code>型のシステムタイマーカウントと、<code>uint16_t</code>型のダミーカウンタの値が格納されています。各々変数を宣言して<a href="../api-reference/funcs/utility/expand_bytes.html"><code>expand_bytes()</code></a>関数を用い読み込みます。上述と違うのは、読み出しの最初のポインタとして第一パラメータが<code>np</code>となっている点です。<code>tick_ms</code>と<code>u16work_ct</code>をパラメータとして与え、ビッグエンディアン形式のバイト列としてペイロードに格納された値を読み出します。</p>
 <p>読み出しに成功すれば内容を出力して終了です。</p>
 <h4 id="独自のアスキー書式を定義して出力する">独自のアスキー書式を定義して出力する</h4>
 <p>ユーザが定義した並び順で<a href="../api-reference/classes/ser_parser.html#%22asuk">アスキー形式</a>により構成します。</p>

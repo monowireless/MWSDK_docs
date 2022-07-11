@@ -85,7 +85,7 @@ void cbToCoNet_vRxEvent(tsRxDataApp *pRx) {
 
 On `E_EVENT_START_UP` when the system starts, sets the `tsToCoNet_NwkLyTr_Config` structure, executes the `ToCoNet_NwkLyTr_psConfig_MiniNodes()` function, initializes the network with the `ToCoNet_Nwk_bInit()` function and starts the network with the `ToCoNet_Nwk_bStart()` function. 
 
-Execute [`ToCoNet_Nwk_bPause()`](../../../twelite-net-api-ref/netto-api/functions/toconet_nwk_bpause.md) before sleep and [`ToCoNet_Nwk_bResumte()`](../../../twelite-net-api-ref/netto-api/functions/toconet_nwk_bresume.md) when waking up from sleep.
+Execute [`ToCoNet_Nwk_bPause()`](../../../twelite-net-api-ref/netto-api/sys_callbacks/toconet_nwk_bpause.md) before sleep and [`ToCoNet_Nwk_bResumte()`](../../../twelite-net-api-ref/netto-api/sys_callbacks/toconet_nwk_bresume.md) when waking up from sleep.
 
 ```c
 static tsToCoNet_NwkLyTr_Config sNwkLayerTreeConfig;

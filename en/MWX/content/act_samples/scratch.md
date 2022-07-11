@@ -52,7 +52,7 @@ The addresses that can be set are 0x00: parent unit, 0x01\~0xEF: child unit, 0xF
 The address to be specified as the transmission destination is 0x00 for the parent machine, 0x01\~0xEF for the specified parent machine address, 0xFE for any child machine address, and 0xFF for any address including the parent machine.
 {% endhint %}
 
-It also initializes the Buttons object. This is a chatter-suppressing algorithm by successive references, which determines HI or LOW of the target port (PIN\_BTN only) if the value is the same 5 times in 10ms. [`pack_bits`](../api-reference/functions-1/utility/pack\_bits.md)`(N1, N2, ...)` pack\_bits(N1, N2, ...)' does `1UL<<N1 | 1UL << N2 | ...` to make a bitmap.
+It also initializes the Buttons object. This is a chatter-suppressing algorithm by successive references, which determines HI or LOW of the target port (PIN\_BTN only) if the value is the same 5 times in 10ms. [`pack_bits`](../api-reference/funcs/utility/pack\_bits.md)`(N1, N2, ...)` pack\_bits(N1, N2, ...)' does `1UL<<N1 | 1UL << N2 | ...` to make a bitmap.
 
 
 

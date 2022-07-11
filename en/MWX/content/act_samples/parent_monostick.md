@@ -51,7 +51,7 @@ Please check the following default settings at first.
 #include <STG_STD>
 ```
 
-Include board behavior for [`<MONOSTICK>`](../boards/less-than-monostick-greater-than.md). This board support includes LED control and watchdog support.
+Include board behavior for [`<MONOSTICK>`](../boards/monostick.md). This board support includes LED control and watchdog support.
 
 * \<NWK\_SIMPLE> Loads the definition of a simple relay net
 * \<STG\_STD> Loads the interactive mode definition
@@ -200,7 +200,7 @@ Serial
 
 This function first reads the four-character identification data into the `fourchars[4]` array.
 
-Reading is done using the [`expand_bytes()`](../api-reference/functions-1/utility/expand\_bytes.md) function.The first and second parameters of this function follow the C++ standard library's practice of giving the first pointer `.begin()` and the next `.end()` of the payload section of the incoming packet. The following parameters are variable arguments, giving the data variables to be read. The return value is _nullptr_ in case of an error, otherwise the next interpretation pointer. If interpreted to the end, `.end()` is returned. The parameter here is `uint8_t fourchars[4]`.
+Reading is done using the [`expand_bytes()`](../api-reference/funcs/utility/expand\_bytes.md) function.The first and second parameters of this function follow the C++ standard library's practice of giving the first pointer `.begin()` and the next `.end()` of the payload section of the incoming packet. The following parameters are variable arguments, giving the data variables to be read. The return value is _nullptr_ in case of an error, otherwise the next interpretation pointer. If interpreted to the end, `.end()` is returned. The parameter here is `uint8_t fourchars[4]`.
 
 
 

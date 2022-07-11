@@ -369,7 +369,7 @@ border: none;
 <div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" title="1">MWX_DIO_INT(N, <span class="dt">uint32_t</span> arg, <span class="dt">uint8_t</span>&amp; handled)</a>
 <a class="sourceLine" id="cb10-2" title="2">MWX_DIO_EVENT(N, arg)</a></code></pre></div>
 <p>DIO(ディジタルIO)割り込み・イベントです。<code>N</code>は対象DIOの番号を指定します。<code>arg</code>は将来の拡張のための定義です。</p>
-<p>割り込みを発生させるためには<a href="../functions-1/dio/pinmode.html"><code>pinMode()</code></a>による適切な入力設定, <a href="../functions-1/dio/attachintdio.html"><code>attachDioInt()</code></a>による割り込み開始の設定が必要です。</p>
+<p>割り込みを発生させるためには<a href="../funcs/dio/pinmode.html"><code>pinMode()</code></a>による適切な入力設定, <a href="../funcs/dio/attachintdio.html"><code>attachDioInt()</code></a>による割り込み開始の設定が必要です。</p>
 <h3 id="ticktimer">TICKTIMER</h3>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" title="1">MWX_TICKTIMER_INT(<span class="dt">uint32_t</span> arg, <span class="dt">uint8_t</span>&amp; handled)</a>
 <a class="sourceLine" id="cb11-2" title="2">MWX_TICKTIMER_EVENT(<span class="dt">uint32_t</span> arg)</a></code></pre></div>

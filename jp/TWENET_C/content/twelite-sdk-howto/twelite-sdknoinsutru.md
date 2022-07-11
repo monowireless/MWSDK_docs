@@ -3,7 +3,7 @@
 ## TWELITE STAGE (MWSDK2020-04以降)
 
 {% hint style="success" %}
-TWELITE STAGE (MWSDK2020-04以降) では、配布zipアーカイブを、日本語や空白文字が含まれないディレクトリに展開します。
+TWELITE STAGE (MWSDK2020-04以降) では、配布zipアーカイブを、日本語や空白文字が含まれないフォルダに展開します。
 
 ビルドに TWELITE STAGEを用いず、makeコマンドを用いてビルドする場合は[こちら](https://mwx.twelite.info/install_n_build/install_sdk)を参照の上、`MWSDK_ROOT`環境変数を設定してください。
 {% endhint %}
@@ -34,10 +34,10 @@ TWELITE SDK のインストールは以下の手順になります。
 TWELITE SDK のアーカイブを展開します。
 
 {% hint style="danger" %}
-以下のディレクトリは避けてください。
+以下のフォルダは避けてください。
 
-* 深いディレクトリ
-* 日本語名やスペースが含まれるディレクトリ
+* 深いフォルダ
+* 日本語名やスペースが含まれるフォルダ
 {% endhint %}
 
 {% hint style="info" %}

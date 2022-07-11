@@ -21,7 +21,7 @@ However, we will **NOT** provide guidance on the following contents or methods.
 
 * How to operate the computer, the operating system, other than our products, how to install device drivers, and how to solve problems related to them. (Please contact the manufacturer of each product.)
 * Inquiries on how to use the tool for functions that are not directly related to building the firmware for this module. (e.g. how to change the color of the tool's screen)
-* Use of the tool in a way other than the settings provided by support. (e.g., to use the tool in a special directory, or to apply a patch that we have not yet confirmed)
+* Use of the tool in a way other than the settings provided by support. (e.g., to use the tool in a special folder, or to apply a patch that we have not yet confirmed)
 * Provide workarounds and fix tools when they do not work properly due to other tools or installation environment. (We will guide you to use the tool in a clean installation environment.)
 * Response based on the assumption that the firmware was created by the customer. (Please cut out the problem and generalize your inquiry.)
 * Correspondence equivalent to debugging, development actions, and performance evaluation.(In the following cases, we may not be able to give you a full answer: Identifying problems with customer-generated code, Read and understand datasheets for third-party components used in your hardware, Questions from customers who have not fully read and understood the source code and documentation that we have provided for reference, etc.)

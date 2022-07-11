@@ -25,7 +25,7 @@ This ACT includes:
 This sample cannot communicate with App\_TweLite.
 {% endhint %}
 
-## Functions of ACT
+## functions of ACT
 
 * Read M1 to determine the parent or child unit.
 * Reads the value of DI1-DI4; the Buttons class reduces the effect of chattering, so that changes are notified only when the values are the same consecutively. Communication is performed when there is a change.

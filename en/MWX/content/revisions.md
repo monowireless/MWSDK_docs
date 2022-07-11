@@ -37,6 +37,46 @@ Updated information prior to major releases may be posted on the above link.
 
 
 
+## 0.2.0 - 2022-03-01
+
+| Library Name | Dependent version                                              |
+| ------------ | ------------------------------------------------------------ |
+| mwx          | [0.2.0](https://github.com/monowireless/mwx/releases/tag/0.2.0) |
+| twesettings  | [0.2.6](https://github.com/monowireless/twesettings/releases/tag/0.2.6) |
+| TWENET C     | 1.3.5                                                        |
+
+* changed Wire object that reserves memory in heap area.
+* changed function name from `G_OCTET()` to `G_BYTE()`](api-reference/funcs/utility/byte-array-utils.md to avoid name conflict in utils.h.
+* changed an order of `vAHI_DioInterruptEnable()` in the `attachIntDio()` for code efficiency.
+* added secondary network behavior the_twelite.network2 to support universal receiver (receive packets from NWK_LAYERED, NWK_SIMPLE or networkless packets in the same executable code.)
+* added [NWK_LAYERED](./networks/nwk_layered.md) (At this time, only Parent Node reception is supported.)
+* introduced MWX_Set_Usder_App_Ver() function to set application version during MWX intitialization, mainly for interactive mode.
+* added [mwx::pnew()](./api-reference/funcs/utility/pnew.md) to describe placement new simply.
+* added support of [EASTL](api-reference/external_libraries/EASTL.md)
+  * added `new[]` operators for EASTL
+* pre-compled  most of source codes in MWX to quicker compile.
+* fixed: DIO events were being passed on to unrelated ports.
+  
+
+## 0.1.9 - 2021-12-15
+
+
+
+| Library Name | Dependent version                                               |
+| ------------ | ------------------------------------------------------------ |
+| mwx          | [0.1.9](https://github.com/monowireless/mwx/releases/tag/0.1.9) |
+| twesettings  | [0.2.6](https://github.com/monowireless/twesettings/releases/tag/0.2.6) |
+| TWENET C     | 1.3.5                                                        |
+
+
+
+#### 主な改定内容
+
+* Added board support for TWELITE ARIA [BRD\_ARIA](act\_samples/brd\_aria.md) and sensor definition [SHT4x](sensor\_object/sht4x.md)
+* Added an internal procedure to allow output using Serial class objects in Interactive settings mode. (`Serial._force_Serial_out_during_intaractive_mode()`)
+
+
+
 ## 0.1.8 - 2021-09-09
 
 | Library Name | Dependent version                                                       |
@@ -51,7 +91,7 @@ Main revisions
 
 * `Serial1`port and alternate port were not properly defined.
 * Enabled to change the baud rate of (`Serial` UART0).
-* Added event callbacks to notify received packets (`on_rx_packet()`) and completed transmission (`on_tx_comp()`).
+* Added event callbacks to notify received packets ([`on_rx_packet()`](api-reference/sys_callbacks/on_rx_packet.md)) and completed transmission ([`on_tx_comp()`](api-reference/sys_callbacks/on_tx_comp.md)).
   * If you don't define a callback function, you can use the previous procedure.
 * Wrong definition ID for interactive mode setting`<STG_STD>` and some default values.
 * Added support for changing the default values of channel and logical device IDs in addition to AppID in interactive mode settings`<STG_STD>`.

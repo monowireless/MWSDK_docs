@@ -74,7 +74,7 @@ We have the following policy for namespaces.
 * We want to be able to use namespaces without identifiers, but we want to require identifiers for some definitions.
 * Class names should be relatively long, and those used by users should be defined as aliases.
 
-Classes, functions, and constants are defined within the namespace of mwx names (more precisely, mwx::L1 enclosed in inline namespace L1), with a few exceptions. inline namespace is specified so that definitions that require the specification of mwx:: can coexist with those that do not. The reason why inline namespace is specified is to allow definitions that require the specification of mwx:: to coexist with those that do not.
+Classes, Functions, and constants are defined within the namespace of mwx names (more precisely, mwx::L1 enclosed in inline namespace L1), with a few exceptions. inline namespace is specified so that definitions that require the specification of mwx:: can coexist with those that do not. The reason why inline namespace is specified is to allow definitions that require the specification of mwx:: to coexist with those that do not.
 
 Most of the definitions do not require namespace names to be specified by using namespace. These specifications are made in `using_mwx_def.hpp` in the library.
 

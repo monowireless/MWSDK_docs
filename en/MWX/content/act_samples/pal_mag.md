@@ -19,7 +19,7 @@ This ACT includes
 
 
 
-## ACT FUNCTIONS
+## ACT functions
 
 * Uses the OPEN-CLOSE SENSE PAL to interrupt and wake up when the magnetic sensor is detected and transmit wirelessly.
 * Uses the sleep function to operate on coin cell batteries.

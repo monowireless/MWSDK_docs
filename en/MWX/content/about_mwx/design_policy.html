@@ -259,7 +259,7 @@ Note: If necessary, you can initialize the constructor call by using the initial
 <li>We want to be able to use namespaces without identifiers, but we want to require identifiers for some definitions.</li>
 <li>Class names should be relatively long, and those used by users should be defined as aliases.</li>
 </ul>
-<p>Classes, functions, and constants are defined within the namespace of mwx names (more precisely, mwx::L1 enclosed in inline namespace L1), with a few exceptions. inline namespace is specified so that definitions that require the specification of mwx:: can coexist with those that do not. The reason why inline namespace is specified is to allow definitions that require the specification of mwx:: to coexist with those that do not.</p>
+<p>Classes, Functions, and constants are defined within the namespace of mwx names (more precisely, mwx::L1 enclosed in inline namespace L1), with a few exceptions. inline namespace is specified so that definitions that require the specification of mwx:: can coexist with those that do not. The reason why inline namespace is specified is to allow definitions that require the specification of mwx:: to coexist with those that do not.</p>
 <p>Most of the definitions do not require namespace names to be specified by using namespace. These specifications are made in <code>using_mwx_def.hpp</code> in the library.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// at some header file.</span></a>
 <a class="sourceLine" id="cb1-2" title="2"><span class="kw">namespace</span> mwx {</a>
