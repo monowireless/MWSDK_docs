@@ -26,7 +26,7 @@ This is an example of a wireless sensor implementation that connects an I2C sens
 
 * [BRD\_I2C_TEMPHUMID](brd\_i2c\_temphumid.md)
 
-Typical elements for implementing wireless sensors in TWELITE ([simple relay net `<NWK_SIMPLE>`](. /networks/nwk_simple.md), [Interactive settings mode `<STG_STD>`](. /settings/stg_std.md), [I2C sensor handling `Wire`](. /api-reference/predefined_objs/wire/README.md), intermittent operation with sleep, etc.).
+Typical elements for implementing wireless sensors in TWELITE ([simple relay net `<NWK_SIMPLE>`](../networks/nwk_simple.md), [Interactive settings mode `<STG_STD>`](../settings/stg_std.md), [I2C sensor handling `Wire`](../api-reference/predefined_objs/wire/README.md), intermittent operation with sleep, etc.).
 
 ###  Basic ACT for wireless communication
 
@@ -70,7 +70,7 @@ Although a standard PAL application is written into TWELITE PAL, it is possible 
 
 This is a sample for various PAL boards. This sample acquires sensor values, transmits these valuse, and sleeps on the PAL board.
 
-* [PAL\_AMB](pal\_amb.md) 
+* [PAL\_AMB](pal\_amb.md)
 * [PAL\_MOT-single](pal\_mot-oneshot.md)
 * [PAL\_MAG](pal\_mag.md)
 
@@ -120,4 +120,3 @@ The channel determines the frequency used for communication; in principle, 16 ch
 
 As a common specification of sample acts, the payload (data part) of the packet is prefixed with a 4-byte string (`APP_FOURCHAR[]`). This is for explanatory purposes, although one byte is sufficient for species specific identifiers. The inclusion of such system-specific identifiers and data structures is another way to prevent confusion.
 {% endhint %}
-

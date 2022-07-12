@@ -26,6 +26,7 @@ author: "Mono Wireless Inc."
   * [Parent\_MONOSTICK](act\_samples/parent\_monostick.md)
   * [PingPong](act\_samples/pingpong.md)
   * [BRD\_APPTWELITE](act\_samples/brd\_apptwelite.md)
+  * [BRD\_I2C\_TEMPHUMID](act\_samples/brd\_i2c\_temphumid.md)
   * [PAL\_AMB](act\_samples/pal\_amb.md)
   * [PAL\_AMB-usenap](act\_samples/pal\_amb-usenap.md)
   * [PAL\_AMB-bhv](act\_samples/pal\_amb-behavior.md)

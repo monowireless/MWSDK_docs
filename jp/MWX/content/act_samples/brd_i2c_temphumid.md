@@ -4,9 +4,11 @@ author: "Mono Wireless Inc."
 ---
 # I2C 温度湿度センサー
 
-I2C センサーデバイスを用い、定期起床からの計測および送信を行う例です。
+I2C センサーデバイスを用いて、定期起床からの計測および送信を行うサンプルです。
 
-接続する I2C デバイスとして、当社製の [環境センサーパル AMBIENT SENSE PAL](https://mono-wireless.com/jp/products/twelite-pal/sense/amb-pal.html) または [TWELITE ARIA BLUE または RED](https://mono-wireless.com/jp/products/twelite-aria/index.html) を用いていますが、お使いのデバイス用にI2Cコマンド送受信部分を書き換えて使用してください。
+このサンプルでは、当社の [環境センサーパル AMBIENT SENSE PAL](https://mono-wireless.com/jp/products/twelite-pal/sense/amb-pal.html) あるいは [TWELITE ARIA BLUE / RED](https://mono-wireless.com/jp/products/twelite-aria/index.html) に搭載の I2C センサーデバイスを利用しています。しかし、I2Cコマンド送受信部分を書き換えることで、一般的な I2C センサーデバイスを利用することもできます。その場合には、以下のように配線してください。
+
+![一般的なI2Cデバイスの接続](../.gitbook/assets/brd_i2c_temphumid_generic_sm.png)
 
 {% hint style="success" %}
 このアクトには以下が含まれます。
@@ -265,7 +267,7 @@ DIO12 のピンが LOW (GNDレベル) で、電源投入またはリセットさ
 	// load values
 	set.reload(); // load from EEPROM.
 	OPT_BITS = set.u32opt1(); // this value is not used in this example.
-	
+
 	// LID is configured DIP or settings.
 	LID = set.u8devid(); // 2nd is setting.
 	if (LID == 0) LID = 0xFE; // if still 0, set 0xFE (anonymous child)
@@ -279,7 +281,7 @@ DIO12 のピンが LOW (GNDレベル) で、電源投入またはリセットさ
 	/// configure system basics
 	the_twelite << set; // apply settings (from interactive mode)
 	nwk << set; // apply settings (from interactive mode)
-	nwk << NWK_SIMPLE::logical_id(LID); // set LID again (LID can also be configured by DIP-SW.)	
+	nwk << NWK_SIMPLE::logical_id(LID); // set LID again (LID can also be configured by DIP-SW.)
 	...
 ```
 最後に `the_twelite`　と `nwk` に設定情報（の一部）を反映させています。アプリケーションIDやチャネルといった無線通信に必須の情報が反映されます。上記ではこれらの設定に対する明示的な読み出しコードは存在しませんが `set.reload()` で、設定がなければ規定値に、あれば設定値が読み出されます。
@@ -328,7 +330,7 @@ void loop() {
 		...
 		}
 	while(step.b_more_loop());
-}	
+}
 ```
 
 `loop()`は、[SM\_SIMPLEステートマシン](../api-reference/classes/smsimple-suttomashin.md)`step`を用いた制御を行っています。スリープ復帰からセンサー値取得、無線パケット送信、送信完了待ち、スリープといった一連の流れを簡潔に表現するためです。
@@ -400,8 +402,8 @@ pkt << tx_addr(0x00)  // 0..0xFF (LID 0:parent, FE:child w/ no id, FF:LID broad 
 最初に送信の設定を行います。宛先 `tx_addr(0x00)` を親機 `0x00` に設定し、再送回数 `tx_retry(0x1)` を１回にし、パケットの遅延の設定 `tx_packet_delay(0, 0, 2)` を初回送信までの遅延は 0、再送間隔を 2ms と設定しています。
 
 ```cpp
-pack_bytes(pkt.get_payload() 
-	, make_pair(FOURCHARS, 4)  
+pack_bytes(pkt.get_payload()
+	, make_pair(FOURCHARS, 4)
 	, uint16_t(sensor.i16temp)
 	, uint16_t(sensor.i16humid)
 	);
@@ -469,7 +471,7 @@ void sleepNow() {
 	// output message
 	Serial << "..sleeping " << int(u32ct) << "ms." << mwx::crlf;
 	Serial.flush(); // wait until all message printed.
-	
+
 	// do sleep.
 	the_twelite.sleep(u32ct);
 }
