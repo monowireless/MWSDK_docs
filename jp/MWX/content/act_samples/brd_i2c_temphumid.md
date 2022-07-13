@@ -1,12 +1,12 @@
 ---
-title: I2C 温度湿度センサー
+title: BRD_I2C_TEMPHUMID
 author: "Mono Wireless Inc."
 ---
-# I2C 温度湿度センサー
+# BRD_I2C_TEMPHUMID
 
 I2C センサーデバイスを用いて、定期起床からの計測および送信を行うサンプルです。
 
-このサンプルでは、当社の [環境センサーパル AMBIENT SENSE PAL](https://mono-wireless.com/jp/products/twelite-pal/sense/amb-pal.html) あるいは [TWELITE ARIA BLUE / RED](https://mono-wireless.com/jp/products/twelite-aria/index.html) に搭載の I2C センサーデバイスを利用しています。しかし、I2Cコマンド送受信部分を書き換えることで、一般的な I2C センサーデバイスを利用することもできます。その場合には、以下のように配線してください。
+このサンプルでは、当社の [環境センサーパル AMBIENT SENSE PAL](https://mono-wireless.com/jp/products/twelite-pal/sense/amb-pal.html) あるいは [TWELITE ARIA BLUE / RED](https://mono-wireless.com/jp/products/twelite-aria/index.html) に搭載の I2C センサーデバイスを利用しています。しかし、I2Cコマンド送受信部分を書き換えることで、その他の一般的な I2C センサーデバイス(図中 Generic I2C Sensor Module) を利用することもできます。その場合には、以下のように配線してください。
 
 ![一般的なI2Cデバイスの接続](../.gitbook/assets/brd_i2c_temphumid_generic_sm.png)
 
@@ -50,7 +50,7 @@ I2C センサーデバイスを用いて、定期起床からの計測および�
 
 ### センサードライバ
 
-この例では SHTC3 (TWELITE AMB PAL) と、SHT40 (TWELITE ARIA) の２種類のコードがあり `#ifdef` により切り替えています。コードの移植性のため２種類は同じ関数インタフェースとして定義しています。２種類のコードは同メーカ、同系列のセンサーであるため似通っています。
+この例では SHTC3 (TWELITE AMB PAL) と、SHT40 (TWELITE ARIA) の２種類のコードがあり `#ifdef` により切り替えています(`USE_SHTC3`または`USE_SHT40`のどちらかを `#define` してください)。コードの移植性のため２種類は同じ関数インタフェースとして定義しています。２種類のコードは同メーカ、同系列のセンサーであるため似通っています。
 
 ```cpp
 /*** sensor select, define either of USE_SHTC3 or USE_SHT40  */
@@ -92,18 +92,18 @@ struct SHTC3 {
 bool setup() {
 	// here, initialize some member vars instead of constructor.
 	I2C_ADDR = 0x70;
-	CONV_TIME = 10;
+	CONV_TIME = 10; // wait time [ms]
 	return true;
 }
 ```
-メンバー変数に I2C アドレスと、センサー値取得待ち時間を設定します。
+メンバー変数に I2C アドレスと、センサー値取得待ち時間(上記は10ms)を設定します。
 
 これらの値は原則として固定値ですので変数設定する必要はありません。変数として扱う有効な例として、設定によってより高精度なセンサー稼働をさせるような場合に必要な変換時間を管理する、設定によって I2C の副アドレスを選択するような場合などが考えられます。
 
 #### begin()
 ```cpp
 bool begin() {
-	// start read
+	// send start trigger command
 	if (auto&& wrt = Wire.get_writer(I2C_ADDR)) {
 		wrt << 0x60; // SHTC3_TRIG_H
 		wrt << 0x9C; // SHTC3_TRIG_L
@@ -115,7 +115,7 @@ bool begin() {
 ```
 センサーを動作させるために指令を書き込みます。
 
-MWXライブラリではI2Cバスへの書き込みに２つの記述方法がありますが、こちらは[ヘルパー関数](../api-reference/predefined_objs/wire/wire-helperclass.md)を用いる方法です。
+MWXライブラリでは、[Wireクラスオブジェクト](../api-reference/predefined_objs/wire/README.md)を用いたI2Cバスへの読み書きに２種類の異なった記述方法がありますが、こちらは[ヘルパー関数](../api-reference/predefined_objs/wire/wire-helperclass.md)を用いる方法です。
 
 *if* 文中で `Wire.get_writer(I2C_ADDR)` は、アドレス`I2C_ADDR`に対応するI2Cデバイスを開き、その読み書き用のオブジェクトを生成します。読み書きオブジェクト `wrt` は *if* 節の `(bool)` 評価により、デバイスのオープンに失敗したときなどには *false* を返します。*true*が戻った時は無事にオープンできたことになり *if*節内の処理を行います。
 
@@ -137,10 +137,10 @@ bool read(int16_t &i16Temp, int16_t &i16Humd) {
 	uint16_t u16temp, u16humd;
 	uint8_t u8temp_csum, u8humd_csum;
 	if (auto&& rdr = Wire.get_reader(I2C_ADDR, 6)) {
-		rdr >> u16temp;
-		rdr >> u8temp_csum; // skip the crc8 check
-		rdr >> u16humd;
-		rdr >> u8humd_csum; // skip the crc8 check
+		rdr >> u16temp;      // read two bytes (MSB first)
+		rdr >> u8temp_csum;  // check sum (crc8)
+		rdr >> u16humd;      // read two bytes (MSB first)
+		rdr >> u8humd_csum;  // check sum (crc8)
 	} else {
 		return false;
 	}
@@ -177,9 +177,11 @@ SHTC3では、`begin()`によりセンサー読み出しを開始してから、
 
 読み出しはストリーム演算子 `>>` により行っています。読み出し方法にはほかにもいくつかあります。詳しくは[ヘルパー関数](../api-reference/predefined_objs/wire/wire-helperclass.md) を参照してください。ストリーム演算子を用いる場合は、事前に宣言した `uint8_t`, `uint16_t`, `uint32_t` 型の変数に値を入力します。`rdr >> u16temp` は、`uint16_t`型の変数に対して２バイトI2Cバスから読み出し**ビッグエンディアン形式(１バイト目は上位バイト)**で格納します。
 
+最終的に `i16Temp` ・ `i16Humd` に温度[℃]の１００倍値、および湿度[%]の100倍値を計算して格納しています。計算式について I2C デバイスのデータシートを参照してください。
+
 ### setup()
 
-`setup()`関数は TWELITE 無線マイコンが指導したときに１度だけ呼び出される関数です。この関数では、各種初期化を行います。
+`setup()`関数は TWELITE 無線マイコンが始動したときに１度だけ呼び出される関数です。この関数では、各種初期化を行います。
 
 ```cpp
 void setup() {

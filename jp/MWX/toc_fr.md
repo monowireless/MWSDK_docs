@@ -24,7 +24,7 @@
 　 [act0 .. 4](content//act_samples/act_opening.md) <br />
 　 [BRD\_APPTWELITE](content//act_samples/brd_apptwelite.md) <br />
 　 [BRD\_ARIA](content//act_samples/brd_aria.md) <br />
-　 [I2C 温度湿度センサー](content//act_samples/brd_i2c_temphumid.md) <br />
+　 [BRD_I2C_TEMPHUMID](content//act_samples/brd_i2c_temphumid.md) <br />
 　 [PAL\_AMB-bhv](content//act_samples/pal_amb-behavior.md) <br />
 　 [PAL\_AMB-usenap](content//act_samples/pal_amb-usenap.md) <br />
 　 [PAL\_AMB](content//act_samples/pal_amb.md) <br />

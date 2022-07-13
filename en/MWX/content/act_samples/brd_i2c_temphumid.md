@@ -48,7 +48,7 @@ Header files are `<NWK_SIMPLE>` (Simple network support), `<STG_STD>` (Interacti
 
 ### Sensor drivers
 
-For your reference, this Act is using SHTC3 (TWELITE AMB PAL) or SHT40 (TWELITE ARIA). You can switch them by editing `#ifdef` and they have same function interfaces for code portability. Both codes are similar because they were designed by the same manufacturer.
+For your reference, this Act is using SHTC3 (TWELITE AMB PAL) or SHT40 (TWELITE ARIA). You can switch them by editing `#ifdef` and they have same function interfaces for code portability. Both codes are similar because they were designed by the same manufacturer. (Please `#define` either `USE_SHTC3` or `USE_SHT40`.)
 
 ```cpp
 /*** sensor select, define either of USE_SHTC3 or USE_SHT40  */
@@ -92,19 +92,19 @@ Each procedures are shown below.
 bool setup() {
 	// here, initialize some member vars instead of constructor.
 	I2C_ADDR = 0x70;
-	CONV_TIME = 10;
+	CONV_TIME = 10; // wait time [ms]
 	return true;
 }
 ```
 
-Set the I2C address and the sensor value acquisition wait time in the member variables.
+Set the I2C address and the sensor value acquisition wait time (10 ms for the above) in the member variables.
 
 In principle, these values are fixed values, so there is no need to set them. Valid examples of how to treat them as variables: Managing the conversion time required when operating a sensor with higher precision or selecting an I2C sub-address by setting them.
 
 #### begin()
 ```cpp
 bool begin() {
-	// start read
+	// send start trigger command
 	if (auto&& wrt = Wire.get_writer(I2C_ADDR)) {
 		wrt << 0x60; // SHTC3_TRIG_H
 		wrt << 0x9C; // SHTC3_TRIG_L
@@ -117,7 +117,7 @@ bool begin() {
 
 Write commands to operate the sensor.
 
-In the MWX Libary, you can choose two ways to control the I2C line. This act is using [Helper functions](../api-reference/predefined_objs/wire/wire-helperclass.md).
+In the MWX Libary, you can choose two different ways to control the I2C line from the [Wire class object](../api-reference/predefined_objs/wire/README.md). This act is using [Helper functions](../api-reference/predefined_objs/wire/wire-helperclass.md).
 
 `Wire.get_writer(I2C_ADDR)` opens the I2C device and returns a object for reading / writing data. If the device is not available, the object `wrt` is evaluated as `false`.
 
@@ -140,10 +140,10 @@ bool read(int16_t &i16Temp, int16_t &i16Humd) {
 	uint16_t u16temp, u16humd;
 	uint8_t u8temp_csum, u8humd_csum;
 	if (auto&& rdr = Wire.get_reader(I2C_ADDR, 6)) {
-		rdr >> u16temp;
-		rdr >> u8temp_csum; // skip the crc8 check
-		rdr >> u16humd;
-		rdr >> u8humd_csum; // skip the crc8 check
+		rdr >> u16temp;      // read two bytes (MSB first)
+		rdr >> u8temp_csum;  // check sum (crc8)
+		rdr >> u16humd;      // read two bytes (MSB first)
+		rdr >> u8humd_csum;  // check sum (crc8)
 	} else {
 		return false;
 	}
@@ -180,6 +180,8 @@ In SHTC3, the order of data also changes depending on the parameters given at th
 In `begin()`, the data was written out, but here the data is read in. To read the data, similarly, `Wire.get_reader()` creates a helper object `rdr`. If there are no errors, `rdr` returns *true* in the *if* clause. The second parameter `6` given to `get_reader(I2C_ADDR, 6)` is the number of bytes to read. When this number of bytes have been read, the procedure terminates reading the I2C bus. (Some devices may work even if these procedures are omitted, but usually you should give an appropriate value.)
 
 Read is done with the stream operator `>>`. There are several other read methods. For details, see [Helper functions](../api-reference/predefined_objs/wire/wire-helperclass.md) for details. When using the stream operator, enter values into pre-declared variables of type `uint8_t`, `uint16_t`, or `uint32_t`. `rdr >> u16temp` reads from the 2-byte I2C bus for variables of type `uint16_t` and stores them in **big-endian format (first byte is upper byte)**.
+
+Finally, 100 times the temperature [°C] and 100 times the humidity [%] are calculated and stored in `i16Temp` and `i16Humd`.Refer to the I2C device datasheet for the calculation formula.
 
 ### setup()
 
