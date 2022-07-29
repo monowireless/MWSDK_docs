@@ -15,7 +15,6 @@
 　 [Installing the TWELITE SDK](content//install_n_build/2_install_sdk.md) <br />
 　 [Building ACT](content//install_n_build/3_building-act.md) <br />
 　 [Creating a new project](content//install_n_build/create_new_project.md) <br />
-　 [Executing an ACT](content//install_n_build/execute_act.md) <br />
 　 [Installing VSCode](content//install_n_build/install_vscode.md) <br />
 　 [Build definition Makefile](content//install_n_build/makefile.md) <br />
 　 [Other platforms](content//install_n_build/nopurattofmu.md) <br />
